@@ -3,7 +3,7 @@ import './Card.css'
 import { useNavigate } from 'react-router-dom';
 
 const Card = ({ member, onNameClick }) => {
-    const navigate = useNavigate(); // Move this line to the top level of your component
+    const navigate = useNavigate(); 
 
     const handleNameClick = async () => {
         const token = localStorage.getItem('token');
@@ -16,8 +16,9 @@ const Card = ({ member, onNameClick }) => {
         });
 
         if (response.ok) {
-            // Handle successful response here
-            onNameClick(member.name);
+            const data = await response.json();
+            localStorage.setItem('EHRData', JSON.stringify(data)); // Store data in local storage
+            onNameClick(member.name, data);
             navigate('/timeline');
         } else {
             // Handle error here

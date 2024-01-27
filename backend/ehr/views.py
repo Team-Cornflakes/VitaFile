@@ -57,7 +57,7 @@ class AnotherUserEHRView(APIView):
         if usr is None:
             return Response({"message": "Username does not exist or invalide credentials provided"}, status=status.HTTP_400_BAD_REQUEST)
         else:
-            user_ehr_list = EHR.objects.filter(userid=usr)
+            user_ehr_list = list(EHR.objects.filter(userid=usr).values())
 
             return Response(user_ehr_list, status=status.HTTP_200_OK)
 
