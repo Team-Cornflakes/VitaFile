@@ -17,7 +17,7 @@ class UserEHRCreateView(APIView):
     parser_classes = [MultiPartParser, FormParser]
 
     def post(self, request, format=None):
-        file = request.FILES['image_url']  # get the uploaded image
+        file = request.FILES['file']  # get the uploaded image
         name = request.data.get('name')
         description = request.data.get('description')
         created_at = request.data.get('created_at')
