@@ -1,11 +1,35 @@
-.right-container {
-    flex: 1;
-    background-color: #ffffff; /* Example background color */
-    padding: 20px;
-}
+/* RightComponent.css */
 
-.button {
-    display: block;
-    margin-bottom: 10px; /* Space between buttons */
-    /* Add more button styles as needed */
-}
+.top-bar {
+    display: flex;
+    width: 100%; /* Ensures the bar takes the full width */
+    background-color: #E6E6FA; /* Lavender background for the bar */
+  }
+  
+  .top-bar-button {
+    flex-grow: 1; /* Each button grows to fill the available space */
+    padding: 15px 0; /* Padding for top and bottom, no left-right padding */
+    background-color: #E6E6FA; /* Lavender background for buttons */
+    color: #333; /* Dark text color for contrast */
+    border: none; /* Removes the border */
+    border-radius: 0; /* No rounded corners for full-width buttons */
+    cursor: pointer; /* Cursor change to indicate clickable */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+    font-weight: bold; /* Bold font for button text */
+    text-align: center; /* Centers the text in the button */
+  }
+  
+  .top-bar-button:hover {
+    background-color: #D6D6F0; /* Slightly darker lavender on hover */
+  }
+  
+  .top-bar-button:active {
+    background-color: #C6C6E0; /* Even darker lavender when active */
+  }
+  
+  @media (max-width: 600px) {
+    .top-bar-button {
+      padding: 10px 0; /* Smaller padding for smaller screens */
+    }
+  }
+  
