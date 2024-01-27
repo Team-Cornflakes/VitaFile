@@ -34,7 +34,8 @@ class FamilyMembersView(APIView):
     def get(self, request):
         user = request.user
         family_id = user.fid
-
+        if family_id is None:
+            return Response({"message": "You are not part of any family"}, status=status.HTTP_400_BAD_REQUEST)
         # Get all users with the same family id
         family_members = User.objects.filter(fid=family_id)
 
