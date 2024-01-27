@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Header.css'; // Importing the CSS file
 import searchIcon from '../src/assets/search.png'; 
@@ -7,6 +7,7 @@ import alertIcon from '../src/assets/2.png';
 import exitIcon from '../src/assets/3.png'; 
 
 const Header = ({ toggleSidebar }) => {
+  const [personName, setPersonName] = useState('');
   const handleSearch = () => {
     // Logic to handle search functionality
     console.log("Search initiated");
@@ -19,39 +20,38 @@ const Header = ({ toggleSidebar }) => {
     navigate('/');
   };
 
-  const handleExitClick = async () => {
-    const token = localStorage.getItem('token');  
-
-    const response = await fetch('http://localhost:8000/getuser/', {
-      headers: {
-        'Authorization': `Bearer ${token}`,
-        'Content-Type': 'application/json',
-      },
-    });
-
-    if (response.ok) {
-      const name = await response.text();
-      console.log('Name:', name);
-    } else {
-      console.error('Error:', response.status);
-    }
-
-    localStorage.removeItem('token');  
-    navigate('/');
+  useEffect(() => {
+    const fetchName = async () => {
+      const token = localStorage.getItem('token');  
+  
+      const response = await fetch('http://localhost:8000/getuser/', {
+          headers: {
+              'Authorization': `Bearer ${token}`,
+              'Content-Type': 'application/json',
+          },
+      });
+  
+      if (response.ok) {
+          let name = await response.text();
+          name = name.replace(/"/g, ''); // Remove quotes
+          setPersonName(name);
+      } else {
+          console.error('Error:', response.status);
+      }
   };
 
-  
-  <button className="icon-button exit-icon" onClick={handleExitClick}>
-    <img src={exitIcon} alt="Exit" />
-  </button>
+    fetchName();
+}, []);
 
+  
   // Function to format the current date
   const formatDate = () => {
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
     return new Date().toLocaleDateString('en-US', options);
   };
 
-  const personName = "John Doe"; // Replace with dynamic data if needed
+  // Remove the duplicate declaration of personName
+  // const personName = "John Doe"; // Replace with dynamic data if needed
 
   return (
     <header>

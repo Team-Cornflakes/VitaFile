@@ -8,9 +8,8 @@ const UploadCard = () => {
     const [timelineData, setTimelineData] = useState([]);
     const [formData, setFormData] = useState({
         date: '',
-        label1: '',
-        label2: '',
-        label3: '',
+        name: '',
+        description: '',
         fileUploaded: false
     });
     const fileInputRef = useRef(null);
@@ -58,11 +57,11 @@ const UploadCard = () => {
         data.append('description', formData.description);
 
         fetch('http://localhost:8000/ehr/create/', {
-            method: 'PUT',
+            method: 'POST',
             headers: {
                 'Authorization': `Bearer ${token}`,
             },
-            body: data
+            body: data,
         })
         .then(response => response.json())
         .then(result => {
@@ -119,10 +118,10 @@ const UploadCard = () => {
                                     <input className="myInput1" type="date" name="date" value={formData.date} onChange={handleInputChange} required />
                                 </label>
                                 <label className='LabelTextupload'> EHR TITLE
-                                    <input className="myInput1" type="text" name="label1" value={formData.name} onChange={handleInputChange} required />
+                                    <input className="myInput1" type="text" name="name" value={formData.name} onChange={handleInputChange} required />
                                 </label>
                                 <label className='LabelTextupload'> DESCRIPTION 
-                                    <input className="myInput1" type="text" name="label2" value={formData.description} onChange={handleInputChange} required />
+                                    <input className="myInput1" type="text" name="description" value={formData.description} onChange={handleInputChange} required />
                                 </label>
                                 <label className='LabelTextupload'> LABELS
                                     <input className="myInput1" type="text" name="label3" value={formData.labels} onChange={handleInputChange} required />
