@@ -58,9 +58,18 @@
 .message.user {
   background-color: rgb(130, 207, 130);
   color: #ffffff;
-  align-self: flex-end;
-  margin-left: auto;
+  padding: 10px;
+  border-radius: 20px;
+  line-height: 1.4;
+  word-wrap: break-word;
+  display: block; /* Change this to block to ensure they stack vertically */
+  width: fit-content; /* Adjust width to fit the content */
+  max-width: 80%; /* Prevents the message from becoming too wide */
+  margin-left: auto; /* Aligns the message to the right */
+  margin-bottom: 15px; /* Space between messages */
+  animation: fadeInMessage 0.5s forwards;
 }
+
 
 .message.bot {
   background-color: #f0f0f0;
