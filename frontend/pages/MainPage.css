@@ -1,7 +1,22 @@
-.main-content {
-    display: flex;
-    margin-top: 60px; /* Assuming the header is 60px tall */
+.main-page {
+    /* If you want the header to be fixed at the top, you can add:
+    padding-top: <height_of_header>; to the .main-page or to .content */
   }
   
-  /* Other styles */
+  .content {
+    display: flex; /* Use flexbox to lay out LeftComponent and RightComponent side by side */
+    justify-content: space-between; /* This will add space between the two components */
+    align-items: flex-start; /* Aligns components to the start of the flex container */
+  }
+  
+  /* Additional styles for LeftComponent and RightComponent if necessary */
+  .left-container {
+    /* Styles for LeftComponent */
+    width: 50%; /* Adjust width as needed */
+  }
+  
+  .right-container {
+    /* Styles for RightComponent */
+    width: 50%; /* Adjust width as needed */
+  }
   

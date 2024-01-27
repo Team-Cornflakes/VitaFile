@@ -16,13 +16,17 @@ User = get_user_model()
 class UserEHRCreateView(APIView):
     parser_classes = [MultiPartParser, FormParser]
 
+    def get(self, request, format=None):
+        # Handle GET request
+        pass
+
     def post(self, request, format=None):
         file = request.FILES['file']  # get the uploaded image
         name = request.data.get('name')
         description = request.data.get('description')
         created_at = request.data.get('created_at')
         # Extract text from the image
-        data = ocr_from_image(file)
+        data = ocr_from_image(file.read())
 
         # Create the EHR
         ehr = EHR(userid=request.user, data=data, image_url=file, name=name, description=description, created_at=created_at)
