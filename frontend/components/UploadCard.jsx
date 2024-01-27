@@ -1,9 +1,6 @@
 import React, { useState, useRef } from 'react';
 import './UploadCard.css';
 import TimelineCard from './Timelinecard.jsx';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCloudUpload } from '@fortawesome/free-solid-svg-icons';
-
 const UploadCard = () => {
     const [timelineData, setTimelineData] = useState([]);
     const [formData, setFormData] = useState({
