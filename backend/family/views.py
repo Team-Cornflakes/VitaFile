@@ -47,7 +47,7 @@ class FamilyMembersView(APIView):
                 "name": member["first_name"] + " " + member["last_name"],
                 "sex" : member["sex"],
                 "dob" : member["dob"],
-                "contact_no" : member["contact_no"]
+                "email" : member["email"]
             }
             resp.append(temp)
 
