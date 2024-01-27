@@ -15,24 +15,6 @@ const UploadCard = () => {
     });
     const fileInputRef = useRef(null);
 
-    const handlenameClick = async () => {
-        const token = localStorage.getItem('token');  
-    
-        const response = await fetch('http://localhost:8000/getuser/', {
-          headers: {
-            'Authorization': `Bearer ${token}`,
-            'Content-Type': 'application/json',
-          },
-        });
-    
-        if (response.ok) {
-          const name = await response.text();
-          console.log('Name:', name);
-        } else {
-          console.error('Error:', response.status);
-        }
-      };
-
     const handleInputChange = (event) => {
         setFormData({
             ...formData,
@@ -51,12 +33,10 @@ const UploadCard = () => {
         event.preventDefault();
 
         const data = new FormData();
-        const token = localStorage.getItem('token');
         data.append('file', fileInputRef.current.files[0]);
         data.append('date', formData.date);
-        data.append('label1', formData.label1);
-        data.append('label2', formData.label2);
-        data.append('label3', formData.label3);
+        data.append('name', formData.name);
+        data.append('description', formData.description);
 
         fetch('http://localhost:8000/ehr/create/', {
             method: 'PUT',
@@ -71,9 +51,8 @@ const UploadCard = () => {
             setTimelineData([...timelineData, formData]);
             setFormData({
                 date: '',
-                label1: '',
-                label2: '',
-                label3: '',
+                name: '',
+                description: '',
                 fileUploaded: false
             });
         })
@@ -109,7 +88,7 @@ const UploadCard = () => {
                                 <p className='LabelText1'>Upload Reports</p>
                             </div>
                             <div className='upload-file-modal'>
-                                <label className='LabelTextupload custom-file-upload'>
+                                <div className='uploadcardboxdiv'><label className='LabelTextupload custom-file-upload'>
                                     <input 
                                         ref={fileInputRef}
                                         type="file" 
@@ -117,17 +96,18 @@ const UploadCard = () => {
                                         style={{ display: 'none' }}/>
                                     <FontAwesomeIcon icon={faCloudUpload} /> Choose File
                                 </label>
+                                </div>
                                 <label className='LabelTextupload'> Date {/* Moved Date input below Choose File */}
-                                    <input className="myInput1" type="date" name="date" value={formData.date} onChange={handleInputChange} required />
+                                <input className="myInput1" type="date" name="date" value={formData.date} onChange={handleInputChange} required />
                                 </label>
                                 <label className='LabelTextupload'> EHR TITLE
-                                    <input className="myInput1" type="text" name="label1" value={formData.label1} onChange={handleInputChange} required />
+                                    <input className="myInput1" type="text" name="label1" value={formData.name} onChange={handleInputChange} required />
                                 </label>
                                 <label className='LabelTextupload'> DESCRIPTION 
-                                    <input className="myInput1" type="text" name="label2" value={formData.label2} onChange={handleInputChange} required />
+                                    <input className="myInput1" type="text" name="label2" value={formData.description} onChange={handleInputChange} required />
                                 </label>
                                 <label className='LabelTextupload'> LABELS
-                                    <input className="myInput1" type="text" name="label3" value={formData.label3} onChange={handleInputChange} required />
+                                    <input className="myInput1" type="text" name="label3" value={formData.labels} onChange={handleInputChange} required />
                                 </label>
                                 <button className='modalbutton' type="submit">Add Report</button>
                             </div>
