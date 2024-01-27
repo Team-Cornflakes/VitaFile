@@ -51,12 +51,11 @@ header {
 
 .header-right {
     display: flex;
-    width: 50%;
-    left: 0%;
-    padding: 0px;
-    margin-right: 0;
-    padding-right: 0;
+    align-items: center;
+    justify-content: flex-end;
+    flex-grow: 1;
 }
+
 .date-display {
     margin-right: 20px;
     font-size: 16px;
@@ -82,8 +81,4 @@ header {
 .icon-button img {
     width: 20px;
     height: auto;
-}
-
-.headernamediv{
-    background-color: black;
 }

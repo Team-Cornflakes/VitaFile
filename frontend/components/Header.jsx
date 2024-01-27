@@ -1,23 +1,24 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Header.css'; // Importing the CSS file
-import searchIcon from '../src/assets/search.png'; // Importing the search icon
-import messageIcon from '../src/assets/1.png'; // Importing the message icon
-import alertIcon from '../src/assets/2.png'; // Importing the alert icon
-import exitIcon from '../src/assets/3.png'; // Importing the exit icon
+import searchIcon from '../src/assets/search.png'; 
+import messageIcon from '../src/assets/1.png'; 
+import alertIcon from '../src/assets/2.png'; 
+import exitIcon from '../src/assets/3.png'; 
 
 const Header = ({ toggleSidebar }) => {
-
-  const navigate = useNavigate();
   const handleSearch = () => {
     // Logic to handle search functionality
     console.log("Search initiated");
   };
 
+  const navigate = useNavigate();
+
   const Handleexitnavigation = () => {
-    localStorage.removeItem('token');
+    localStorage.removeItem('token');  
     navigate('/');
-  }
+  };
+
   // Function to format the current date
   const formatDate = () => {
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
@@ -32,9 +33,7 @@ const Header = ({ toggleSidebar }) => {
           <img src={searchIcon} alt="Search" className="search-icon" />
         </button>
       </div>
-      <div className='headernamediv'><p className='ptagname'>Name</p></div>
       <div className="header-right">
-      
         <span className="date-display">{formatDate()}</span>
         <button className="icon-button message-icon">
           <img src={messageIcon} alt="Message" />
