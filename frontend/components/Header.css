@@ -13,9 +13,20 @@ header {
 .search-container {
     display: flex;
     align-items: center;
-    width: 40%;
+    width: 55%; /* Adjusted width */
 }
-
+.person-name-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 15%; /* New container for person's name */
+    margin: 0 10px; /* Add margin if needed */
+}
+.person-name {
+    font-size: 16px;
+    color: #333;
+    /* You can add more styles if needed */
+}
 
 .search-input {
     margin-left: 2%;
@@ -28,6 +39,10 @@ header {
     color: #333;
     width: 100%; 
 }
+
+/* ... rest of your CSS ... */
+
+
 
 .search-icon {
     width: 30px;
