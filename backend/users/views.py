@@ -52,3 +52,13 @@ class CreateUserView(APIView):
         )
 
         return Response({"message": "User created successfully"}, status=status.HTTP_201_CREATED)
+
+
+class GetUserView(APIView):
+    def get(self, request):
+        user = request.user
+        if user is None:
+            return Response({"message": "You are not logged in"}, status=status.HTTP_400_BAD_REQUEST)
+        else:
+            name = user.first_name + " " + user.last_name
+            return Response(name, status=status.HTTP_200_OK)
