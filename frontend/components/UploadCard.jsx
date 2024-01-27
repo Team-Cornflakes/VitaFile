@@ -39,8 +39,11 @@ const UploadCard = () => {
         data.append('label2', formData.label2);
         data.append('label3', formData.label3);
 
-        fetch('http://localhost:8000/your-endpoint/', {
+        fetch('http://localhost:8000/ehr/create/', {
             method: 'PUT',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+            },
             body: data
         })
         .then(response => response.json())
