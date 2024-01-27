@@ -1,0 +1,11 @@
+.right-container {
+    flex: 1;
+    background-color: #ffffff; /* Example background color */
+    padding: 20px;
+}
+
+.button {
+    display: block;
+    margin-bottom: 10px; /* Space between buttons */
+    /* Add more button styles as needed */
+}
