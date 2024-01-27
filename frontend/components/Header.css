@@ -2,13 +2,11 @@ header {
     position: fixed;
     top: 0;
     left: 20%;
-    height: 10%;
     right: 0;
     display: flex;
     align-items: center;
-    padding: 20px 20px;
+    padding: 10px 20px;
     background-color: #ffffff;
-    border-bottom: 2px solid gray;
 }
 
 .search-container {
@@ -20,14 +18,14 @@ header {
 
 .search-input {
     margin-left: 2%;
-    flex-grow: 1; 
+    flex-grow: 1; /* Allows the input to grow within the search container */
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 20px;
     outline: none;
     background-color: #ffffff;
     color: #333;
-    width: 100%; 
+    width: 100%; /* Makes the input take the full width of its container */
 }
 
 .search-icon {
@@ -69,16 +67,18 @@ header {
     align-items: center;
     justify-content: center;
     margin-left: 10px;
-    padding: 5px 10px; 
-    font-size: 14px; 
+    padding: 5px 10px; /* Added padding for better visibility */
+    font-size: 14px; /* Font size for the text in buttons */
 }
 
 .message-icon, .alert-icon, .exit-icon {
     /* Add specific styles for each icon here if needed */
 }
-
+/* ... existing styles ... */
 
 .icon-button img {
-    width: 20px;
+    width: 20px; /* Adjust the size as needed */
     height: auto;
 }
+
+/* ... other styles ... */
