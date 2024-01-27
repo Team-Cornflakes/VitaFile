@@ -1,29 +1,34 @@
-.header {
+header {
+    position: fixed;
+    top: 0;
+    left: 20%;
+    height: 10%;
+    right: 0;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    padding: 10px;
     background-color: #ffffff;
-    padding: 0 20px;
-    /* Add additional styles as needed */
-  }
-  
-  .header-logo-container {
+}
+
+.search-container {
     display: flex;
     align-items: center;
-  }
-  
-  .header-logo {
-    height: 50px; /* Adjust the size as needed */
-    /* Add additional styles as needed */
-  }
-  
-  .search-container {
+    width: 55%; /* Adjusted width */
+}
+.person-name-container {
     display: flex;
     align-items: center;
-    /* Add additional styles as needed */
-  }
-  
-  .search-input {
+    justify-content: center;
+    width: 15%; /* New container for person's name */
+    margin: 0 10px; /* Add margin if needed */
+}
+.person-name {
+    font-size: 16px;
+    color: #333;
+    /* You can add more styles if needed */
+}
+
+.search-input {
     margin-left: 2%;
     flex-grow: 1; 
     padding: 10px;
@@ -32,19 +37,23 @@
     outline: none;
     background-color: #ffffff;
     color: #333;
-    width: 100%;
-  }
-  
-  .search-icon {
+    width: 100%; 
+}
+
+/* ... rest of your CSS ... */
+
+
+
+.search-icon {
     width: 30px;
     height: auto;
     background-color: #ddd;
     padding: 5px;
     cursor: pointer;
     border-radius: 0 20px 20px 0;
-  }
-  
-  .search-button {
+}
+
+.search-button {
     background: none;
     border: none;
     cursor: pointer;
@@ -52,15 +61,21 @@
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-  
-  .header-actions {
+}
+
+.header-right {
     display: flex;
     align-items: center;
-    /* Add additional styles as needed */
-  }
-  
-  .icon-button {
+    justify-content: flex-end;
+    flex-grow: 1;
+}
+
+.date-display {
+    margin-right: 20px;
+    font-size: 16px;
+}
+
+.icon-button {
     background: none;
     border: none;
     cursor: pointer;
@@ -70,12 +85,10 @@
     margin-left: 10px;
     padding: 5px 10px; 
     font-size: 14px; 
-  }
-  
-  .icon-button img {
+}
+
+
+.icon-button img {
     width: 20px;
     height: auto;
-  }
-  
-  /* Add additional styling as needed */
-  
+}
