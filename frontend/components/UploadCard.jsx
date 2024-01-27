@@ -100,13 +100,13 @@ const UploadCard = () => {
                                 <label className='LabelTextupload'> Date
                                     <input className="myInput1" type="date" name="date" value={formData.date} onChange={handleInputChange} required />
                                 </label>
-                                <label className='LabelTextupload'> EHR TITLE
+                                <label className='LabelTextupload'> EHR Titles
                                     <input className="myInput1" type="text" name="name" value={formData.name} onChange={handleInputChange} required />
                                 </label>
-                                <label className='LabelTextupload'> DESCRIPTION 
+                                <label className='LabelTextupload'> Description 
                                     <input className="myInput1" type="text" name="description" value={formData.description} onChange={handleInputChange} required />
                                 </label>
-                                <label className='LabelTextupload'> LABELS
+                                <label className='LabelTextupload'> Lables
                                     <input className="myInput1" type="text" name="labels" value={formData.labels} onChange={handleInputChange} required />
                                 </label>
                                 <button className='modalbutton' type="submit">Add Report</button>
