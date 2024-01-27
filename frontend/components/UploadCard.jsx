@@ -97,17 +97,17 @@ const UploadCard = () => {
                                     <FontAwesomeIcon icon={faCloudUpload} /> Choose File
                                 </label>
                                 </div>
-                                <label className='LabelTextupload'> Date {/* Moved Date input below Choose File */}
-                                <input className="myInput1" type="date" name="date" value={formData.date} onChange={handleInputChange} required />
+                                <label className='LabelTextupload'> Date
+                                    <input className="myInput1" type="date" name="date" value={formData.date} onChange={handleInputChange} required />
                                 </label>
                                 <label className='LabelTextupload'> EHR TITLE
-                                    <input className="myInput1" type="text" name="label1" value={formData.name} onChange={handleInputChange} required />
+                                    <input className="myInput1" type="text" name="name" value={formData.name} onChange={handleInputChange} required />
                                 </label>
                                 <label className='LabelTextupload'> DESCRIPTION 
-                                    <input className="myInput1" type="text" name="label2" value={formData.description} onChange={handleInputChange} required />
+                                    <input className="myInput1" type="text" name="description" value={formData.description} onChange={handleInputChange} required />
                                 </label>
                                 <label className='LabelTextupload'> LABELS
-                                    <input className="myInput1" type="text" name="label3" value={formData.labels} onChange={handleInputChange} required />
+                                    <input className="myInput1" type="text" name="labels" value={formData.labels} onChange={handleInputChange} required />
                                 </label>
                                 <button className='modalbutton' type="submit">Add Report</button>
                             </div>
