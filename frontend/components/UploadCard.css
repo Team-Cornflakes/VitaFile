@@ -91,7 +91,7 @@
     padding: 15px;
     width: 80%;
     max-width: 25%;
-    margin: 20px auto; /* Add margin for top alignment */
+    margin: 0px auto; /* Add margin for top alignment */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -100,7 +100,7 @@
     /* overflow-x: hidden; */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     /* Increase the height to make it slightly taller */
-    height: auto;
+    height: 470px;
 }
 
 .uploadbox:hover {
