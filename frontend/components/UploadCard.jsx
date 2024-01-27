@@ -1,6 +1,8 @@
 import React, { useState, useRef } from 'react';
 import './UploadCard.css';
 import TimelineCard from './Timelinecard.jsx';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCloudUpload } from '@fortawesome/free-solid-svg-icons';
 
 const UploadCard = () => {
     const [timelineData, setTimelineData] = useState([]);
@@ -83,18 +85,18 @@ const UploadCard = () => {
                                         onChange={handleFileChange} 
                                         style={{ display: 'none' }}
                                     />
-                                    Choose File
+                                    <FontAwesomeIcon icon={faCloudUpload} /> Choose File
                                 </label>
-                                <label className='LabelTextupload'> Date
+                                <label className='LabelTextupload'> Date {/* Moved Date input below Choose File */}
                                     <input className="myInput1" type="date" name="date" value={formData.date} onChange={handleInputChange} required />
                                 </label>
-                                <label className='LabelTextupload'> Label1 
+                                <label className='LabelTextupload'> EHR TITLE
                                     <input className="myInput1" type="text" name="label1" value={formData.label1} onChange={handleInputChange} required />
                                 </label>
-                                <label className='LabelTextupload'> Label2 
+                                <label className='LabelTextupload'> DESCRIPTION 
                                     <input className="myInput1" type="text" name="label2" value={formData.label2} onChange={handleInputChange} required />
                                 </label>
-                                <label className='LabelTextupload'> Label3
+                                <label className='LabelTextupload'> LABELS
                                     <input className="myInput1" type="text" name="label3" value={formData.label3} onChange={handleInputChange} required />
                                 </label>
                                 <div className='ModalButtonDiv'>

@@ -83,16 +83,15 @@
 }
 
 /* Upload Box Styling */
-/* Upload Box Styling */
 .uploadbox {
     background-color: #f8f9fa;
     border: 2px solid #e2e6ea;
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-    padding: 20px;
-    width: 30%;
-    max-width: 25%;
-    margin: 20px auto;
+    padding: 15px;
+    width: 80%;
+    max-width: 450px;
+    margin: 20px auto; /* Add margin for top alignment */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -101,27 +100,17 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-
-/* Adjust the max-width for elements within .uploadbox */
-.uploadbox .myInput1,
-.uploadbox .LabelTextupload,
-.uploadbox .modalbutton {
-    max-width: 210%;
-}
-
 .uploadbox:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
-/* Adjust the max-width for elements within .uploadbox */
-.uploadbox .myInput1 {
-    max-width: 90%; /* Increase the max-width to make the text field longer */
-}
 
 .labeltextdiv {
     width: 100%;
-    text-align: left; /* Align text to the left within the upload box */
+    text-align: center;
     margin-bottom: 20px;
+    margin-top: 20px; /* Add margin to push the upload box up */
+    align-self: flex-start; /* Align the text to the top of the upload box */
 }
 
 .LabelText1 {
@@ -140,8 +129,8 @@
 
 .myInput1 {
     width: 100%;
-    padding: 12px;
-    margin: 12px 0;
+    padding: 5px; /* Reduced padding to make the text fields smaller */
+    margin: 5px 0; /* Reduced margin for smaller spacing */
     border: 2px solid #ced4da;
     border-radius: 10px;
     font-size: 16px;
@@ -183,41 +172,6 @@
 
 .custom-file-upload i {
     margin-right: 8px;
-}
-
-.upload-file-modal {
-    text-align: left; /* Align the labels to the left within the upload box */
-}
-
-.LabelTextupload {
-    font-size: 16px; /* Uniform font size for labels */
-    color: #333; /* Dark grey for high readability */
-    margin-top: 10px; /* Spacing above each label */
-    font-weight: 600; /* Semi-bold font weight for clarity */
-    display: block; /* Display labels as block-level elements */
-}
-
-.upload-file-modal {
-    text-align: left; /* Align the labels and inputs to the left within the upload box */
-}
-
-.LabelTextupload, .LabelText1 {
-    font-size: 16px; /* Uniform font size for labels */
-    color: #333; /* Dark grey for high readability */
-    margin: 10px 0; /* Balanced space above and below for a clean layout */
-    font-weight: 600; /* Semi-bold font weight for clarity */
-    display: block; /* Display labels as block-level elements */
-}
-
-.myInput1 {
-    width: 100%; /* Full width to utilize the space */
-    padding: 10px; /* Comfortable padding for ease of typing */
-    margin: 10px 0; /* Spacing between each input field */
-    border: 1px solid #e0e0e0; /* Light border for the inputs */
-    border-radius: 8px; /* Rounded corners for the input fields */
-    font-size: 15px; /* Comfortable font size for most users */
-    color: #555; /* Slightly lighter text color for a modern look */
-    background-color: #f9f9f9; /* Very light grey background for input fields */
 }
 
 .timelinetextdiv{
