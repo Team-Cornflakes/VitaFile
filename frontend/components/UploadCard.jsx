@@ -33,6 +33,7 @@ const UploadCard = () => {
         event.preventDefault();
 
         const data = new FormData();
+        const token = localStorage.getItem('token');
         data.append('file', fileInputRef.current.files[0]);
         data.append('date', formData.date);
         data.append('label1', formData.label1);
