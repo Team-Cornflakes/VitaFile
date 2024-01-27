@@ -11,7 +11,8 @@ User = get_user_model()
 class UserEHRView(APIView):
     def get(self, request):
         user = request.user
-        user_ehr = EHR.objects.filter(userid=user)
+        user_ehr = EHR.objects.filter(userid=user).first()
+        print(user_ehr)
 
         # Convert the QuerySet to a list of dictionaries
         user_ehr_list = list(user_ehr.values())
@@ -20,14 +21,16 @@ class UserEHRView(APIView):
     
 class AnotherUserEHRView(APIView):
     def get(self, request):
-        username = request.data.get("username")
+        username = request.GET.get("username")
+        print(username)
 
-        user = User.objects.filter(username=user).first()
+        usr = User.objects.filter(username=username).first()
+        print(usr)
 
-        if user is None:
+        if usr is None:
             return Response({"message": "Username does not exist or invalide credentials provided"}, status=status.HTTP_400_BAD_REQUEST)
         else:
-            user_ehr_list = EHR.objects.filter(user=user)
+            user_ehr_list = EHR.objects.filter(userid=usr)
 
             return Response(user_ehr_list, status=status.HTTP_200_OK)
         
