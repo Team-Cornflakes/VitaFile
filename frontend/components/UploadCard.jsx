@@ -49,13 +49,7 @@ const UploadCard = () => {
         <div className='Parent1'>
             <div className='DetailsDiv'>
                 <div className='timelinetextdiv'>
-
- 
-                    <div className='timelinenamediv'><p className='timelineheadingname'>Name</p></div> 
-                
-                
-                
-                
+                <div className='timelinenamediv'><p className='timelineheadingname'>Name</p></div> 
                 </div>
                 <div className='buttondiv'>
                     <button type='button' className='Button111'>+</button>   
