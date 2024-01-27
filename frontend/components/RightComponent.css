@@ -22,16 +22,25 @@
     flex: 1;
     background-color: #ffffff;
     padding: 20px;
+    padding-top: 7%; /* Adjust this to account for the header space */
+    display: flex; /* Using flex to position children */
+    flex-direction: column; /* Children stacked vertically */
 }
 
 .button-container {
-    margin-top: 30px; /* Adjust this to position the buttons */
+  display: flex;
+  flex-direction: row; /* Align buttons side by side */
+  justify-content: space-around; /* Distribute buttons evenly */
+  align-items: center; /* Center buttons vertically */
+  margin-bottom: 20px; /* Space below the button container */
 }
 
 .top-bar-button {
-    margin-bottom: 10px;
-    /* Add more button styles as needed */
+  /* Rest of your button styles */
+  /* No need to set width: 100% if buttons are side by side */
 }
+
+
 
   .top-bar-button:hover {
     background-color: #D6D6F0; /* Slightly darker lavender on hover */

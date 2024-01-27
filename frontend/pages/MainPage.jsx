@@ -1,20 +1,14 @@
 import React from 'react';
-import Header from '../components/Header';
-import LeftComponent from '../components/LeftComponent';
-import RightComponent from '../components/RightComponent';
-import './MainPage.css'; // Assuming you have a CSS file for MainPage
+import LeftComponent from '../components/LeftComponent'; // Adjust the path as necessary
+import RightComponent from '../components/RightComponent'; // Adjust the path as necessary
 
 const MainPage = () => {
-  return (
-    <div>
-      <Header />
-      <div className="main-content">
-        <Header/>
-        <LeftComponent />
-        <RightComponent />
-      </div>
-    </div>
-  );
+    return (
+        <div style={{ display: 'flex', height: '100vh' }}>
+            <LeftComponent />
+            <RightComponent />
+        </div>
+    );
 };
 
 export default MainPage;
