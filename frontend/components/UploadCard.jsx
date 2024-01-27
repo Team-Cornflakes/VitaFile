@@ -1,7 +1,8 @@
 import React, { useState, useRef } from 'react';
 import './UploadCard.css';
 import TimelineCard from './Timelinecard.jsx';
-import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCloudUpload } from '@fortawesome/free-solid-svg-icons';
 
 const UploadCard = () => {
     const [timelineData, setTimelineData] = useState([]);
@@ -68,15 +69,15 @@ const UploadCard = () => {
                                 <p className='LabelText1'>Upload Reports</p>
                             </div>
                             <div className='upload-file-modal'>
-                                <button type="button" className='custom-file-upload' onClick={handleFileButtonClick}>
-                                    <i className="fa fa-cloud-upload"></i> Choose File
-                                </button>
-                                <input 
-                                    ref={fileInputRef}
-                                    type="file" 
-                                    onChange={handleFileChange} 
-                                    style={{ display: 'none' }} // Hide the actual file input
-                                />
+                                <label className='LabelTextupload custom-file-upload' onClick={handleFileButtonClick}>
+                                    <input 
+                                        ref={fileInputRef}
+                                        type="file" 
+                                        onChange={handleFileChange} 
+                                        style={{ display: 'none' }}
+                                    />
+                                    <FontAwesomeIcon icon={faCloudUpload} /> Choose File
+                                </label>
                                 <label className='LabelTextupload'> Date
                                     <input className="myInput1" type="date" name="date" value={formData.date} onChange={handleInputChange} required />
                                 </label>

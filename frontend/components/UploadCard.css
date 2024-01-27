@@ -104,14 +104,15 @@
     border: 2px solid #e2e6ea; /* Slightly thicker border for a defined edge */
     border-radius: 15px; /* Increased border radius for more pronounced rounded corners */
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15); /* Enhanced shadow for depth */
-    padding: 20px; /* Increased padding for better internal spacing */
-    width: 100%;
-    max-width: 400px; /* Increased max-width for better layout */
-    margin: 20px auto; /* More vertical space for better separation */
+    padding: 15px; /* Increased padding for better internal spacing */
+    width: 80%;
+    max-width: 450px; /* Increased max-width for better layout */
+    margin: 15px auto; /* More vertical space for better separation */
     display: flex;
     flex-direction: column;
     align-items: center; /* Centering items for a balanced look */
     overflow-y: auto;
+    overflow-x: hidden; /* Hide horizontal overflow */
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Adding transform to the transition for interactive feedback */
 }
 
@@ -157,6 +158,7 @@
     background-color: #0056b3; /* Darker shade of blue for hover state */
     transform: scale(1.05); /* Slight increase in size on hover for a dynamic interaction */
 }
+
 .custom-file-upload {
     border: 1px solid #ccc;
     display: inline-block;
@@ -172,3 +174,9 @@
 .custom-file-upload i {
     margin-right: 8px;
 }
+
+.labeltextdiv {
+    text-align: center; /* Center-align the text */
+    margin: 12px 0; /* Adjust margin to move the text down */
+}
+
