@@ -27,6 +27,8 @@ class CreateUserView(APIView):
     def post(self, request):
         username = request.data.get("username")
         password = request.data.get("password")
+        firstname = request.data.get("firstname")
+        lastname = request.data.get("lastname")
         email = request.data.get("username")
         dob = request.data.get("dob")  
         sex = request.data.get("sex")
@@ -46,7 +48,7 @@ class CreateUserView(APIView):
             )
 
         new_user = User.objects.create_user(
-            username=username, password=password, email=email, dob=dob, sex=sex, contact_no=contact_no
+            username=username, password=password, first_name=firstname,  last_name=lastname, email=email, dob=dob, sex=sex, contact_no=contact_no
         )
 
         return Response({"message": "User created successfully"}, status=status.HTTP_201_CREATED)
