@@ -17,7 +17,8 @@ const Card = ({ member, onNameClick }) => {
 
         if (response.ok) {
             const data = await response.json();
-            localStorage.setItem('EHRData', JSON.stringify(data)); // Store data in local storage
+            localStorage.setItem('email', member.email); // Store email in local storage
+            localStorage.setItem('usernametime', member.name); // Store username in local storage
             onNameClick(member.name, data);
             navigate('/timeline');
         } else {

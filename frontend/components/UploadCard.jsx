@@ -68,7 +68,7 @@ const UploadCard = () => {
                 <div className='timelinetextdiv'>
                     <div className='timelinenamediv'>
                         <p className='timelineheadingname'>
-                            {localStorage.getItem('username') || 'Name'}
+                            {localStorage.getItem('usernametime') || 'Name'}
                         </p>
                     </div> 
                 </div>
