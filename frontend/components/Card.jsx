@@ -4,7 +4,8 @@ import { useNavigate } from 'react-router-dom';
 
 const Card = ({ member, onNameClick }) => {
     const handleNameClick = async () => {
-        const token = localStorage.getItem('token'); // Get the JWT token from local storage
+        const token = localStorage.getItem('token');
+        const navigate = useNavigate();
 
         const response = await fetch(`http://localhost:8000/ehr/fetch/?username=${member.email}`, {
             headers: {
@@ -13,7 +14,6 @@ const Card = ({ member, onNameClick }) => {
             },
         });
 
-        const navigate = useNavigate();
 
         if (response.ok) {
             // Handle successful response here

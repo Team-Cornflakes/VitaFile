@@ -6,13 +6,10 @@ from django.contrib.auth import get_user_model
 from .models import EHR  # assuming you have an EHR modeln
 from .serializers import EHRSerializer
 from haystack.query import SearchQuerySet
-<<<<<<< HEAD
-from rest_framework import permissions
-=======
->>>>>>> 93fd78d4dd9c665c09a6021eeebe3b9547828a17
 from rest_framework.parsers import MultiPartParser, FormParser
 from .ocr import ocr_from_image
 from rest_framework.viewsets import ModelViewSet
+from rest_framework import permissions
 
 User = get_user_model()
 
@@ -82,7 +79,6 @@ class AnotherUserEHRView(APIView):
             return Response(user_ehr_list, status=status.HTTP_200_OK)
 
 class UserEHRCreateView(APIView):
-<<<<<<< HEAD
 
     def put(self, request):
         user = request.user
@@ -98,25 +94,6 @@ class UserEHRCreateView(APIView):
         ehr.save()
 
         return Response(status=status.HTTP_202_ACCEPTED)
-=======
-    parser_classes = (MultiPartParser, FormParser)
-    def get(self, request):
-        user = request.user
-        user_ehr = EHR.objects.filter(userid=user).first()
-        print(user_ehr)
-
-        # Convert the QuerySet to a list of dictionaries
-        user_ehr_list = list(user_ehr.values())
-
-        return Response(user_ehr_list, status=status.HTTP_200_OK)
-
-    def put(self, request):
-        file = request.FILES['file']
-        date = request.data.get('date')
-        label1 = request.data.get('label1')
-        label2 = request.data.get('label2')
-        label3 = request.data.get('label3')
->>>>>>> 93fd78d4dd9c665c09a6021eeebe3b9547828a17
 
     
 class SearchView(APIView):
