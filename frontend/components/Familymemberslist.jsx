@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect} from 'react';
 import './Familymemberlist.css'
 import { useNavigate } from 'react-router-dom';
 import Modal from 'react-modal'; 
@@ -38,6 +38,27 @@ const FamilyMemberList = () => {
 
     }
 
+    useEffect(() => {
+        const fetchMembers = async () => {
+            const token = localStorage.getItem('token');
+
+            const response = await fetch('http://localhost:8000/get_family/', {
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                },
+            });
+
+            const data = await response.json();
+            console.log(data);
+
+            if (response.ok) {
+                setMembers(data);
+            }
+        };
+
+        fetchMembers();
+    }, []);
+
     const handleNavigation = (name) => {
         navigate('/Timeline');
     }
@@ -59,7 +80,7 @@ const FamilyMemberList = () => {
                         <div className='headingdiv'><div className='Nameptag1'><p>Name</p></div>
                                                     <div className='SexPtag'><p>Sex</p></div>
                                                     <div className='DOBPtag'><p>Date of Birth</p></div>
-                                                    <div className='InsuraceIdPtag'><p>Insurance Id</p></div>
+                                                    <div className='InsuraceIdPtag'><p>Phone Number</p></div>
                                                     </div>
                         {members.map((member, index) => (
                             <Card key={index} member={member} onNameClick={handleNavigation} />
