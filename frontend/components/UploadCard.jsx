@@ -92,9 +92,8 @@ const UploadCard = () => {
                                 <label className='LabelTextupload'> LABELS
                                     <input className="myInput1" type="text" name="label3" value={formData.label3} onChange={handleInputChange} required />
                                 </label>
-                                <div className='ModalButtonDiv'>
                                     <button className='modalbutton' type="submit">Add Report</button>
-                                </div>
+                                
                             </div>
                         </div>
                     </form>
