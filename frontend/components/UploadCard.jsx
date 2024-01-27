@@ -48,6 +48,15 @@ const UploadCard = () => {
     return (
         <div className='Parent1'>
             <div className='DetailsDiv'>
+                <div className='timelinetextdiv'>
+
+ 
+                    <div className='timelinenamediv'><p className='timelineheadingname'>Name</p></div> 
+                
+                
+                
+                
+                </div>
                 <div className='buttondiv'>
                     <button type='button' className='Button111'>+</button>   
                     <button type='button' className='Button21'>S</button>  

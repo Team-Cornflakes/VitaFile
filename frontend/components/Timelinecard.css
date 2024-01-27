@@ -1,13 +1,12 @@
 .TimelineCard {
     background-color: white;
     width: 85%;
-    border: 1px solid black;
     left: 15%;
 }
 
 .timelinebar {
     background-color: lightcoral;
-    width: 15%;
+    width: 10%;
     left: 15%;
 }
 
