@@ -83,7 +83,7 @@ const FamilyMemberList = () => {
                         <div className='headingdiv'><div className='Nameptag1'><p>Name</p></div>
                                                     <div className='SexPtag'><p>Sex</p></div>
                                                     <div className='DOBPtag'><p>Date of Birth</p></div>
-                                                    <div className='InsuraceIdPtag'><p>Phone Number</p></div>
+                                                    <div className='InsuraceIdPtag'><p>Email Address</p></div>
                                                     </div>
                         {members.map((member, index) => (
                             <Card key={index} member={member} onNameClick={handleNavigation} />

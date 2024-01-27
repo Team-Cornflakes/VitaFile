@@ -7,7 +7,7 @@ const Card = ({ member, onNameClick }) => {
             <div className='Nameptag'> <p onClick={() => onNameClick(member.name)}>{member.name}</p></div>
             <div className='SexPtag'><p>{member.sex}</p></div>
             <div className='DOBPtag'><p>{member.dob}</p></div>
-            <div className='InsuraceIdPtag'><p>{member.contact_no}</p></div>
+            <div className='InsuraceIdPtag'><p>{member.email}</p></div>
         </div>
     );
 };
