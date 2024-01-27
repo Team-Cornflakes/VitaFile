@@ -48,14 +48,14 @@ const TimelineCard = () => {
                
             {data.map((item, index) => (
             <div key={index}>
-                <div className="timlinebar"></div>
-                <div className='TimelineCard'>
-                    <p>Name: {item.name}</p>
-                    <p>Description: {item.description}</p>
-                    <p>Data: {item.data}</p>
-                    <p>Created at: {item.created_at}</p>
-                    <p>Image URL: {item.image_url}</p>
-                </div>          
+                <div className="wrappercontainer">
+                    <div className="timlinebar"></div>
+                    <div className='TimelineCard'>
+                        <p>Title: {item.name}</p>
+                        <p>Description: {item.description}</p>
+                        <p>Created at: {item.created_at}</p>
+                    </div>          
+                </div>
             </div>
             ))}
         </div>
