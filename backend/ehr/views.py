@@ -13,6 +13,22 @@ from rest_framework import permissions
 
 User = get_user_model()
 
+class UserEHRCreateView(APIView):
+    parser_classes = [MultiPartParser, FormParser]
+
+    def post(self, request, format=None):
+        file = request.FILES['image_url']  # get the uploaded image
+        name = request.data.get('name')
+        description = request.data.get('description')
+        created_at = request.data.get('created_at')
+        # Extract text from the image
+        data = ocr_from_image(file)
+
+        # Create the EHR
+        ehr = EHR(userid=request.user, data=data, image_url=file, name=name, description=description, created_at=created_at)
+        ehr.save()
+
+        return Response({"message": "EHR created successfully"}, status=status.HTTP_201_CREATED)
 
 class UserEHRView(APIView):
     def get(self, request):
