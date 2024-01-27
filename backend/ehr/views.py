@@ -10,7 +10,7 @@ User = get_user_model()
 class UserEHRView(APIView):
     def get(self, request):
         user = request.user
-        user_ehr = EHR.objects.filter(user=user)
+        user_ehr = EHR.objects.filter(userid=user)
 
         # Convert the QuerySet to a list of dictionaries
         user_ehr_list = list(user_ehr.values())
