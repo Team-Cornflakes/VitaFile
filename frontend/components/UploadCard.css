@@ -1,10 +1,10 @@
 /* Original CSS for the rest of the page */
 .Parent1 {
     position: absolute;
-    top: 10%; 
+    top: 10%;
     left: 20%;
-    width: 80%; 
-    height: 90%; 
+    width: 80%;
+    height: 90%;
     overflow: hidden;
     box-sizing: border-box;
 }
@@ -27,12 +27,12 @@
     background-color: #98afc7;
     height: 98%;
     width: 70%;
-    margin-bottom: 2.6%; 
+    margin-bottom: 2.6%;
     border-radius: 10px;
-    border: 1px solid grey; 
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); 
-    max-height: 500px; 
-    overflow-y: auto; 
+    border: 1px solid grey;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    max-height: 500px;
+    overflow-y: auto;
 }
 
 .Parentdiv2 {
@@ -48,16 +48,16 @@
 
 /* Scrollbar Styling */
 ::-webkit-scrollbar {
-    width: 10px;  
+    width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #f1f1f1; 
+    background: #f1f1f1;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #888; 
-    border-radius: 4px;  
+    background: #888;
+    border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -65,12 +65,12 @@
 }
 
 .buttondiv {
-    display: flex; 
-    justify-content: flex-end; 
-    align-items: center; 
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
     height: 100%;
     margin-left: 60%;
-    width: 39.1%; 
+    width: 39.1%;
 }
 
 .Button111, .Button11, .Button21 {
@@ -78,8 +78,8 @@
     border: 2px solid #808080;
     background-color: white;
     color: black;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); 
-    font-weight: bold; 
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    font-weight: bold;
 }
 
 /* Upload Box Styling */
@@ -94,26 +94,31 @@
     margin: 20px auto;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start; /* Align items to the left */
     overflow-y: auto;
     overflow-x: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 /* Adjust the max-width for elements within .uploadbox */
 .uploadbox .myInput1,
 .uploadbox .LabelTextupload,
 .uploadbox .modalbutton {
-    max-width: 80%; /* Decreased max-width to make the elements smaller from the right side */
+    max-width: 210%;
 }
 
 .uploadbox:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
+/* Adjust the max-width for elements within .uploadbox */
+.uploadbox .myInput1 {
+    max-width: 90%; /* Increase the max-width to make the text field longer */
+}
 
 .labeltextdiv {
     width: 100%;
-    text-align: center;
+    text-align: left; /* Align text to the left within the upload box */
     margin-bottom: 20px;
 }
 
@@ -177,9 +182,11 @@
 .custom-file-upload i {
     margin-right: 8px;
 }
+
 .upload-file-modal {
     text-align: left; /* Align the labels to the left within the upload box */
 }
+
 .LabelTextupload {
     font-size: 16px; /* Uniform font size for labels */
     color: #333; /* Dark grey for high readability */
@@ -187,6 +194,7 @@
     font-weight: 600; /* Semi-bold font weight for clarity */
     display: block; /* Display labels as block-level elements */
 }
+
 .upload-file-modal {
     text-align: left; /* Align the labels and inputs to the left within the upload box */
 }
