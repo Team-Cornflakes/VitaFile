@@ -29,10 +29,6 @@ const UploadCard = () => {
         });
     };
 
-    const handleFileButtonClick = () => {
-        fileInputRef.current.click();
-    };
-
     const handleFormSubmit = (event) => {
         event.preventDefault();
 
@@ -71,7 +67,7 @@ const UploadCard = () => {
         <div className='Parent1'>
             <div className='DetailsDiv'>
                 <div className='timelinetextdiv'>
-                <div className='timelinenamediv'><p className='timelineheadingname'>Name</p></div> 
+                    <div className='timelinenamediv'><p className='timelineheadingname'>Name</p></div> 
                 </div>
                 <div className='buttondiv'>
                     <button type='button' className='Button111'>+</button>   
@@ -94,7 +90,7 @@ const UploadCard = () => {
                                 <p className='LabelText1'>Upload Reports</p>
                             </div>
                             <div className='upload-file-modal'>
-                                <label className='LabelTextupload custom-file-upload' onClick={handleFileButtonClick}>
+                                <label className='LabelTextupload custom-file-upload'>
                                     <input 
                                         ref={fileInputRef}
                                         type="file" 
@@ -114,8 +110,7 @@ const UploadCard = () => {
                                 <label className='LabelTextupload'> LABELS
                                     <input className="myInput1" type="text" name="label3" value={formData.label3} onChange={handleInputChange} required />
                                 </label>
-                                    <button className='modalbutton' type="submit">Add Report</button>
-                                
+                                <button className='modalbutton' type="submit">Add Report</button>
                             </div>
                         </div>
                     </form>
