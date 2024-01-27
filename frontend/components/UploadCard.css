@@ -88,16 +88,22 @@
     border: 2px solid #e2e6ea;
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-    padding: 15px;
-    width: 80%;
+    padding: 20px;
+    width: 30%;
     max-width: 450px;
-    margin: 15px auto;
+    margin: 20px auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     overflow-y: auto;
     overflow-x: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+/* Adjust the max-width for elements within .uploadbox */
+.uploadbox .myInput1,
+.uploadbox .LabelTextupload,
+.uploadbox .modalbutton {
+    max-width: 80%; /* Decreased max-width to make the elements smaller from the right side */
 }
 
 .uploadbox:hover {
@@ -170,4 +176,36 @@
 
 .custom-file-upload i {
     margin-right: 8px;
+}
+.upload-file-modal {
+    text-align: left; /* Align the labels to the left within the upload box */
+}
+.LabelTextupload {
+    font-size: 16px; /* Uniform font size for labels */
+    color: #333; /* Dark grey for high readability */
+    margin-top: 10px; /* Spacing above each label */
+    font-weight: 600; /* Semi-bold font weight for clarity */
+    display: block; /* Display labels as block-level elements */
+}
+.upload-file-modal {
+    text-align: left; /* Align the labels and inputs to the left within the upload box */
+}
+
+.LabelTextupload, .LabelText1 {
+    font-size: 16px; /* Uniform font size for labels */
+    color: #333; /* Dark grey for high readability */
+    margin: 10px 0; /* Balanced space above and below for a clean layout */
+    font-weight: 600; /* Semi-bold font weight for clarity */
+    display: block; /* Display labels as block-level elements */
+}
+
+.myInput1 {
+    width: 100%; /* Full width to utilize the space */
+    padding: 10px; /* Comfortable padding for ease of typing */
+    margin: 10px 0; /* Spacing between each input field */
+    border: 1px solid #e0e0e0; /* Light border for the inputs */
+    border-radius: 8px; /* Rounded corners for the input fields */
+    font-size: 15px; /* Comfortable font size for most users */
+    color: #555; /* Slightly lighter text color for a modern look */
+    background-color: #f9f9f9; /* Very light grey background for input fields */
 }
