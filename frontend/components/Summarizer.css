@@ -1,17 +1,15 @@
 .summarizer-container {
-    margin: 20px;
+    margin: 20px auto; /* Vertical margin and horizontally centered */
     padding: 40px; /* Increased padding for more vertical space */
     background-color: #f8f9fa; /* Light background color */
     border: 1px solid #e0e0e0; /* Subtle border */
     border-radius: 10px; /* Rounded corners */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Soft box shadow */
     text-align: center; /* Centering the text */
-    max-width: 600px; /* Maximum width */
-    min-height: 600px; /* Minimum height to make the box bigger vertically */
-    margin-left: auto; /* Centering the box horizontally */
-    margin-right: auto;
+    width: 80%; /* Responsive width */
+    max-width: 800px; /* Maximum width, you can increase this */
+    min-height: 500px; /* Minimum height to make the box bigger vertically */
 }
-s
 
 .summarizer-container h2 {
     color: #007bff; /* A pleasant blue for the heading */
@@ -21,4 +19,12 @@ s
 .summarizer-container p {
     color: #333; /* Darker text color for readability */
     font-size: 16px; /* Slightly larger font size */
+}
+
+/* Responsive adjustments with media queries */
+@media (max-width: 768px) {
+  .summarizer-container {
+    width: 95%; /* Almost full width on smaller screens */
+    padding: 20px; /* Less padding on smaller screens */
+  }
 }
