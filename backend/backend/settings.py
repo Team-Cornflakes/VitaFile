@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'family',
     'users',
     'haystack',
-    'search',
     'ehr',
     'rest_framework',
     'rest_framework_simplejwt',
