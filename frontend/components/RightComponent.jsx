@@ -1,21 +1,22 @@
 import React, { useState } from 'react';
 import ChatbotInterface from './ChatbotInterface'; // Adjust the import path as necessary
+import Summarizer from './Summarizer'; // Import the Summarizer component
 import './RightComponent.css'; // Import the CSS for styling
 
 const RightComponent = () => {
-    const [showChatbot, setShowChatbot] = useState(false);
+    const [activeComponent, setActiveComponent] = useState('');
 
     const handleChatbotClick = () => {
-        setShowChatbot(true);
+        setActiveComponent('chatbot');
     };
 
     const handleActualPDFClick = () => {
-        setShowChatbot(false);
+        setActiveComponent('pdf');
         // Additional logic for Actual PDF
     };
 
     const handleSummarizerClick = () => {
-        setShowChatbot(false);
+        setActiveComponent('summarizer');
         // Additional logic for Summarizer
     };
 
@@ -34,8 +35,11 @@ const RightComponent = () => {
                 </button>
             </div>
 
-            {/* Conditional rendering of the ChatbotInterface */}
-            {showChatbot && <ChatbotInterface />}
+            {/* Conditional rendering of components */}
+            {activeComponent === 'chatbot' && <ChatbotInterface />}
+            {activeComponent === 'summarizer' && <Summarizer />}
+            {/* Placeholder for Actual PDF component */}
+            {activeComponent === 'pdf' && <div>Actual PDF Component Goes Here</div>}
         </div>
     );
 };

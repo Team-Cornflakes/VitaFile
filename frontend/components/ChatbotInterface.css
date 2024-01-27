@@ -75,6 +75,10 @@
   border-top: 1px solid #e2e2e2;
 }
 
+/* Remaining styles unchanged */
+/* ... previous styles ... */
+/* ... previous styles ... */
+
 .chat-input {
   flex-grow: 1;
   margin-right: 10px;
@@ -82,7 +86,23 @@
   border: 1px solid #e2e2e2;
   border-radius: 20px;
   background-color: #ffffff;
+  color: #000000; /* Text color set to black */
+  resize: none; /* Prevents resizing */
+  overflow: auto; /* Ensures proper scrolling */
+  display: inline-block; /* Aligns width to content */
+  width: auto; /* Width based on content */
+  height: auto; /* Height based on content */
+  box-sizing: border-box; /* Includes padding and border in the element's total width and height */
 }
+
+/* ... remaining styles ... */
+
+
+/* ... remaining styles ... */
+
+
+/* Remaining styles unchanged */
+
 
 .send-button {
   padding: 10px 15px;

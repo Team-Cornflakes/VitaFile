@@ -40,6 +40,8 @@ const ChatbotInterface = () => {
           placeholder="Type your message..."
           className="chat-input"
           onKeyPress={handleKeyPress}
+          // Adjusted style for better visibility
+          style={{ minHeight: '10px', maxHeight: '100px', width: 'calc(100% - 20px)' }}
         ></textarea>
         <button onClick={handleSendMessage} className="send-button">
           Send
