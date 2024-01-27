@@ -13,7 +13,7 @@ const UploadCard = () => {
         label3: '',
         fileUploaded: false
     });
-    const fileInputRef = useRef(null); // Create a reference to the file input
+    const fileInputRef = useRef(null);
 
     const handleInputChange = (event) => {
         setFormData({
@@ -30,7 +30,7 @@ const UploadCard = () => {
     };
 
     const handleFileButtonClick = () => {
-        fileInputRef.current.click(); // Trigger click on the actual file input
+        fileInputRef.current.click();
     };
 
     const handleFormSubmit = (event) => {
@@ -61,11 +61,11 @@ const UploadCard = () => {
                             <TimelineCard key={index} data={data} />
                         ))}
                     </div>
-                </div>    
+                </div>
                 <div className='uploadbox'>
                     <form onSubmit={handleFormSubmit}>
                         <div className='updiv'>
-                            <div className='labeltextdiv' style={{ textAlign: 'center' }}>
+                            <div className='labeltextdiv'>
                                 <p className='LabelText1'>Upload Reports</p>
                             </div>
                             <div className='upload-file-modal'>

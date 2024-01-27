@@ -46,6 +46,7 @@
     display: flex;
 }
 
+/* Scrollbar Styling */
 ::-webkit-scrollbar {
     width: 10px;  
 }
@@ -81,82 +82,78 @@
     font-weight: bold; 
 }
 
-.rec {
-    position: fixed;
-    top: 65%; 
-    left: 60%; 
-    background: #fff;
-    overflow: auto;
-    border-radius: 8px;
-    outline: none;
-    padding: 20px;
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
-    transition: all 0.3s ease-in-out;
-    width: 30%;
-    height: 35%; 
-}
-
-/* Sophisticated Upload Box Styling with reduced height */
-/* Sophisticated Upload Box Styling with constrained height */
-/* Refined and Polished Upload Box Styling */
+/* Upload Box Styling */
 .uploadbox {
-    background-color: #f8f9fa; /* Light grey for a clean and modern background */
-    border: 2px solid #e2e6ea; /* Slightly thicker border for a defined edge */
-    border-radius: 15px; /* Increased border radius for more pronounced rounded corners */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15); /* Enhanced shadow for depth */
-    padding: 15px; /* Increased padding for better internal spacing */
+    background-color: #f8f9fa;
+    border: 2px solid #e2e6ea;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    padding: 15px;
     width: 80%;
-    max-width: 450px; /* Increased max-width for better layout */
-    margin: 15px auto; /* More vertical space for better separation */
+    max-width: 450px;
+    margin: 15px auto;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centering items for a balanced look */
+    align-items: center;
     overflow-y: auto;
-    overflow-x: hidden; /* Hide horizontal overflow */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Adding transform to the transition for interactive feedback */
+    overflow-x: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .uploadbox:hover {
-    transform: translateY(-5px); /* Slight upward lift on hover for an interactive feel */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* More prominent shadow on hover */
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.labeltextdiv {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.LabelText1 {
+    display: inline-block;
+    font-size: 20px;
+    font-weight: bold;
+    /* Add other styles if needed */
 }
 
 .LabelTextupload, .LabelText1 {
-    font-size: 17px; /* Slightly larger font size for better readability */
-    color: #495057; /* Updated to a deeper grey for better contrast */
+    font-size: 17px;
+    color: #495057;
     margin: 12px 0;
-    font-weight: bold; /* Bold font weight for emphasis */
+    font-weight: bold;
 }
 
 .myInput1 {
     width: 100%;
-    padding: 12px; /* Increased padding for a more comfortable input field */
+    padding: 12px;
     margin: 12px 0;
-    border: 2px solid #ced4da; /* Thicker border for more focus on the input field */
-    border-radius: 10px; /* More rounded corners for a smoother look */
-    font-size: 16px; /* Larger font size for ease of reading */
-    color: #495057; /* Consistent text color with labels */
-    background-color: #e9ecef; /* Slightly darker background for depth */
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle inner shadow for a more refined look */
+    border: 2px solid #ced4da;
+    border-radius: 10px;
+    font-size: 16px;
+    color: #495057;
+    background-color: #e9ecef;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .modalbutton {
-    background-color: #007bff; /* Updated to a brighter blue for a more appealing primary action button */
+    background-color: #007bff;
     color: #ffffff;
     border: none;
     border-radius: 10px;
-    padding: 15px 0; /* Increased padding for a larger clickable area */
+    padding: 15px 0;
     font-size: 17px;
     font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.25s, transform 0.2s; /* Adding transform to the transition for a dynamic effect */
-    margin-top: 20px; /* More space above the button for a cleaner layout */
+    transition: background-color 0.25s, transform 0.2s;
+    margin-top: 20px;
     outline: none;
 }
 
 .modalbutton:hover {
-    background-color: #0056b3; /* Darker shade of blue for hover state */
-    transform: scale(1.05); /* Slight increase in size on hover for a dynamic interaction */
+    background-color: #0056b3;
+    transform: scale(1.05);
 }
 
 .custom-file-upload {
@@ -174,9 +171,3 @@
 .custom-file-upload i {
     margin-right: 8px;
 }
-
-.labeltextdiv {
-    text-align: center; /* Center-align the text */
-    margin: 12px 0; /* Adjust margin to move the text down */
-}
-
