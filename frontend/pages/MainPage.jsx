@@ -1,15 +1,14 @@
 import React from 'react';
-import Header from '../components/Header';
-import LeftComponent from '../components/LeftComponent';
-import RightComponent from '../components/RightComponent';
-import './MainPage.css'; // Assuming you have a CSS file for MainPage
+import Header from '../components/Header1'; // Ensure the path to Header component is correct
+import LeftComponent from '../components/LeftComponent'; // Adjust the path as necessary
+import RightComponent from '../components/RightComponent'; // Adjust the path as necessary
+import './MainPage.css'; // Import the CSS for MainPage
 
 const MainPage = () => {
   return (
-    <div>
-      <Header />
-      <div className="main-content">
-        <Header/>
+    <div className="main-page">
+      <Header/>
+      <div className="content">
         <LeftComponent />
         <RightComponent />
       </div>
