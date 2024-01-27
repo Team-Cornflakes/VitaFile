@@ -1,44 +1,78 @@
-import React from 'react';
-import './Header.css'; // Ensure this is the correct path
+import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import './Header.css'; // Importing the CSS file
 import searchIcon from '../src/assets/search.png'; 
 import messageIcon from '../src/assets/1.png'; 
 import alertIcon from '../src/assets/2.png'; 
 import exitIcon from '../src/assets/3.png'; 
-import logo from '../assets/logo.png'; // Update with the correct path to your logo image
-const Header = ({ showLogo }) => {
+
+const Header = ({ toggleSidebar }) => {
   const handleSearch = () => {
-    // Implement your search functionality here
+    // Logic to handle search functionality
     console.log("Search initiated");
   };
 
-  const handleExit = () => {
-    // Implement your exit/cleanup functionality here
-    console.log("User has exited");
+  const navigate = useNavigate();
+
+  const Handleexitnavigation = () => {
+    localStorage.removeItem('token');  
+    navigate('/');
   };
 
-  // Feel free to add more handler functions for your message and alert icons
+  const handleExitClick = async () => {
+    const token = localStorage.getItem('token');  
+
+    const response = await fetch('http://localhost:8000/getuser/', {
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
+    });
+
+    if (response.ok) {
+      const name = await response.text();
+      console.log('Name:', name);
+    } else {
+      console.error('Error:', response.status);
+    }
+
+    localStorage.removeItem('token');  
+    navigate('/');
+  };
+
+  
+  <button className="icon-button exit-icon" onClick={handleExitClick}>
+    <img src={exitIcon} alt="Exit" />
+  </button>
+
+  // Function to format the current date
+  const formatDate = () => {
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    return new Date().toLocaleDateString('en-US', options);
+  };
+
+  const personName = "John Doe"; // Replace with dynamic data if needed
 
   return (
-    <header className="header">
-      {showLogo && (
-        <div className="header-logo-container">
-          <img src={logo} alt="Logo" className="header-logo" />
-        </div>
-      )}
+    <header>
       <div className="search-container">
         <input type="text" placeholder="Search..." className="search-input" />
         <button onClick={handleSearch} className="search-button">
           <img src={searchIcon} alt="Search" className="search-icon" />
         </button>
       </div>
-      <div className="header-actions">
+      <div className="person-name-container"> {/* New div for person's name */}
+        <span className="person-name">{personName}</span>
+      </div>
+      <div className="header-right">
+        <span className="date-display">{formatDate()}</span>
         <button className="icon-button message-icon">
           <img src={messageIcon} alt="Message" />
         </button>
         <button className="icon-button alert-icon">
           <img src={alertIcon} alt="Alert" />
         </button>
-        <button className="icon-button exit-icon" onClick={handleExit}>
+        <button className="icon-button exit-icon" onClick={Handleexitnavigation}>
           <img src={exitIcon} alt="Exit" />
         </button>
       </div>
