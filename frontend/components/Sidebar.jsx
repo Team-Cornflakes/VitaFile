@@ -13,8 +13,8 @@ const Sidebar = () => {
   const navigateToTimeline = async () => {
     const token = localStorage.getItem('token');
 
-    const response = await fetch('http://localhost:8000/', {
-      method: 'POST',
+    const response = await fetch('http://localhost:8000/ehr/fetch_current/', {
+      method: 'GET',
       headers: {
         'Authorization': `Bearer ${token}`,
         'Content-Type': 'application/json',
