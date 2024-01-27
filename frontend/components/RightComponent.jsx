@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import ChatbotInterface from './ChatbotInterface'; // Adjust the import path as necessary
+import Summarizer from './Summarizer'; // Import the Summarizer component
 import './RightComponent.css'; // Make sure this path is correct
 
 const RightComponent = () => {
@@ -33,9 +35,10 @@ const RightComponent = () => {
             </div>
 
             {/* Conditional rendering based on activeComponent */}
-            {activeComponent === 'chatbot' && <div>Chatbot Component</div>}
-            {activeComponent === 'summarizer' && <div>Summarizer Component</div>}
-            {activeComponent === 'pdf' && <div>Actual PDF Component</div>}
+            {activeComponent === 'chatbot' && <ChatbotInterface />}
+            {activeComponent === 'summarizer' && <Summarizer />}
+            {/* Placeholder for Actual PDF component */}
+            {activeComponent === 'pdf' && <div>Actual PDF Component Goes Here</div>}
         </div>
     );
 };
