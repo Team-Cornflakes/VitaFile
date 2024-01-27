@@ -38,8 +38,7 @@ const FamilyMemberList = () => {
             console.error('Error:', error);
         });
 
-        setModalIsOpen(false)
-
+        setModalIsOpen(false);
     }
 
     useEffect(() => {
