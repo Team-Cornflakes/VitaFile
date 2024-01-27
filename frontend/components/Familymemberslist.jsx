@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect} from 'react';
 import './Familymemberlist.css'
 import { useNavigate } from 'react-router-dom';
 import Modal from 'react-modal'; 
@@ -13,17 +13,54 @@ const FamilyMemberList = () => {
     const handleInputChange = (e) => {
         setNewMember({...newMember, [e.target.name]: e.target.value});
     }
+
+    const getFullName = (member) => {
+        return member.firstName + ' ' + member.lastName;
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        setMembers([...members, newMember]);
-        setNewMember({name: '', sex: '', dob: '', phone: ''});
+        const username = newMember.name;
+        const password = newMember.password;
+        const token = localStorage.getItem('token');
+
+        fetch('http://localhost:8000/create_family/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`,
+            },
+            body: JSON.stringify({ username, password }),
+        })
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+
         setModalIsOpen(false);
     }
-    const handleDelete = (index) => {
-        const newMembers = [...members];
-        newMembers.splice(index, 1);
-        setMembers(newMembers);
-    }
+
+    useEffect(() => {
+        const fetchMembers = async () => {
+            const token = localStorage.getItem('token');
+
+            const response = await fetch('http://localhost:8000/get_family/', {
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                },
+            });
+
+            const data = await response.json();
+            console.log(data);
+
+            if (response.ok) {
+                setMembers(data);
+            }
+        };
+
+        fetchMembers();
+    }, []);
 
     const handleNavigation = (name) => {
         navigate('/Timeline');
@@ -36,7 +73,7 @@ const FamilyMemberList = () => {
                 <div className="BackupDiv">
                     <div className="TotalPatients">
                        <div className='ptagdiv'><p className='familyname'>Your Family</p></div> 
-                        <div className='buttondiv'>
+                        <div className='buttondiv1'>
                             <button type='button' className='Button' onClick={() => setModalIsOpen(true)}>+</button>   
                             <button type='button' className='Button2'>S</button>  
                             <button type='button' className='Button1'>?</button>  
@@ -46,7 +83,7 @@ const FamilyMemberList = () => {
                         <div className='headingdiv'><div className='Nameptag1'><p>Name</p></div>
                                                     <div className='SexPtag'><p>Sex</p></div>
                                                     <div className='DOBPtag'><p>Date of Birth</p></div>
-                                                    <div className='InsuraceIdPtag'><p>Insurance Id</p></div>
+                                                    <div className='InsuraceIdPtag'><p>Email Address</p></div>
                                                     </div>
                         {members.map((member, index) => (
                             <Card key={index} member={member} onNameClick={handleNavigation} />
@@ -60,18 +97,13 @@ const FamilyMemberList = () => {
             <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)}
             className="ReactModal__Content">
                 <form onSubmit={handleSubmit}>
-                    <label className='LabelText'> Name 
+                    <label className='LabelText'> Email 
                         <input className="myInput" type="text" name="name" value={newMember.name} onChange={handleInputChange} required />
                     </label>
-                    <label className='LabelText'> Sex 
-                        <input className="myInput" type="text" name="sex" value={newMember.sex} onChange={handleInputChange} required />
+                    <label className='LabelText'> Password
+                        <input className="myInput" type="password" name="password" value={newMember.password} onChange={handleInputChange} required />
                     </label>
-                    <label className='LabelText'> Date of Birth 
-                        <input className="myInput" type="date" name="dob" value={newMember.dob} onChange={handleInputChange} required />
-                    </label>
-                    <label className='LabelText1'> Insurance Id 
-                        <input className="myInput" type="tel" name="phone" value={newMember.phone} onChange={handleInputChange} required maxLength="8" />
-                    </label>
+                    
                     <div className='ModalButtonDiv'><button className='modalbutton1' type="submit">Add Member</button></div>
                 </form>
                 

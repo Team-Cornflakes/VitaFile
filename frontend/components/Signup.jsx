@@ -27,6 +27,8 @@ const Signup = () => {
             body: JSON.stringify({
                 username,
                 password,
+                firstname,
+                lastname,
                 email,
                 dob,
                 sex,

@@ -1,3 +1,48 @@
 from django.shortcuts import render
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+from django.contrib.auth import get_user_model
+from .models import EHR  # assuming you have an EHR modeln
+from .serializers import EHRSerializer
 
-# Create your views here.
+User = get_user_model()
+
+class UserEHRView(APIView):
+    def get(self, request):
+        user = request.user
+        user_ehr = EHR.objects.filter(userid=user).first()
+        print(user_ehr)
+
+        # Convert the QuerySet to a list of dictionaries
+        user_ehr_list = list(user_ehr.values())
+
+        return Response(user_ehr_list, status=status.HTTP_200_OK)
+    
+class AnotherUserEHRView(APIView):
+    def get(self, request):
+        username = request.GET.get("username")
+        print(username)
+
+        usr = User.objects.filter(username=username).first()
+        print(usr)
+
+        if usr is None:
+            return Response({"message": "Username does not exist or invalide credentials provided"}, status=status.HTTP_400_BAD_REQUEST)
+        else:
+            user_ehr_list = EHR.objects.filter(userid=usr)
+
+            return Response(user_ehr_list, status=status.HTTP_200_OK)
+        
+
+class SearchView(APIView):
+    def get(self, request, format=None):
+        query = request.GET.get('q', '')
+
+        if query:
+            results = SearchQuerySet().filter(content__contains=query)
+            serialized_results = EHRSerializer([result.object for result in results], many=True).data
+        else:
+            serialized_results = []
+
+        return Response({'query': query, 'results': serialized_results}, status=status.HTTP_200_OK)

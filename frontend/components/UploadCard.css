@@ -1,41 +1,41 @@
+/* Original CSS for the rest of the page */
 .Parent1 {
     position: absolute;
-    top: 10%; 
+    top: 10%;
     left: 20%;
-    width: 80%; 
-    height: 90%; 
+    width: 80%;
+    height: 90%;
     overflow: hidden;
     box-sizing: border-box;
 }
 
-.DetailsDiv{
-display: flex;
-background-color: #ffc0d9;
-top: 2.5%;
-width: 95%;
-height: 15%;
-margin: 2.5%;
-border-radius: 10px; 
-border: 2px solid grey; 
-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); 
+.DetailsDiv {
+    display: flex;
+    background-color: #ffc0d9;
+    margin-top: 80px;
+    margin-right: 2.5%;
+    margin-bottom: 2.5%;
+    margin-left: 2.5%;
+    width: 95%;
+    height: 15%;
+    border-radius: 10px;
+    border: 2px solid grey;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
 }
 
-.TimelineDiv{
+.TimelineDiv {
     background-color: #98afc7;
     height: 98%;
     width: 70%;
-    margin-bottom: 2.6%; 
+    margin-bottom: 2.6%;
     border-radius: 10px;
-    border: 1px solid grey; 
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); 
-    max-height: 500px; 
-    overflow-y: auto; 
-
+    border: 1px solid grey;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    max-height: 500px;
+    overflow-y: auto;
 }
 
-
-
-.Parentdiv2{
+.Parentdiv2 {
     background-color: white;
     height: 72.5%;
     width: 95%;
@@ -44,191 +44,166 @@ box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
     border-radius: 10px;
     gap: 28px;
     display: flex;
-
 }
 
+/* Scrollbar Styling */
 ::-webkit-scrollbar {
-    width: 10px;  
+    width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #f1f1f1; 
+    background: #f1f1f1;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #888; 
-    border-radius: 4px;  
+    background: #888;
+    border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
     background: #555;
 }
 
-.buttondiv{
-    display: flex; 
-    justify-content: flex-end; 
-    align-items: center; 
-    height: 100%;
-    margin-left: 60%;
-    width: 39.1%; 
-    
-}
-
-.Button111{
-    margin-right: 15px;
-    border: 2px solid #808080;
-    background-color: white;
-    color: black;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); 
-    font-weight: bold; 
-}
-
-.Button11{
-    margin-right: 15px;
-    border: 2px solid #808080;
-    background-color: white;
-    color: black;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); 
-    font-weight: bold; 
-}
-.Button21{
-    margin-right: 15px;
-    border: 2px solid #808080;
-    background-color: white;
-    color: black;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); 
-    font-weight: bold; 
-}
-
-.rec {
-    position: fixed;
-    top: 65%; 
-    left: 60%; 
-    background: #fff;
-    overflow: auto;
-    border-radius: 8px;
-    outline: none;
-    padding: 20px;
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
-    transition: all 0.3s ease-in-out;
-    width: 30%;
-    height: 35%; 
-}
-
-
-
-
-
-.LabelTextupload{
-    display: block;
-    margin-bottom: 10px;
-    color: black;
-}
-
-.myInput1 {
-    border: none;
-    border-bottom: 1px solid black;
-    outline: none;
-    width: 100%;
-    padding: 5px 0;
-    background-color: #98afc7;
-    color: black;
-}
-
-input[type="date"]::-webkit-calendar-picker-indicator {
-    filter: invert(1);
-}
-
-.ModalButtonDiv{
+.buttondiv {
     display: flex;
     justify-content: flex-end;
-    align-items: center; 
-    height: 10%;
-    margin-left: 30%;
-    margin-right: 30%;
-    width: 40%; 
+    align-items: center;
+    height: 100%;
+    right: 39.1%;
+    padding-bottom: 10px;
+    padding-left: 20px;
+}
+.Button111, .Button11, .Button21 {
+    margin-right: 15px;
+    border: 2px solid #808080;
+    background-color: white;
+    color: black;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    font-weight: bold;
 }
 
-.modalbutton {
-    background: #98afc7; 
-    color: white; 
-    padding: 3.5px;
-    box-sizing: border-box;
-    border: 1px solid gray; 
-    border-radius: 8px;
-    width: 100%; 
-    height: 135%;
-    color: black;
+/* Upload Box Styling */
+.uploadbox {
+    background-color: #f8f9fa;
+    border: 2px solid #e2e6ea;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    padding: 15px;
+    width: 80%;
+    max-width: 25%;
+    margin: 0px auto; /* Add margin for top alignment */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Remove overflow-y and overflow-x to disable scrolling */
+    /* overflow-y: auto; */
+    /* overflow-x: hidden; */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Increase the height to make it slightly taller */
+    height: 470px;
+}
+
+.uploadbox:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.labeltextdiv {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 20px; /* Add margin to push the upload box up */
+    align-self: flex-start; /* Align the text to the top of the upload box */
 }
 
 .LabelText1 {
-    color: black;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 10px 0;
-    text-align: center;
+    display: inline-block;
+    font-size: 20px;
+    font-weight: bold;
+    /* Add other styles if needed */
 }
 
-.labeltextdiv{
-    display: flex;
-    justify-content: flex-end;
-    align-items: center; 
-    height: 10%;
-    margin-left: 23%;
-    width: 40%; 
+.LabelTextupload, .LabelText1 {
+    font-size: 17px;
+    color: #495057;
+    margin: 12px 0;
+    font-weight: bold;
 }
 
-.ModalButtonDiv1{
-    display: flex;
-    justify-content: flex-end;
-    align-items: center; 
-    height: 10%;
-    margin-left: 49%;
-    width: 40%; 
-}
-
-
-.uploadbox{
-    background-color: #98afc7;
-    width: 30%;
-    height: 93.7%;
+.myInput1 {
+    width: 90%;
+    padding: 6px; /* Reduced padding to make the text fields smaller */
+    margin: 3px 0; /* Reduced margin for smaller spacing */
+    border: 2px solid #ced4da;
     border-radius: 10px;
-    border: 1px solid grey; 
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); 
-    max-height: 500px; 
-    padding: 10px;
-    margin-bottom: 2.6%; 
+    font-size: 14px; /* Reduced font size */
+    color: #495057;
+    background-color: #e9ecef;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.updiv{ 
-    height: 200%;
-    background-color:#98afc7;
-    width:100%;
-    text-align:center;
-    padding:7px;
-}
-
-
-
-.upload-icon img {
-    width: 100px; 
-    height: 100px; 
-    background-color: white;
-}
-
-.upload-text {
-    display: flex;
-    align-items: center;
-    font-size: 14px; 
-    font-weight: normal;
-}
-
-.choose-file-btn {
-    text-decoration: underline;
+.modalbutton {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    padding: 5px; /* Adjust the padding to match the text fields */
+    font-size: 16px; /* Adjust the font size to match the text fields */
+    font-weight: bold;
     cursor: pointer;
-    margin-right: 5px; 
-    margin-left: 5px;
-    margin-top: 0; 
-    margin-bottom: 0; 
+    transition: background-color 0.25s, transform 0.2s;
+    margin-top: 20px;
+    outline: none;
+    width: 100%; /* Set the width to 100% */
+    text-align: center; /* Center the button text */
+}
+; /* Set the width to 100% */
+    
+
+
+.modalbutton:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    margin: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+.custom-file-upload i {
+    margin-right: 8px;
+}
+
+.timelinetextdiv{
+    background-color: #ffc0d9;
+    width: 85%;
+    display: flex;
+}
+
+.timelinenamediv {
+    padding: 10px;
+    margin: 5px;
+    border-radius: 4px;
+    color: #333;
+    width: 22.5%;
+    text-align: left; 
+    padding-left: 10px;
+    justify-content: center;
+    padding-bottom: 15px;
+}
+
+.timelineheadingname{font-size: 25px;
+font-family:'Playfair Display' ;
+font-weight: bold;
+padding-left: 20px;
+padding-bottom: 10px;
+
 }

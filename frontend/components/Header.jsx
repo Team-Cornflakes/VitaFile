@@ -1,14 +1,22 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Header.css'; // Importing the CSS file
-import searchIcon from '../src/assets/search.png'; // Importing the search icon
-import messageIcon from '../src/assets/1.png'; // Importing the message icon
-import alertIcon from '../src/assets/2.png'; // Importing the alert icon
-import exitIcon from '../src/assets/3.png'; // Importing the exit icon
+import searchIcon from '../src/assets/search.png'; 
+import messageIcon from '../src/assets/1.png'; 
+import alertIcon from '../src/assets/2.png'; 
+import exitIcon from '../src/assets/3.png'; 
 
 const Header = ({ toggleSidebar }) => {
   const handleSearch = () => {
     // Logic to handle search functionality
     console.log("Search initiated");
+  };
+
+  const navigate = useNavigate();
+
+  const Handleexitnavigation = () => {
+    localStorage.removeItem('token');  
+    navigate('/');
   };
 
   // Function to format the current date
@@ -33,7 +41,7 @@ const Header = ({ toggleSidebar }) => {
         <button className="icon-button alert-icon">
           <img src={alertIcon} alt="Alert" />
         </button>
-        <button className="icon-button exit-icon">
+        <button className="icon-button exit-icon" onClick={Handleexitnavigation}>
           <img src={exitIcon} alt="Exit" />
         </button>
       </div>
