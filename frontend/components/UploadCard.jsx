@@ -31,13 +31,32 @@ const UploadCard = () => {
 
     const handleFormSubmit = (event) => {
         event.preventDefault();
-        setTimelineData([...timelineData, formData]);
-        setFormData({
-            date: '',
-            label1: '',
-            label2: '',
-            label3: '',
-            fileUploaded: false
+
+        const data = new FormData();
+        data.append('file', fileInputRef.current.files[0]);
+        data.append('date', formData.date);
+        data.append('label1', formData.label1);
+        data.append('label2', formData.label2);
+        data.append('label3', formData.label3);
+
+        fetch('http://localhost:8000/your-endpoint/', {
+            method: 'PUT',
+            body: data
+        })
+        .then(response => response.json())
+        .then(result => {
+            console.log('Success:', result);
+            setTimelineData([...timelineData, formData]);
+            setFormData({
+                date: '',
+                label1: '',
+                label2: '',
+                label3: '',
+                fileUploaded: false
+            });
+        })
+        .catch(error => {
+            console.error('Error:', error);
         });
     };
 

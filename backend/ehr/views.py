@@ -5,6 +5,9 @@ from rest_framework import status
 from django.contrib.auth import get_user_model
 from .models import EHR  # assuming you have an EHR modeln
 from .serializers import EHRSerializer
+from haystack.query import SearchQuerySet
+from rest_framework.parsers import FileUploadParser
+from .ocr import ocr_from_image
 
 User = get_user_model()
 
@@ -33,16 +36,46 @@ class AnotherUserEHRView(APIView):
             user_ehr_list = EHR.objects.filter(userid=usr)
 
             return Response(user_ehr_list, status=status.HTTP_200_OK)
+
+class UserEHRCreateView(APIView):
+    parser_classes = [FileUploadParser]
+
+    def put(self, request):
+        user = request.user
+        name = request.data.get("name")
+        description = request.data.get("description")   
+
+        created_at = request.data.get("created_at")
+
+        file_obj = request.data['file']
+        text = ocr_from_image(file_obj)
+
+        ehr = EHR.objects.create(userid=user, name=name, description=description, data=text, created_at=created_at)
+        ehr.save()
         
+        return Response(status=status.HTTP_202_ACCEPTED)
 
 class SearchView(APIView):
     def get(self, request, format=None):
         query = request.GET.get('q', '')
+        family = request.user.fid
+        
+        if family is not None:
+            family_members = User.objects.filter(fid=family)
 
-        if query:
-            results = SearchQuerySet().filter(content__contains=query)
-            serialized_results = EHRSerializer([result.object for result in results], many=True).data
+            if query:
+                results = SearchQuerySet().models(EHR).filter(content=query, user__in=family_members)
+                serialized_results = EHRSerializer(results, many=True).data
+            else:
+                serialized_results = []
+
+            return Response({'query': query, 'results': serialized_results}, status=status.HTTP_200_OK)
+        
         else:
-            serialized_results = []
+            if query:
+                results = SearchQuerySet().models(EHR).filter(content=query, user=request.user)
+                serialized_results = EHRSerializer(results, many=True).data
+            else:
+                serialized_results = []
 
-        return Response({'query': query, 'results': serialized_results}, status=status.HTTP_200_OK)
+            return Response({'query': query, 'results': serialized_results}, status=status.HTTP_200_OK)
