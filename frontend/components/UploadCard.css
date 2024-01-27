@@ -83,6 +83,7 @@
 }
 
 /* Upload Box Styling */
+/* Upload Box Styling */
 .uploadbox {
     background-color: #f8f9fa;
     border: 2px solid #e2e6ea;
@@ -91,14 +92,15 @@
     padding: 20px;
     width: 30%;
     max-width: 25%;
-    margin: 20px auto;
+    margin: 20px 2.5% 20px 0; /* Adjust margin-right to align with the timeline div */
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Align items to the left */
+    align-items: center;
     overflow-y: auto;
     overflow-x: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 
 /* Adjust the max-width for elements within .uploadbox */
 .uploadbox .myInput1,
