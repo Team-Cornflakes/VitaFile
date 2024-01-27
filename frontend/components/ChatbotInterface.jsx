@@ -1,25 +1,14 @@
-import React, { useState } from 'react';
+// ChatbotInterface.jsx
+
+import React from 'react';
 import './ChatbotInterface.css'; // Make sure to add appropriate CSS
 
-const ChatbotInterface = () => {
-  const [messages, setMessages] = useState([]);
-  const [input, setInput] = useState('');
-
-  const handleInputChange = (e) => {
-    setInput(e.target.value);
-  };
-
-  const handleSendMessage = () => {
-    if (input.trim()) {
-      setMessages([...messages, { text: input, sender: 'user' }]);
-      setInput(''); // Clear input after sending
-    }
-  };
-
+const ChatbotInterface = ({ chatInput, updateChatInput, messages, handleSendMessage }) => {
+  
   const handleKeyPress = (e) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault(); // Prevents the default action of the Enter key
-      handleSendMessage();
+      handleSendMessage(chatInput); // Use the handleSendMessage function passed from the parent
     }
   };
 
@@ -35,15 +24,13 @@ const ChatbotInterface = () => {
       </div>
       <div className="chat-input-container">
         <textarea
-          value={input}
-          onChange={handleInputChange}
+          value={chatInput}
+          onChange={(e) => updateChatInput(e.target.value)}
           placeholder="Type your message..."
           className="chat-input"
           onKeyPress={handleKeyPress}
-          // Adjusted style for better visibility
-          style={{ minHeight: '10px', maxHeight: '100px', width: 'calc(100% - 20px)' }}
         ></textarea>
-        <button onClick={handleSendMessage} className="send-button">
+        <button onClick={() => handleSendMessage(chatInput)} className="send-button">
           Send
         </button>
       </div>
