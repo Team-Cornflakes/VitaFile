@@ -1,19 +1,44 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from django.contrib.auth import authenticate
+from django.contrib.auth import get_user_model
 from rest_framework import status
 from .models import Family
+
+User = get_user_model()
 
 class CreateFamilyView(APIView):
     def post(self, request):
         user = request.user
-        name = user.username + "_family"
+        family = user.fid
+        user_to_add = request.data.get("username")
+        passw = request.data.get("password")
 
-        if not name:
-            return Response(
-                {"error": "Name and members are required to create a family"},
-                status=status.HTTP_400_BAD_REQUEST
-            )
+        if not family:
+            family = Family.objects.create(family_name=user.first_name+"_family")
+            user.fid= family
+            user.save()
 
-        new_family = Family.objects.create(family_name=name)
+        user2 = authenticate(username=user_to_add, password=passw)
+        if user2 is None:
+            return Response({"message": "Username does not exist or invalide credentials provided"}, status=status.HTTP_400_BAD_REQUEST)
+        
+        else:
+            user2.fid = family
+            user2.save()
+            return Response({"message": "Family created successfully"}, status=status.HTTP_201_CREATED)
+        
 
-        return Response({"message": "Family created successfully"}, status=status.HTTP_201_CREATED)
+
+class FamilyMembersView(APIView):
+    def get(self, request):
+        user = request.user
+        family_id = user.fid
+
+        # Get all users with the same family id
+        family_members = User.objects.filter(fid=family_id)
+
+        # Convert the QuerySet to a list of dictionaries
+        family_members_list = list(family_members.values())
+
+        return Response(family_members_list, status=status.HTTP_200_OK)
