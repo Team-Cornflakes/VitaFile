@@ -3,6 +3,7 @@ from .models import EHR
 
 class EHRIndex(indexes.SearchIndex, indexes.Indexable):
     text = indexes.CharField(document=True, use_template=False)
+    userid=indexes.IntegerField(model_attr='userid_id')
     name = indexes.CharField(model_attr='name')
     description = indexes.CharField(model_attr='description')
     data = indexes.CharField(model_attr='data')
