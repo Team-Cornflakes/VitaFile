@@ -5,7 +5,7 @@ const Card = ({ member, onNameClick }) => {
     const handleNameClick = async () => {
         const token = localStorage.getItem('token'); // Get the JWT token from local storage
 
-        const response = await fetch('http://localhost:8000/', {
+        const response = await fetch('http://localhost:8000/ehr/fetch/', {
             method: 'POST',
             headers: {
                 'Authorization': `Bearer ${token}`,
