@@ -18,7 +18,21 @@
     font-weight: bold; /* Bold font for button text */
     text-align: center; /* Centers the text in the button */
   }
-  
+  .right-container {
+    flex: 1;
+    background-color: #ffffff;
+    padding: 20px;
+}
+
+.button-container {
+    margin-top: 30px; /* Adjust this to position the buttons */
+}
+
+.top-bar-button {
+    margin-bottom: 10px;
+    /* Add more button styles as needed */
+}
+
   .top-bar-button:hover {
     background-color: #D6D6F0; /* Slightly darker lavender on hover */
   }
