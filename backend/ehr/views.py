@@ -13,43 +13,6 @@ from rest_framework import permissions
 
 User = get_user_model()
 
-# class EHRViewSet(ModelViewSet):
-#     queryset = EHR.objects.all()
-#     serializer_class = EHRSerializer
-#     parser_classes = [MultiPartParser, FormParser]
-#     permission_classes = [permissions.IsAuthenticated]
-
-#     def perform_create(self, serializer):
-#         serializer.save(userid=self.request.user)
-
-#     def get_queryset(self):
-#         user = self.request.user
-#         family = user.fid
-        
-#         if family is not None:
-#             family_members = User.objects.filter(fid=family)
-#             return EHR.objects.filter(userid__in=family_members)
-        
-#         else:
-#             return EHR.objects.filter(userid=user)
-#     queryset = EHR.objects.all()
-#     serializer_class = EHRSerializer
-#     parser_classes = [MultiPartParser, FormParser]
-#     permission_classes = [permissions.IsAuthenticated]
-
-#     def perform_create(self, serializer):
-#         serializer.save(userid=self.request.user)
-
-#     def get_queryset(self):
-#         user = self.request.user
-#         family = user.fid
-        
-#         if family is not None:
-#             family_members = User.objects.filter(fid=family)
-#             return EHR.objects.filter(userid__in=family_members)
-        
-#         else:
-#             return EHR.objects.filter(userid=user)
 
 class UserEHRView(APIView):
     def get(self, request):
@@ -78,22 +41,6 @@ class AnotherUserEHRView(APIView):
 
             return Response(user_ehr_list, status=status.HTTP_200_OK)
 
-class UserEHRCreateView(APIView):
-    parser_classes = [MultiPartParser, FormParser]
-
-    def post(self, request, format=None):
-        file = request.FILES['file']
-        details = request.data
-        
-        data = ocr_from_image(file)
-        ehr = EHR(data=data, **details)
-        ehr.save()
-
-        return Response({"message": "EHR created successfully"}, status=status.HTTP_201_CREATED)
-
-    
-
-    
 class SearchView(APIView):
     def get(self, request, format=None):
         query = request.GET.get('q', '')

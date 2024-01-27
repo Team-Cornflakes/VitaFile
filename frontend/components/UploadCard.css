@@ -1,18 +1,23 @@
 /* Original CSS for the rest of the page */
 .Parent1 {
     position: absolute;
-    top: 10%;
+    top: 13%;
     left: 20%;
     width: 80%;
-    height: 90%;
+    height: 87%;
     overflow: hidden;
     box-sizing: border-box;
+    background-color:white;
 }
+
+
+
+
 
 .DetailsDiv {
     display: flex;
     background-color: #ffc0d9;
-    margin-top: 80px;
+    margin-top: 20px;
     margin-right: 2.5%;
     margin-bottom: 2.5%;
     margin-left: 2.5%;
@@ -198,12 +203,22 @@
     padding-left: 10px;
     justify-content: center;
     padding-bottom: 15px;
+    border-radius: 4px;
 }
 
-.timelineheadingname{font-size: 25px;
-font-family:'Playfair Display' ;
-font-weight: bold;
-padding-left: 20px;
-padding-bottom: 10px;
+.timelineheadingname{
+    text-align: left;
+    padding-left: 15px;
+    margin-top: 15px;
+    font-size: 25px;
+    font-family:'Playfair Display' ;
+    font-weight: bold;
 
+}
+
+
+
+
+div {
+    border-radius: 7px;
 }

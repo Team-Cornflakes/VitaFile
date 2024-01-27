@@ -2,31 +2,47 @@ header {
     position: fixed;
     top: 0;
     left: 20%;
+    height: 10%;
     right: 0;
     display: flex;
     align-items: center;
-    padding: 10px 20px;
+    padding: 10px;
     background-color: #ffffff;
 }
 
 .search-container {
     display: flex;
     align-items: center;
-    width: 40%;
+    width: 55%; /* Adjusted width */
 }
-
+.person-name-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 15%; /* New container for person's name */
+    margin: 0 10px; /* Add margin if needed */
+}
+.person-name {
+    font-size: 16px;
+    color: #333;
+    /* You can add more styles if needed */
+}
 
 .search-input {
     margin-left: 2%;
-    flex-grow: 1; /* Allows the input to grow within the search container */
+    flex-grow: 1; 
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 20px;
     outline: none;
     background-color: #ffffff;
     color: #333;
-    width: 100%; /* Makes the input take the full width of its container */
+    width: 100%; 
 }
+
+/* ... rest of your CSS ... */
+
+
 
 .search-icon {
     width: 30px;
@@ -67,18 +83,12 @@ header {
     align-items: center;
     justify-content: center;
     margin-left: 10px;
-    padding: 5px 10px; /* Added padding for better visibility */
-    font-size: 14px; /* Font size for the text in buttons */
+    padding: 5px 10px; 
+    font-size: 14px; 
 }
 
-.message-icon, .alert-icon, .exit-icon {
-    /* Add specific styles for each icon here if needed */
-}
-/* ... existing styles ... */
 
 .icon-button img {
-    width: 20px; /* Adjust the size as needed */
+    width: 20px;
     height: auto;
 }
-
-/* ... other styles ... */
