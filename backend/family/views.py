@@ -44,7 +44,8 @@ class FamilyMembersView(APIView):
         resp = []
         for member in family_members_list:
             temp = {
-                "name": member["first_name"] + " " + member["last_name"],
+                "first_name": member["first_name"],
+                "last_name": member["last_name"],
                 "sex" : member["sex"],
                 "dob" : member["dob"],
                 "contact_no" : member["contact_no"]
