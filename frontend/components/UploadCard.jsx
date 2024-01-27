@@ -83,8 +83,7 @@ const UploadCard = () => {
                                         ref={fileInputRef}
                                         type="file" 
                                         onChange={handleFileChange} 
-                                        style={{ display: 'none' }}
-                                    />
+                                        style={{ display: 'none' }}/>
                                     <FontAwesomeIcon icon={faCloudUpload} /> Choose File
                                 </label>
                                 <label className='LabelTextupload'> Date {/* Moved Date input below Choose File */}
