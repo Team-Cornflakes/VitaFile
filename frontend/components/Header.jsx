@@ -32,6 +32,7 @@ const Header = ({ toggleSidebar }) => {
           <img src={searchIcon} alt="Search" className="search-icon" />
         </button>
       </div>
+      <div className='headernamediv'>Name</div>
       <div className="header-right">
         <span className="date-display">{formatDate()}</span>
         <button className="icon-button message-icon">
