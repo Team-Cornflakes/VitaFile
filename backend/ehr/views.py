@@ -6,10 +6,50 @@ from django.contrib.auth import get_user_model
 from .models import EHR  # assuming you have an EHR modeln
 from .serializers import EHRSerializer
 from haystack.query import SearchQuerySet
-from rest_framework.parsers import FileUploadParser
+from rest_framework import permissions
+from rest_framework.parsers import MultiPartParser, FormParser
 from .ocr import ocr_from_image
+from rest_framework.viewsets import ModelViewSet
 
 User = get_user_model()
+
+class EHRViewSet(ModelViewSet):
+    queryset = EHR.objects.all()
+    serializer_class = EHRSerializer
+    parser_classes = [MultiPartParser, FormParser]
+    permission_classes = [permissions.IsAuthenticated]
+
+    def perform_create(self, serializer):
+        serializer.save(userid=self.request.user)
+
+    def get_queryset(self):
+        user = self.request.user
+        family = user.fid
+        
+        if family is not None:
+            family_members = User.objects.filter(fid=family)
+            return EHR.objects.filter(userid__in=family_members)
+        
+        else:
+            return EHR.objects.filter(userid=user)
+    queryset = EHR.objects.all()
+    serializer_class = EHRSerializer
+    parser_classes = [MultiPartParser, FormParser]
+    permission_classes = [permissions.IsAuthenticated]
+
+    def perform_create(self, serializer):
+        serializer.save(userid=self.request.user)
+
+    def get_queryset(self):
+        user = self.request.user
+        family = user.fid
+        
+        if family is not None:
+            family_members = User.objects.filter(fid=family)
+            return EHR.objects.filter(userid__in=family_members)
+        
+        else:
+            return EHR.objects.filter(userid=user)
 
 class UserEHRView(APIView):
     def get(self, request):
@@ -38,7 +78,6 @@ class AnotherUserEHRView(APIView):
             return Response(user_ehr_list, status=status.HTTP_200_OK)
 
 class UserEHRCreateView(APIView):
-    parser_classes = [FileUploadParser]
 
     def put(self, request):
         user = request.user
@@ -52,7 +91,7 @@ class UserEHRCreateView(APIView):
 
         ehr = EHR.objects.create(userid=user, name=name, description=description, data=text, created_at=created_at)
         ehr.save()
-        
+
         return Response(status=status.HTTP_202_ACCEPTED)
 
 class SearchView(APIView):
