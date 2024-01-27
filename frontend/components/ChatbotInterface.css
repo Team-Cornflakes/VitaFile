@@ -3,78 +3,130 @@
 .chatbot-interface {
   display: flex;
   flex-direction: column;
-  height: 100%;
-  background-color: #f7f7f7; /* Light grey background for the chat area */
-  border: 1px solid #e2e2e2; /* Subtle border around the chat interface */
-  border-radius: 8px; /* Rounded corners for the chat interface */
-  overflow: hidden; /* Ensures the content does not overflow the rounded corners */
+  height: 90%;
+  background-color: #f7f7f7;
+  border: 1px solid #e2e2e2;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .chat-header {
-  background-color: #007bff; /* Blue header to make it stand out */
-  color: #ffffff; /* White text for contrast */
-  padding: 10px 20px; /* Padding for some breathing room */
-  font-size: 18px; /* Slightly larger font size for the header */
-  font-weight: bold; /* Bold font weight for the header text */
-  border-bottom: 1px solid #006fe6; /* Slightly darker border for a 3D effect */
+  background-color: lightskyblue;
+  color: #ffffff;
+  padding: 10px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  border-bottom: 1px solid #006fe6;
+  font-family: 'Roboto', sans-serif;
 }
 
 .chat-messages {
-  flex-grow: 1; /* Allows the message area to take up available space */
-  overflow-y: auto; /* Enables scrolling for overflow content */
-  padding: 20px; /* Padding around the messages for spacing */
-  background-color: #ffffff; /* White background for the message area */
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 20px;
+  background-color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+}
+
+.chat-messages::-webkit-scrollbar {
+  width: 5px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+  background-color: #007bff;
+  border-radius: 10px;
 }
 
 .message {
-  max-width: 80%; /* Limits the width of messages to prevent overly wide bubbles */
-  margin-bottom: 15px; /* Spacing between messages */
-  padding: 10px; /* Padding inside message bubbles */
-  border-radius: 20px; /* Rounded corners for message bubbles */
-  line-height: 1.4; /* Line height for better readability */
-  word-wrap: break-word; /* Ensures long words do not overflow the bubble */
+  max-width: 80%;
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 20px;
+  line-height: 1.4;
+  word-wrap: break-word;
+  opacity: 0;
+  animation: fadeInMessage 0.5s forwards;
+}
+
+@keyframes fadeInMessage {
+  to {
+    opacity: 1;
+  }
 }
 
 .message.user {
-  background-color: #007bff; /* Blue background for user messages */
-  color: #ffffff; /* White text for user messages */
-  align-self: flex-end; /* Aligns user messages to the right */
-  margin-left: auto; /* Pushes the message bubble to the right side */
+  background-color: rgb(130, 207, 130);
+  color: #ffffff;
+  align-self: flex-end;
+  margin-left: auto;
 }
 
 .message.bot {
-  background-color: #f0f0f0; /* Light grey background for bot messages */
-  color: #333333; /* Dark grey text for bot messages */
-  align-self: flex-start; /* Aligns bot messages to the left */
+  background-color: #f0f0f0;
+  color: #333333;
+  align-self: flex-start;
 }
 
 .chat-input-container {
   display: flex;
-  padding: 10px; /* Padding around the input area */
-  background-color: #f7f7f7; /* Matching the chat area background */
-  border-top: 1px solid #e2e2e2; /* Subtle border to separate input area */
+  padding: 10px;
+  background-color: #f7f7f7;
+  border-top: 1px solid #e2e2e2;
 }
+
+/* Remaining styles unchanged */
+/* ... previous styles ... */
+/* ... previous styles ... */
 
 .chat-input {
-  flex-grow: 1; /* Allows the input to grow and fill available space */
-  margin-right: 10px; /* Spacing between input and send button */
-  padding: 10px; /* Padding inside the input for spacing */
-  border: 1px solid #e2e2e2; /* Subtle border around the input */
-  border-radius: 20px; /* Rounded corners for the input */
-  background-color: #ffffff; /* White background for the input */
+  flex-grow: 1;
+  margin-right: 10px;
+  padding: 10px;
+  border: 1px solid #e2e2e2;
+  border-radius: 20px;
+  background-color: #ffffff;
+  color: #000000; /* Text color set to black */
+  resize: none; /* Prevents resizing */
+  overflow: auto; /* Ensures proper scrolling */
+  display: inline-block; /* Aligns width to content */
+  width: auto; /* Width based on content */
+  height: auto; /* Height based on content */
+  box-sizing: border-box; /* Includes padding and border in the element's total width and height */
 }
 
+/* ... remaining styles ... */
+
+
+/* ... remaining styles ... */
+
+
+/* Remaining styles unchanged */
+
+
 .send-button {
-  padding: 10px 15px; /* Padding inside the send button */
-  background-color: #007bff; /* Blue background for the send button */
-  color: #ffffff; /* White text for the send button */
-  border: none; /* No border for the send button */
-  border-radius: 20px; /* Rounded corners for the send button */
-  cursor: pointer; /* Cursor change to indicate clickable */
-  font-weight: bold; /* Bold text for the send button */
+  padding: 10px 15px;
+  background-color: lightskyblue;
+  color: #ffffff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
 }
 
 .send-button:hover {
-  background-color: #006fe6; /* Slightly darker blue on hover for the send button */
+  background-color:blue;
 }
 
+.send-button:active {
+  background-color: blue;
+}
+
+@media (max-width: 600px) {
+  .chatbot-interface {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+  }
+}

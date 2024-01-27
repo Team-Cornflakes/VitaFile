@@ -16,6 +16,13 @@ const ChatbotInterface = () => {
     }
   };
 
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault(); // Prevents the default action of the Enter key
+      handleSendMessage();
+    }
+  };
+
   return (
     <div className="chatbot-interface">
       <div className="chat-header">Papaji</div>
@@ -27,14 +34,15 @@ const ChatbotInterface = () => {
         ))}
       </div>
       <div className="chat-input-container">
-        <input
-          type="text"
+        <textarea
           value={input}
           onChange={handleInputChange}
           placeholder="Type your message..."
           className="chat-input"
-          onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
-        />
+          onKeyPress={handleKeyPress}
+          // Adjusted style for better visibility
+          style={{ minHeight: '10px', maxHeight: '100px', width: 'calc(100% - 20px)' }}
+        ></textarea>
         <button onClick={handleSendMessage} className="send-button">
           Send
         </button>
