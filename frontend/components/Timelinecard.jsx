@@ -37,7 +37,7 @@ const TimelineCard = () => {
     }, []);
 
     const handleNavigation = () => {
-        navigate('/document'); // replace '/document' with the path you want to navigate to
+        navigate('/main'); // replace '/document' with the path you want to navigate to
     }
 
     if (loading) return <p>Loading...</p>;

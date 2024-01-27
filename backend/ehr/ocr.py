@@ -13,7 +13,7 @@ def to_markdown(text):
 GOOGLE_API_KEY=dotenv_values('.env')['GOOGLE_API_KEY']
 genai.configure(api_key=GOOGLE_API_KEY)
 
-def ocr_from_images(img):
+def ocr_from_image(img):
     img = Image.open(io.BytesIO(img))
     model = genai.GenerativeModel('gemini-pro-vision')
 
