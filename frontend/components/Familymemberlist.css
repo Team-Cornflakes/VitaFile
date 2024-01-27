@@ -2,13 +2,13 @@
 
 .Parent {
     position: absolute;
-    top: 10%; 
+    top: 13%; 
     left: 20%;
     width: 80%; /* adjusted */
-    height: 90%; /* adjusted */
+    height: 87%; /* adjusted */
     overflow: hidden;
     box-sizing: border-box;
-    background-color: white;
+    background-color: beige;
 }
 
 .Text{
