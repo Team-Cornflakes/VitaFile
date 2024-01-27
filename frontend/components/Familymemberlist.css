@@ -77,13 +77,13 @@
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); /* new */
 }
 
-.buttondiv{
+.buttondiv1{
     display: flex; /* new */
     justify-content: flex-end; /* new */
     align-items: center; /* new */
     height: 100%;
-    margin-left: 60%;
     width: 39.1%; /* adjusted */
+    margin-left: 60%;
     
 }
 
@@ -247,3 +247,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     text-align: left;  
     padding-left: 10px;
 }
+
+.timelinetextdiv{
+    background-color: black;}

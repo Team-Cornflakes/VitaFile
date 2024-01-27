@@ -73,7 +73,7 @@ const FamilyMemberList = () => {
                 <div className="BackupDiv">
                     <div className="TotalPatients">
                        <div className='ptagdiv'><p className='familyname'>Your Family</p></div> 
-                        <div className='buttondiv'>
+                        <div className='buttondiv1'>
                             <button type='button' className='Button' onClick={() => setModalIsOpen(true)}>+</button>   
                             <button type='button' className='Button2'>S</button>  
                             <button type='button' className='Button1'>?</button>  
