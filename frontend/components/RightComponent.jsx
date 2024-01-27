@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import ChatbotInterface from './ChatbotInterface'; // Adjust the import path as necessary
-import Summarizer from './Summarizer'; // Import the Summarizer component
-import './RightComponent.css'; // Import the CSS for styling
+import './RightComponent.css'; // Make sure this path is correct
 
 const RightComponent = () => {
     const [activeComponent, setActiveComponent] = useState('');
@@ -21,9 +19,8 @@ const RightComponent = () => {
     };
 
     return (
-        <div style={{ flex: 1, backgroundColor: '#ffffff', padding: '20px' }}>
-            {/* Top bar with buttons */}
-            <div className="top-bar">
+        <div className="right-container">
+            <div className="button-container"> {/* Class added for styling */}
                 <button className="top-bar-button" onClick={handleChatbotClick}>
                     Chatbot
                 </button>
@@ -35,11 +32,10 @@ const RightComponent = () => {
                 </button>
             </div>
 
-            {/* Conditional rendering of components */}
-            {activeComponent === 'chatbot' && <ChatbotInterface />}
-            {activeComponent === 'summarizer' && <Summarizer />}
-            {/* Placeholder for Actual PDF component */}
-            {activeComponent === 'pdf' && <div>Actual PDF Component Goes Here</div>}
+            {/* Conditional rendering based on activeComponent */}
+            {activeComponent === 'chatbot' && <div>Chatbot Component</div>}
+            {activeComponent === 'summarizer' && <div>Summarizer Component</div>}
+            {activeComponent === 'pdf' && <div>Actual PDF Component</div>}
         </div>
     );
 };
