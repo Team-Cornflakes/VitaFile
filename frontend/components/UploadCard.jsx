@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import './UploadCard.css';
 import TimelineCard from './Timelinecard.jsx';
+
 const UploadCard = () => {
     const [timelineData, setTimelineData] = useState([]);
     const [formData, setFormData] = useState({
@@ -73,7 +74,7 @@ const UploadCard = () => {
                                         onChange={handleFileChange} 
                                         style={{ display: 'none' }}
                                     />
-                                    <FontAwesomeIcon icon={faCloudUpload} /> Choose File
+                                    Choose File
                                 </label>
                                 <label className='LabelTextupload'> Date
                                     <input className="myInput1" type="date" name="date" value={formData.date} onChange={handleInputChange} required />
