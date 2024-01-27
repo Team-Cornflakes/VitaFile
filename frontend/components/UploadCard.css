@@ -100,63 +100,75 @@
 /* Sophisticated Upload Box Styling with constrained height */
 /* Refined and Polished Upload Box Styling */
 .uploadbox {
-    background-color: #ffffff; /* Switching to a clean white background */
-    border: 1px solid #dcdcdc; /* Lighter border for a refined look */
-    border-radius: 12px; /* Smooth, rounded corners for a soft, modern look */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), /* Subtle shadow for a floating effect */
-                 0 2px 4px rgba(0, 0, 0, 0.06);
-    padding: 15px; /* Optimal padding for internal spacing */
-    width: 100%; /* Full width for better responsiveness */
-    max-width: 350px; /* Max-width to keep the form factor consistent */
-    margin: 0px auto; /* Centering the box with some vertical space */
-    display: flex; /* Using flexbox for internal layout */
-    flex-direction: column; /* Stack children vertically */
-    align-items: stretch; /* Stretch children to match the width */
-    max-height:470px; /* Fixed max-height to control the size */
-    overflow-y: auto; /* Allow vertical scrolling if content overflows */
-    transition: box-shadow 0.3s ease; /* Smooth transition for shadow on hover */
+    background-color: #f8f9fa; /* Light grey for a clean and modern background */
+    border: 2px solid #e2e6ea; /* Slightly thicker border for a defined edge */
+    border-radius: 15px; /* Increased border radius for more pronounced rounded corners */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15); /* Enhanced shadow for depth */
+    padding: 20px; /* Increased padding for better internal spacing */
+    width: 100%;
+    max-width: 400px; /* Increased max-width for better layout */
+    margin: 20px auto; /* More vertical space for better separation */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centering items for a balanced look */
+    overflow-y: auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Adding transform to the transition for interactive feedback */
 }
 
 .uploadbox:hover {
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15), /* Enhanced shadow on hover for an interactive feel */
-                 0 3px 6px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px); /* Slight upward lift on hover for an interactive feel */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* More prominent shadow on hover */
 }
 
-/* Label styling within the upload box */
 .LabelTextupload, .LabelText1 {
-    font-size: 16px; /* Uniform font size for labels */
-    color: #333; /* Dark grey for high readability */
-    margin: 10px 0; /* Balanced space above and below for a clean layout */
-    font-weight: 600; /* Semi-bold font weight for clarity */
+    font-size: 17px; /* Slightly larger font size for better readability */
+    color: #495057; /* Updated to a deeper grey for better contrast */
+    margin: 12px 0;
+    font-weight: bold; /* Bold font weight for emphasis */
 }
 
-/* Input field styling */
 .myInput1 {
-    width: 100%; /* Full width to utilize the space */
-    padding: 10px; /* Comfortable padding for ease of typing */
-    margin: 10px 0; /* Spacing between each input field */
-    border: 1px solid #e0e0e0; /* Light border for the inputs */
-    border-radius: 8px; /* Rounded corners for the input fields */
-    font-size: 15px; /* Comfortable font size for most users */
-    color: #555; /* Slightly lighter text color for a modern look */
-    background-color: #f9f9f9; /* Very light grey background for input fields */
+    width: 100%;
+    padding: 12px; /* Increased padding for a more comfortable input field */
+    margin: 12px 0;
+    border: 2px solid #ced4da; /* Thicker border for more focus on the input field */
+    border-radius: 10px; /* More rounded corners for a smoother look */
+    font-size: 16px; /* Larger font size for ease of reading */
+    color: #495057; /* Consistent text color with labels */
+    background-color: #e9ecef; /* Slightly darker background for depth */
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle inner shadow for a more refined look */
 }
 
-/* Button inside the upload box for actions */
 .modalbutton {
-    background-color: #5cb85c; /* Soft green for the primary action */
-    color: #ffffff; /* White text for contrast */
-    border: none; /* Removing the border for a clean button */
-    border-radius: 8px; /* Consistent rounded corners for buttons */
-    padding: 12px 0; /* Ample padding for a substantial click area */
-    font-size: 16px; /* Readable font size for button text */
-    font-weight: 600; /* Semi-bold for button text */
-    cursor: pointer; /* Cursor pointer to indicate an actionable button */
-    transition: background-color 0.2s; /* Transition for a subtle hover effect */
-    margin-top: 15px; /* Spacing from the last input to the button */
-    outline: none; /* Remove outline to keep style consistent on focus */
+    background-color: #007bff; /* Updated to a brighter blue for a more appealing primary action button */
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    padding: 15px 0; /* Increased padding for a larger clickable area */
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.25s, transform 0.2s; /* Adding transform to the transition for a dynamic effect */
+    margin-top: 20px; /* More space above the button for a cleaner layout */
+    outline: none;
 }
 
 .modalbutton:hover {
-    background-color: #449d44; /* Slightly darker green on hover for an elegant feedback */
+    background-color: #0056b3; /* Darker shade of blue for hover state */
+    transform: scale(1.05); /* Slight increase in size on hover for a dynamic interaction */
+}
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    margin: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+.custom-file-upload i {
+    margin-right: 8px;
 }

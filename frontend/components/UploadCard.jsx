@@ -1,15 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import './UploadCard.css';
 import TimelineCard from './Timelinecard.jsx';
+import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css';
 
 const UploadCard = () => {
     const [timelineData, setTimelineData] = useState([]);
     const [formData, setFormData] = useState({
+        date: '',
         label1: '',
         label2: '',
         label3: '',
         fileUploaded: false
     });
+    const fileInputRef = useRef(null); // Create a reference to the file input
 
     const handleInputChange = (event) => {
         setFormData({
@@ -23,6 +26,10 @@ const UploadCard = () => {
             ...formData,
             fileUploaded: !!event.target.files[0]
         });
+    };
+
+    const handleFileButtonClick = () => {
+        fileInputRef.current.click(); // Trigger click on the actual file input
     };
 
     const handleFormSubmit = (event) => {
@@ -47,24 +54,29 @@ const UploadCard = () => {
                 </div> 
             </div>
             <div className='Parentdiv2'>
-           
                 <div className='TimelineDiv'>
-                <div className='TimelineCard'>
-                    {timelineData.sort((a, b) => new Date(a.date) - new Date(b.date)).map((data, index) => (
-                        <TimelineCard key={index} data={data} />
-                    ))}
-                </div>
-            </div>    
+                    <div className='TimelineCard'>
+                        {timelineData.sort((a, b) => new Date(a.date) - new Date(b.date)).map((data, index) => (
+                            <TimelineCard key={index} data={data} />
+                        ))}
+                    </div>
+                </div>    
                 <div className='uploadbox'>
                     <form onSubmit={handleFormSubmit}>
                         <div className='updiv'>
-                            <div className='labeltextdiv'>
+                            <div className='labeltextdiv' style={{ textAlign: 'center' }}>
                                 <p className='LabelText1'>Upload Reports</p>
                             </div>
                             <div className='upload-file-modal'>
-                                <label className='LabelTextupload'> File
-                                    <input className="myInput1" type="file"  onChange={handleFileChange} />
-                                </label>
+                                <button type="button" className='custom-file-upload' onClick={handleFileButtonClick}>
+                                    <i className="fa fa-cloud-upload"></i> Choose File
+                                </button>
+                                <input 
+                                    ref={fileInputRef}
+                                    type="file" 
+                                    onChange={handleFileChange} 
+                                    style={{ display: 'none' }} // Hide the actual file input
+                                />
                                 <label className='LabelTextupload'> Date
                                     <input className="myInput1" type="date" name="date" value={formData.date} onChange={handleInputChange} required />
                                 </label>
@@ -77,7 +89,6 @@ const UploadCard = () => {
                                 <label className='LabelTextupload'> Label3
                                     <input className="myInput1" type="text" name="label3" value={formData.label3} onChange={handleInputChange} required />
                                 </label>
-                                
                                 <div className='ModalButtonDiv'>
                                     <button className='modalbutton' type="submit">Add Report</button>
                                 </div>
