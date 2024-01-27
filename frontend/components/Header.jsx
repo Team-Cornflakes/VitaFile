@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Header.css'; // Importing the CSS file
 import searchIcon from '../src/assets/search.png'; 
@@ -18,6 +18,32 @@ const Header = ({ toggleSidebar }) => {
     localStorage.removeItem('token');  
     navigate('/');
   };
+
+  const handleExitClick = async () => {
+    const token = localStorage.getItem('token');  
+
+    const response = await fetch('http://localhost:8000/getuser/', {
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
+    });
+
+    if (response.ok) {
+      const name = await response.text();
+      console.log('Name:', name);
+    } else {
+      console.error('Error:', response.status);
+    }
+
+    localStorage.removeItem('token');  
+    navigate('/');
+  };
+
+  
+  <button className="icon-button exit-icon" onClick={handleExitClick}>
+    <img src={exitIcon} alt="Exit" />
+  </button>
 
   // Function to format the current date
   const formatDate = () => {
