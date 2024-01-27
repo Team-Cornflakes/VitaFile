@@ -1,0 +1,84 @@
+header {
+    position: fixed;
+    top: 0;
+    left: 20%;
+    height: 10%;
+    right: 0;
+    display: flex;
+    align-items: center;
+    padding: 20px 20px;
+    background-color: #ffffff;
+    border-bottom: 2px solid gray;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    width: 40%;
+}
+
+
+.search-input {
+    margin-left: 2%;
+    flex-grow: 1; 
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    outline: none;
+    background-color: #ffffff;
+    color: #333;
+    width: 100%; 
+}
+
+.search-icon {
+    width: 30px;
+    height: auto;
+    background-color: #ddd;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 0 20px 20px 0;
+}
+
+.search-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-grow: 1;
+}
+
+.date-display {
+    margin-right: 20px;
+    font-size: 16px;
+}
+
+.icon-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+    padding: 5px 10px; 
+    font-size: 14px; 
+}
+
+.message-icon, .alert-icon, .exit-icon {
+    /* Add specific styles for each icon here if needed */
+}
+
+
+.icon-button img {
+    width: 20px;
+    height: auto;
+}

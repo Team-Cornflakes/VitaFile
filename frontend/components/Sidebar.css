@@ -1,0 +1,74 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 18%;
+  background-color: #fff;
+  height: 100vh;
+  padding: 22px;
+  z-index: 1000;
+  border-right: 1px solid grey;
+}
+
+.sidebar-menu .menu-item,
+.sidebar-general .menu-item {
+  display: block;
+  width: 100%;
+  padding: 10px 20px;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.sidebar-menu .menu-item:last-child {
+  margin-bottom: 100px;
+}
+
+.sidebar-general {
+  margin-top: 30px;
+}
+
+.sidebar-logo {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.sidebar-logo img {
+  max-width: 50%;
+  height: auto;
+}
+
+.menu-heading {
+  font-weight: bold;
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.menu-item {
+  display: block;
+  background-color: #f0f0f0;
+  color: #333;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 5px;
+  text-align: left;
+}
+
+.menu-item.dashboard { background-color:  #ffc0d9; }
+.menu-item.records { background-color: #98afc7; }
+.menu-item.appointments { background-color: #bda6d4; }
+.menu-item.settings,
+.menu-item.support { background-color: #b6b6b4; }
+
+.menu-item:hover {
+  filter: brightness(95%);
+}
+
+.analyticsbutoontext{
+  color: white;
+  pointer-events: none;
+  border: white;
+}
+
+.menu-item.analytics { background-color: white; filter: none;   border: white; }

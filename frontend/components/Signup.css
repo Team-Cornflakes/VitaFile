@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@200;300&display=swap');
+
+.login-container {
+    position: fixed;
+    top: -20px; /* Add space to the top */
+    right: 60%; /* Changed to 60% to push the container to the left */
+    bottom: 10px; /* Add space to the bottom */
+    left: 10px; /* Add space to the left */
+    width: calc(40% - 20px); /* Subtract the added space from the width */
+    height: calc(100% - 20px); /* Subtract the added space from the height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+}
+
+.image-container {
+    position: fixed;
+    top: 10px; /* Add space to the top */
+    right: 10px; /* Add space to the right */
+    bottom: 10px; /* Add space to the bottom */
+    left: 40%; /* Starts at the end of the login container */
+    width: calc(60% - 20px); /* Subtract the added space from the width */
+    height: calc(100% - 20px); /* Subtract the added space from the height */
+    background-image: url('../src/assets/Logo2.png'); /* Make sure this URL is correct */
+    background-size: cover; /* Changed to cover to crop the image */
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.login-card {
+    width: 100%; /* Changed to 100% to fill the width of the container */
+    max-width: none; /* Remove max-width to allow the card to fill its container */
+    height: 100%; /* Changed to 100% to fill the height of the container */
+    padding: 20px;
+    background-color: transparent; /* Changed to transparent to blend with the background */
+    box-shadow: none; /* Removed box shadow */
+    transition: transform 0.3s;
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+    display: flex; /* Added to align the content */
+    justify-content: center; /* Center the content horizontally */
+    align-items: center; /* Center the content vertically */
+    flex-direction: column; /* Stack the content vertically */
+    border-radius: 0; /* Removed curved edges */
+}
+
+h2 {
+    text-align: left; /* Align the text to the left */
+}
+h1 {
+    font-family:'Playfair Display' ;
+    text-align: left; /* Align the text to the left */
+}
+.logo-container {
+    display: flex;
+    justify-content: flex-start; /* Align the logo to the start horizontally */
+    align-items: center; /* Vertically align the logo and the text in the middle */
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+    border-radius: 90%; /* Make the logo a circle */
+    margin-right: auto; /* Push the logo towards the left */
+}
+
+.logo-text {
+    margin-left: 10px; /* Add some space between the logo and the text */
+}
+
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    border: none;
+    border-bottom: 2px solid #000;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #000;
+    font-size: 16px;
+    width: 100%; /* Set the width to match the button */
+    box-sizing: border-box; /* Include padding and border in element's total width */
+    padding: 10px 20px; /* Match the button's padding */
+}
+
+
+
+.footer-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-button1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 50px; /* Match the padding of the .login-button */
+    height: 48px; /* Match the height of the .login-button */
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    width: 100%; /* Match the width of the .login-button */
+    box-sizing: border-box; /* Match the box-sizing of the .login-button */
+}
+
+
+.logo1 {
+    height: 30px; /* Adjust as needed */
+    width: auto; /* Keep the aspect ratio of the image */
+    margin-right: 10px; /* Add some space between the image and the text */
+}
+
+.login-button {
+    color: #fff;
+    background-color: #007BFF;
+    border: none;
+    padding: 10px 20px;
+    text-align: center; /* Align the content to the center */
+    text-decoration: none;
+    display: flex; /* Use flexbox to align the image and the text */
+    align-items: center; /* Center the image and the text vertically */
+    justify-content: center; /* Center the content horizontally */
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
+    height: 48px; /* Ensure this matches the height of the Google button */
+}
+
+.signup-link {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+    .login-card {
+        width: 90%;
+        padding: 10px;
+    }
+
+    .logo {
+        width: 80px;
+        height: 80px;
+    }
+
+    .input-group input {
+        padding: 5px;
+    }
+
+    .login-button {
+        padding: 5px 10px;
+    }
+}

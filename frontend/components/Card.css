@@ -1,0 +1,37 @@
+.card {
+    border-bottom: 1px solid gray;
+    padding: 10px;
+    margin-top: 5px;
+    background-color: #98afc7;
+    height: 10%;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    gap: 20px; 
+}
+
+
+.InsuraceIdPtag {
+    width: 25%;
+    text-align: left;   
+}
+
+.DOBPtag{
+    width: 25%;
+    text-align: left; 
+    padding-left: 10px; 
+    
+}
+
+.SexPtag{
+    width: 22.5%;
+    text-align: left; 
+    padding-left: 10px; 
+
+
+}
+.Nameptag{
+    width: 22.5%;
+    text-align: left;  
+    padding-left: 26px;
+}
