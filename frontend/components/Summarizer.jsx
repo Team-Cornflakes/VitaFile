@@ -4,7 +4,6 @@ import './Summarizer.css'; // Ensure this CSS file is properly linked for stylin
 const Summarizer = () => {
     return (
         <div className="summarizer-container">
-            <h2>Summarizer</h2>
             <p></p>
         </div>
     );

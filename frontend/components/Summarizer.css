@@ -1,15 +1,17 @@
 .summarizer-container {
     margin: 20px;
-    padding: 20px;
+    padding: 40px; /* Increased padding for more vertical space */
     background-color: #f8f9fa; /* Light background color */
     border: 1px solid #e0e0e0; /* Subtle border */
     border-radius: 10px; /* Rounded corners */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Soft box shadow */
     text-align: center; /* Centering the text */
     max-width: 600px; /* Maximum width */
+    min-height: 600px; /* Minimum height to make the box bigger vertically */
     margin-left: auto; /* Centering the box horizontally */
     margin-right: auto;
 }
+s
 
 .summarizer-container h2 {
     color: #007bff; /* A pleasant blue for the heading */
