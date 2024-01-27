@@ -2,8 +2,10 @@ from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from django.contrib.auth import authenticate
+from django.contrib.auth import get_user_model
 from .models import EHR  # assuming you have an EHR model
+
+User = get_user_model()
 
 class UserEHRView(APIView):
     def get(self, request):
@@ -17,10 +19,9 @@ class UserEHRView(APIView):
     
 class AnotherUserEHRView(APIView):
     def get(self, request):
-        user = request.data.get("username")
-        password = request.data.get("password")
+        username = request.data.get("username")
 
-        user = authenticate(username=user, password=password)
+        user = User.objects.filter(username=user).first()
 
         if user is None:
             return Response({"message": "Username does not exist or invalide credentials provided"}, status=status.HTTP_400_BAD_REQUEST)
