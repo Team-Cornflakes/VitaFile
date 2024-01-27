@@ -9,6 +9,7 @@ from haystack.query import SearchQuerySet
 from rest_framework.parsers import MultiPartParser, FormParser
 from .ocr import ocr_from_image
 from rest_framework.viewsets import ModelViewSet
+from rest_framework import permissions
 
 User = get_user_model()
 
