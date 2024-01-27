@@ -40,5 +40,14 @@ class FamilyMembersView(APIView):
 
         # Convert the QuerySet to a list of dictionaries
         family_members_list = list(family_members.values())
+        resp = []
+        for member in family_members_list:
+            temp = {
+                "name": member["first_name"] + " " + member["last_name"],
+                "sex" : member["sex"],
+                "dob" : member["dob"],
+                "contact_no" : member["contact_no"]
+            }
+            resp.append(temp)
 
-        return Response(family_members_list, status=status.HTTP_200_OK)
+        return Response(resp, status=status.HTTP_200_OK)
