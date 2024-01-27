@@ -15,6 +15,24 @@ const UploadCard = () => {
     });
     const fileInputRef = useRef(null);
 
+    const handlenameClick = async () => {
+        const token = localStorage.getItem('token');  
+    
+        const response = await fetch('http://localhost:8000/getuser/', {
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json',
+          },
+        });
+    
+        if (response.ok) {
+          const name = await response.text();
+          console.log('Name:', name);
+        } else {
+          console.error('Error:', response.status);
+        }
+      };
+
     const handleInputChange = (event) => {
         setFormData({
             ...formData,
