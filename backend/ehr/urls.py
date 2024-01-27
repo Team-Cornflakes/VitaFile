@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import UserEHRView, AnotherUserEHRView
+from .views import UserEHRView, AnotherUserEHRView, SearchView
 
 urlpatterns = [
     path('fetch_current/', UserEHRView.as_view(), name='fetch_current_ehr'),
