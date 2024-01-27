@@ -4,7 +4,7 @@ import LoginPage from '../pages/LoginPage';
 import SignupPage from '../pages/SignupPage';
 import FamilyPage from '../pages/FamilyPage';
 import TimeLinePage from '../pages/TimeLinePage';
-import DocumentPage from '../pages/DocumentPage';
+import MainPage from '../pages/MainPage';
 import './App.css';
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/family" element={<FamilyPage />} />
         <Route path="/timeline" element={<TimeLinePage />} />
-        <Route path="/document" element={<DocumentPage />} />
+        <Route path="/Main" element={<MainPage />} />
       </Routes>
     </Router>
   );
