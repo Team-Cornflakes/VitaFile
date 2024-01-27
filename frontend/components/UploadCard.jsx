@@ -81,9 +81,10 @@ const UploadCard = () => {
             <div className='Parentdiv2'>
                 <div className='TimelineDiv'>
                     <div className='TimelineCard'>
-                        {timelineData.sort((a, b) => new Date(a.date) - new Date(b.date)).map((data, index) => (
+                        {/* {timelineData.sort((a, b) => new Date(a.date) - new Date(b.date)).map((data, index) => (
                             <TimelineCard key={index} data={data} />
-                        ))}
+                        ))} */}
+                        <TimelineCard />
                     </div>
                 </div>
                 <div className='uploadbox'>

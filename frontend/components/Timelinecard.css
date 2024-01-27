@@ -14,7 +14,8 @@
 
 .maindiv{
     display: flex;
+    flex-direction: column;
     height: 100%;
-    width: 125%;
+    width: 100%;
     background-color: lightblue;
 }
