@@ -6,7 +6,7 @@ from django.contrib.auth import get_user_model
 from .models import EHR  # assuming you have an EHR modeln
 from .serializers import EHRSerializer
 from haystack.query import SearchQuerySet
-from rest_framework.parsers import FileUploadParser
+from rest_framework.parsers import MultiPartParser, FormParser
 from .ocr import ocr_from_image
 
 User = get_user_model()
@@ -14,12 +14,13 @@ User = get_user_model()
 class UserEHRView(APIView):
     def get(self, request):
         user = request.user
-        user_ehr = EHR.objects.filter(userid=user).first()
-        print(user_ehr)
-
+        user_ehr = EHR.objects.filter(userid=user)
         # Convert the QuerySet to a list of dictionaries
-        user_ehr_list = list(user_ehr.values())
 
+        if user_ehr is None:
+            return Response({"message": "No EHRs found"}, status=status.HTTP_400_BAD_REQUEST)
+
+        user_ehr_list = list(user_ehr.values())
         return Response(user_ehr_list, status=status.HTTP_200_OK)
     
 class AnotherUserEHRView(APIView):
@@ -38,23 +39,25 @@ class AnotherUserEHRView(APIView):
             return Response(user_ehr_list, status=status.HTTP_200_OK)
 
 class UserEHRCreateView(APIView):
-    parser_classes = [FileUploadParser]
+    parser_classes = (MultiPartParser, FormParser)
+    def get(self, request):
+        user = request.user
+        user_ehr = EHR.objects.filter(userid=user).first()
+        print(user_ehr)
+
+        # Convert the QuerySet to a list of dictionaries
+        user_ehr_list = list(user_ehr.values())
+
+        return Response(user_ehr_list, status=status.HTTP_200_OK)
 
     def put(self, request):
-        user = request.user
-        name = request.data.get("name")
-        description = request.data.get("description")   
+        file = request.FILES['file']
+        date = request.data.get('date')
+        label1 = request.data.get('label1')
+        label2 = request.data.get('label2')
+        label3 = request.data.get('label3')
 
-        created_at = request.data.get("created_at")
-
-        file_obj = request.data['file']
-        text = ocr_from_image(file_obj)
-
-        ehr = EHR.objects.create(userid=user, name=name, description=description, data=text, created_at=created_at)
-        ehr.save()
-        
-        return Response(status=status.HTTP_202_ACCEPTED)
-
+    
 class SearchView(APIView):
     def get(self, request, format=None):
         query = request.GET.get('q', '')
