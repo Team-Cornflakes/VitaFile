@@ -67,20 +67,20 @@ class SearchView(APIView):
         family = request.user.fid
         
         if family is not None:
-            family_members = User.objects.filter(fid=family)
+            family_members = User.objects.filter(fid=family).values_list('userid', flat=True)
 
             if query:
-                results = SearchQuerySet().models(EHR).filter(content=query, user__in=family_members)
-                serialized_results = EHRSerializer(results, many=True).data
+                results = SearchQuerySet().models(EHR).auto_query(query).filter(userid__in=list(family_members))
+                serialized_results = EHRSerializer([result.object for result in results if result.object is not None], many=True).data
             else:
                 serialized_results = []
 
             return Response({'query': query, 'results': serialized_results}, status=status.HTTP_200_OK)
-        
+
         else:
             if query:
-                results = SearchQuerySet().models(EHR).filter(content=query, user=request.user)
-                serialized_results = EHRSerializer(results, many=True).data
+                results = SearchQuerySet().models(EHR).auto_query(query).filter(userid=request.user.userid)
+                serialized_results = EHRSerializer([result.object for result in results if result.object is not None], many=True).data
             else:
                 serialized_results = []
 
