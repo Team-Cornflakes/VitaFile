@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Header.css'; // Importing the CSS file
 import searchIcon from '../src/assets/search.png'; 
@@ -12,36 +12,42 @@ const Header = ({ toggleSidebar }) => {
     console.log("Search initiated");
   };
 
+  const [personName, setPersonName] = useState('');
+
   const navigate = useNavigate();
 
   const Handleexitnavigation = () => {
     localStorage.removeItem('token');  
     navigate('/');
   };
+  
 
-  const handleExitClick = async () => {
-    const token = localStorage.getItem('token');  
+  useEffect(() => {
+    const fetchName = async () => {
+      const token = localStorage.getItem('token');  
 
-    const response = await fetch('http://localhost:8000/getuser/', {
-      headers: {
-        'Authorization': `Bearer ${token}`,
-        'Content-Type': 'application/json',
-      },
-    });
+      const response = await fetch('http://localhost:8000/getuser/', {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
+      });
 
-    if (response.ok) {
-      const name = await response.text();
-      console.log('Name:', name);
-    } else {
-      console.error('Error:', response.status);
-    }
+      if (response.ok) {
+        let name = await response.text();
+        name = name.replace(/"/g, ''); // Remove quotes
+        setPersonName(name);
+        localStorage.setItem('username', name); // Store name in local storage
+      } else {
+        console.error('Error:', response.status);
+      }
+    };
 
-    localStorage.removeItem('token');  
-    navigate('/');
-  };
+    fetchName();
+  }, []);
 
   
-  <button className="icon-button exit-icon" onClick={handleExitClick}>
+  <button className="icon-button exit-icon" onClick={Handleexitnavigation}>
     <img src={exitIcon} alt="Exit" />
   </button>
 
@@ -50,8 +56,6 @@ const Header = ({ toggleSidebar }) => {
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
     return new Date().toLocaleDateString('en-US', options);
   };
-
-  const personName = "John Doe"; // Replace with dynamic data if needed
 
   return (
     <header>
