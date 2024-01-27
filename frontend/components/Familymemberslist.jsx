@@ -14,6 +14,10 @@ const FamilyMemberList = () => {
         setNewMember({...newMember, [e.target.name]: e.target.value});
     }
 
+    const getFullName = (member) => {
+        return member.firstName + ' ' + member.lastName;
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
         const username = newMember.name;
@@ -39,6 +43,10 @@ const FamilyMemberList = () => {
     }
 
     useEffect(() => {
+        const getFullName = (member) => {
+            return member.firstName + ' ' + member.lastName;
+        }
+
         const fetchMembers = async () => {
             const token = localStorage.getItem('token');
 
@@ -49,10 +57,15 @@ const FamilyMemberList = () => {
             });
 
             const data = await response.json();
-            console.log(data);
 
             if (response.ok) {
-                setMembers(data);
+                // Map over the data array and add a fullName property to each member
+                const dataWithFullNames = data.map(member => ({
+                    ...member,
+                    fullName: getFullName(member),
+                }));
+
+                setMembers(dataWithFullNames);
             }
         };
 
