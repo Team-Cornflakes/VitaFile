@@ -15,7 +15,7 @@ class UserEHRView(APIView):
 
         return Response(user_ehr_list, status=status.HTTP_200_OK)
     
-class UserEHRView(APIView):
+class AnotherUserEHRView(APIView):
     def get(self, request):
         user = request.data.get("username")
         password = request.data.get("password")
