@@ -3,7 +3,8 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from django.contrib.auth import get_user_model
-from .models import EHR  # assuming you have an EHR model
+from .models import EHR  # assuming you have an EHR modeln
+from .serializers import EHRSerializer
 
 User = get_user_model()
 
@@ -29,3 +30,16 @@ class AnotherUserEHRView(APIView):
             user_ehr_list = EHR.objects.filter(user=user)
 
             return Response(user_ehr_list, status=status.HTTP_200_OK)
+        
+
+class SearchView(APIView):
+    def get(self, request, format=None):
+        query = request.GET.get('q', '')
+
+        if query:
+            results = SearchQuerySet().filter(content__contains=query)
+            serialized_results = EHRSerializer([result.object for result in results], many=True).data
+        else:
+            serialized_results = []
+
+        return Response({'query': query, 'results': serialized_results}, status=status.HTTP_200_OK)
