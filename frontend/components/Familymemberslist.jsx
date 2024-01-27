@@ -43,10 +43,6 @@ const FamilyMemberList = () => {
     }
 
     useEffect(() => {
-        const getFullName = (member) => {
-            return member.firstName + ' ' + member.lastName;
-        }
-
         const fetchMembers = async () => {
             const token = localStorage.getItem('token');
 
@@ -57,15 +53,10 @@ const FamilyMemberList = () => {
             });
 
             const data = await response.json();
+            console.log(data);
 
             if (response.ok) {
-                // Map over the data array and add a fullName property to each member
-                const dataWithFullNames = data.map(member => ({
-                    ...member,
-                    fullName: getFullName(member),
-                }));
-
-                setMembers(dataWithFullNames);
+                setMembers(data);
             }
         };
 
