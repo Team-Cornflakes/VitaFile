@@ -1,20 +1,43 @@
 header {
-    position: fixed;
+    position: fixed; /* or 'relative', depending on your layout needs */
     top: 0;
-    left: 20%;
-    height: 10%;
+    left: 20%; /* Adjust if necessary to align with your layout */
     right: 0;
+    height: 10%; /* Adjust if necessary */
     display: flex;
     align-items: center;
     padding: 10px;
     background-color: #ffffff;
+    z-index: 1050; /* This should be higher than the content z-index but won't affect positioning */
+    /* ... other styles ... */
 }
 
+/* Ensure the search-container has a relative position for the absolute positioning of the dropdown */
 .search-container {
+    position: relative; /* This is crucial for the dropdown positioning */
     display: flex;
     align-items: center;
     width: 55%;
+    /* ... other styles ... */
 }
+
+/* This will make the dropdown appear on top of other elements */
+.search-dropdown {
+    position: absolute;
+    top: 100%; /* Positioned just below the search input */
+    left: 0;
+    width: 100%; /* Match the width of the search input */
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1051; /* Ensuring it's above the header */
+    overflow-y: auto;
+    max-height: 300px; /* Adjust as needed */
+    /* ... other styles ... */
+}
+
+
 
 .person-name-container {
     display: flex;
@@ -92,17 +115,18 @@ header {
 /* Styles for the search dropdown */
 .search-dropdown {
     position: absolute;
-    top: 100%; /* Positioned just below the search input */
+    top: 100%; // Positioned just below the search input
     left: 0;
-    width: 100%; /* Match the width of the search input container */
+    width: 100%; // Match the width of the search input container
     background-color: #ffffff;
     border: 1px solid #ddd;
     border-radius: 4px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    max-height: 200px;
-    overflow-y: auto;
-    z-index: 100;
+    overflow-y: auto; // Allows scrolling if items exceed the container's height
+    max-height: 300px; // Adjust as per your need
+    z-index: 10000; // Increase z-index to ensure it's on top
 }
+
 
 .dropdown-item {
     padding: 10px;
@@ -112,6 +136,7 @@ header {
 .dropdown-item:hover {
     background-color: #f2f2f2;
 }
+
 /* ... existing styles ... */
 
 .search-container {

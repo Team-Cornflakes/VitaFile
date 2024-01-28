@@ -22,7 +22,7 @@
     left: 40%; /* Starts at the end of the login container */
     width: calc(60% - 20px); /* Subtract the added space from the width */
     height: calc(100% - 20px); /* Subtract the added space from the height */
-    background-image: url('../src/assets/Logo2.png'); /* Make sure this URL is correct */
+    background-image: url('../src/assets/ehr.avif'); /* Make sure this URL is correct */
     background-size: cover; /* Changed to cover to crop the image */
     background-repeat: no-repeat;
     background-position: center;
