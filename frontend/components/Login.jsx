@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './Login.css';
 import logo from '../src/assets/Logo1.png';
 import logo1 from '../src/assets/google.png';
-import logo2 from '../src/assets/logo2.png'; // Import the background image
+import logo2 from '../src/assets/Logo2.png'; // Import the background image
 
 const Login = () => {
     const navigate = useNavigate();
