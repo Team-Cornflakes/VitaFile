@@ -13,13 +13,19 @@ const MainPage = () => {
     // Function to handle when text is copied or selected
     const handleTextSelectOrCopy = (text) => {
         setChatInput(text); // Set the chat input
-        handleSendMessage(text); // Send the message directly
+        handleSendMessage({ sender: 'user', text }); // Send the message directly
     };
 
     // Function to handle sending messages
-    const handleSendMessage = (text) => {
-        if (text.trim()) {
-            setMessages([...messages, { text: text, sender: 'user' }]); // Add the new message to the messages array
+    // Function to handle sending messages
+    const handleSendMessage = (message) => {
+        if (typeof message.text !== 'string') {
+            console.error('Message text must be a string:', message.text);
+            return;
+        }
+
+        if (message.text.trim()) {
+            setMessages([...messages, message]); // Add the new message to the messages array
             setChatInput(''); // Clear the chat input field
         }
     };

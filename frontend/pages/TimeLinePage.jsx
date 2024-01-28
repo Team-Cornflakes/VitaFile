@@ -7,12 +7,10 @@ import './TimeLinePage.css';
 
 export default function MyComponent() {
     return (
-        <div className="container">
-             <Header/>
-            <div className="Parent1">
-                <UploadCard />
-                <Sidebar /> 
-            </div>
-        </div>
+        <>
+            <Header/>
+            <UploadCard />
+            <Sidebar /> 
+        </>
     );
 }
