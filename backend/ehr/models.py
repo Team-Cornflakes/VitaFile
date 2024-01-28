@@ -9,5 +9,6 @@ class EHR(models.Model):
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=100)
     data = models.TextField()
+    summary = models.TextField(default='')
     created_at = models.DateTimeField(auto_now_add=True)
     image_url = models.ImageField(upload_to=upload_to, blank=True, null=True)
