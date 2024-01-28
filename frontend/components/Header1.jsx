@@ -18,7 +18,7 @@ const Header = ({ toggleSidebar }) => {
 
   const Handleexitnavigation = () => {
     
-    navigate('/timeline');
+    navigate('/family');
   };
   
 

@@ -26,9 +26,7 @@ const RightComponent = ({ chatInput, updateChatInput, messages, handleSendMessag
     return (
         <div className="right-container">
             <div className="button-container">
-                <button className="top-bar-button" onClick={handleChatbotClick}>
-                    Chatbot
-                </button>
+                
                 <button className="top-bar-button" onClick={handleActualPDFClick}>
                     Actual Report
                 </button>
@@ -37,19 +35,10 @@ const RightComponent = ({ chatInput, updateChatInput, messages, handleSendMessag
                 </button>
             </div>
 
-            {activeComponent === 'chatbot' && (
-                <ChatbotInterface 
-                    chatInput={chatInput} 
-                    updateChatInput={updateChatInput} 
-                    messages={messages} 
-                    handleSendMessage={handleSendMessage} 
-                />
-            )}
+            
             {activeComponent === 'summarizer' && <Summarizer />}
             {activeComponent === 'pdf' && (
-                <div className="image-container">
-                    <img src={imageUrl} alt="PDF" className="pdf-image" />
-                </div>
+                    <img src={imageUrl} alt="PDF" />
             )}
         </div>
     );
