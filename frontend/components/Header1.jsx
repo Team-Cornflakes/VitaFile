@@ -17,8 +17,8 @@ const Header = ({ toggleSidebar }) => {
   const navigate = useNavigate();
 
   const Handleexitnavigation = () => {
-    localStorage.removeItem('token');  
-    navigate('/');
+    
+    navigate('/timeline');
   };
   
 
