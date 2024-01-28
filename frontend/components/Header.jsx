@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Header.css'; // Importing the CSS file
-import searchIcon from '../src/assets/search.png'; 
-import messageIcon from '../src/assets/1.png'; 
-import alertIcon from '../src/assets/2.png'; 
-import exitIcon from '../src/assets/3.png'; 
+import searchIcon from '../src/assets/search.png';
+import messageIcon from '../src/assets/1.png';
+import alertIcon from '../src/assets/2.png';
+import exitIcon from '../src/assets/3.png';
 
 const Header = ({ toggleSidebar }) => {
   const [personName, setPersonName] = useState('');
   const [searchInput, setSearchInput] = useState('');
   const [showDropdown, setShowDropdown] = useState(false);
-
   const navigate = useNavigate();
 
   // Hardcoded suggestions
@@ -20,13 +19,21 @@ const Header = ({ toggleSidebar }) => {
     'Logout Procedure',
     'Help and Support',
     'User Management',
+    'Profile Set',
+    'Dashboard aaja',
+    'Dashboard Over',
+    'Logout Proc',
+    'Help and Supp',
+    'User Managet',
+    'Dashboard aaj'
     // ... more suggestions
   ];
 
   const handleSearchChange = (e) => {
+    console.log("Search input changed:", e.target.value); // Debugging log
     setSearchInput(e.target.value);
     setShowDropdown(e.target.value !== '');
-  };
+};
 
   const handleSearch = () => {
     console.log("Search initiated");

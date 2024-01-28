@@ -112,3 +112,55 @@ header {
 .dropdown-item:hover {
     background-color: #f2f2f2;
 }
+/* ... existing styles ... */
+
+.search-container {
+    position: relative; /* Added for dropdown positioning */
+    display: flex;
+    align-items: center;
+    width: 55%;
+    /* ... other styles ... */
+}
+
+
+/* ... other styles ... */
+
+/* Existing styles for header, search-container, etc. */
+
+/* ... other styles ... */
+
+.search-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    overflow-y: auto; /* Allows scrolling if items exceed the container's height */
+    max-height: none; /* Remove any max-height if present */
+}
+
+.dropdown-item {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+    background-color: #fff;
+    color: #000; /* Ensure text is visible */
+}
+
+.dropdown-item:hover {
+    background-color: #f2f2f2;
+}
+
+/* ... other styles ... */
+/* ... existing styles ... */
+
+.search-dropdown {
+    /* ... existing styles ... */
+    max-height: none; /* Ensure this is set to none or a value high enough to show all items */
+    overflow-y: visible; /* Set to visible to ensure all items are shown */
+  }
+  
