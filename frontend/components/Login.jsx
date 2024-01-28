@@ -4,6 +4,7 @@ import './Login.css';
 import logo from '../src/assets/Logo1.png'; 
 import logo1 from '../src/assets/google.png'; 
 import ehr from '../src/assets/ehr.avif';
+
 const Login = () => {
     const navigate = useNavigate();
 
@@ -33,7 +34,7 @@ const Login = () => {
     };
 
     const handleLoginNavigation = () => {
-        navigate('/signup'); // Navigate to the login page
+        navigate('/signup'); // Navigate to the signup page
     };
 
     return (
@@ -41,10 +42,11 @@ const Login = () => {
             <div className="left-container">
                 <div className="login-container">
                     <div className="login-card">
-                        <div className="logo-container">
-                            <img src={logo} className="logo" alt="Logo" />
-                            <span className="logo-text"><h1>VitaFile</h1></span>
-                        </div>
+                    <div className="logo-container">
+                        <img src={logo} className="logo" alt="Logo" />
+                        <span className="logo-text"><h1>VitaFile</h1></span>
+                    </div>
+
                         <h2>Login to your account</h2>
                         <br />
                         <form className="login-form" onSubmit={handleLogin}>
@@ -65,14 +67,14 @@ const Login = () => {
                                         Login with Google
                                     </button>
                                 </div>
-                                <p>Already have an account? <span onClick={handleLoginNavigation} className="signup-link">Signup</span></p>
+                                <p>Don't have an account? <span onClick={handleLoginNavigation} className="signup-link">Signup</span></p>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
             <div className="right-container">
-                <div className="image-container">
+                <div className="image-container" style={{ backgroundImage: `url(${ehr})` }}>
                     {/* Image container content */}
                 </div>
             </div>
