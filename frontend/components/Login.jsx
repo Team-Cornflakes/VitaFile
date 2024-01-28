@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './Login.css';
 import logo from '../src/assets/Logo1.png'; 
 import logo1 from '../src/assets/google.png'; 
-
+import ehr from '../src/assets/ehr.avif';
 const Login = () => {
     const navigate = useNavigate();
 
