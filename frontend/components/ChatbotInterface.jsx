@@ -3,7 +3,15 @@ import './ChatbotInterface.css';
 
 const ChatbotInterface = ({ chatInput, updateChatInput, messages, handleSendMessage }) => {
   const [isLoading, setIsLoading] = useState(false);
+  const API_KEY = import.meta.env.VITE_OPENAI_API_KEY;
+  const [message, setMessages] = useState([
+    {
+      role: "system",
+      content: "You are now a medical expert"
+    }
+  ]);
 
+  
   
 
   const handleKeyPress = async (e) => {
@@ -12,16 +20,18 @@ const ChatbotInterface = ({ chatInput, updateChatInput, messages, handleSendMess
       setIsLoading(true);
       // Add user's input to messages
       handleSendMessage({ sender: 'user', text: chatInput });
-      const response = await fetch('https://api.openai.com/v1/engines/gpt-3.5-turbo/completions', {
+      const response = await fetch('https://api.openai.com/v1/chat/completions', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${import.meta.env.VITE_OPENAI_API_KEY}`
+          'Authorization': `Bearer ${API_KEY}`
         },
         body: JSON.stringify({
+          model: "gpt-3.5-turbo",
           messages: [
             { "role": "user", "content": chatInput }
-          ]
+          ],
+          temperature: 0.7,
         })
       });
       const data = await response.json();
