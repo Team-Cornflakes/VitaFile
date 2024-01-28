@@ -50,7 +50,10 @@ const TimelineCard = () => {
             <div key={index}>
                 <div className="wrappercontainer">
                     <div className="timlinebar"></div>
-                    <div className='TimelineCard'>
+                    <div 
+                        className='TimelineCard' 
+                        onClick={() => localStorage.setItem('ehr_id', item.id)}  // Add this line
+                        >
                         <p className='TimelinePTag'>Title: {item.name}</p>
                         <p className='TimelinePTag'>Description: {item.description}</p>
                         <p className='TimelinePTag'>Created at: {item.created_at}</p>

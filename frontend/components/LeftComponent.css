@@ -1,47 +1,30 @@
 .left-container {
-    padding-top: 60px; /* Adjust based on your header height */
-    width: 50%; /* Adjust the width as needed */
-    max-height: 90vh; /* Maximum height before scrolling */
-    margin: auto; /* Center the container */
-    overflow-y: auto; /* Add vertical scroll if content exceeds height */
-    box-sizing: border-box; /* Include padding and border in the height calculation */
-  }
-/* LeftComponent.css */
-
-.left-container {
-  padding-left: 20px; /* Adjust the value as needed */
-  /* Other styles... */
+  padding-top: 60px;
+  width: 50%;
+  max-height: 90vh;
+  margin: auto;
+  overflow-y: auto;
+  box-sizing: border-box;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding-left: 20px;
+  margin-top: 110px;
+  margin-left: 20px;
+  margin-right: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-  /* Additional styles for the Markdown content */
-  .markdown-content {
-    padding: 20px; /* Padding around the content for spacing */
-    border: 1px solid #e0e0e0; /* Optional border for clarity */
-    border-radius: 10px; /* Rounded corners */
-    background-color: #f8f9fa; /* Light background color for the content */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Soft box shadow */
-  }
-  .left-container-heading {
-    margin-top: 0;
-    padding: 10px 0; /* Adjust the padding as needed */
-    text-align: center; /* Center the heading */
-    font-size: 40px; /* Adjust the font size as needed */
-    color: #333; /* Adjust the color as needed */
-    /* Add other styles as needed */
-  }
-  /* LeftComponent.css */
-  .left-container {
-    /* Your existing styles... */
-    margin-top: 110px; /* Adjust the value as needed */
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); /* Your shadow style */
-    /* Add other styles as needed */
-}
-.left-container {
-  /* Your existing styles... */
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); /* Example shadow */
-  /* Add other styles as needed */
+.markdown-content {
+  padding: 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  background-color: #f8f9fa;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 }
 
 .left-container-heading {
-  /* Your existing styles... */
+  margin-top: 0;
+  padding: 10px 0;
+  text-align: center;
+  font-size: 40px;
+  color: #333;
 }

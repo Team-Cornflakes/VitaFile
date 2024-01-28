@@ -18,8 +18,8 @@ const LeftComponent = ({ onTextSelect }) => {
       });
 
       if (response.ok) {
-        const data = await response.json();
-        setData(data);
+        const responseData = await response.json(); // Use .json() if the data is a JSON object
+        setData(responseData.data); // Set the 'data' field of the responseData to the state
       } else {
         console.error('Failed to fetch data');
       }
