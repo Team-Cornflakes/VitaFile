@@ -23,7 +23,7 @@ const FamilyMemberList = () => {
         const username = newMember.name;
         const password = newMember.password;
         const token = localStorage.getItem('token');
-
+    
         fetch('http://localhost:8000/create_family/', {
             method: 'POST',
             headers: {
@@ -33,33 +33,39 @@ const FamilyMemberList = () => {
             body: JSON.stringify({ username, password }),
         })
         .then(response => response.json())
-        .then(data => console.log(data))
+        .then(data => {
+            console.log(data);
+            if (data.success) { // Check if the member was added successfully
+                fetchMembers(); // Fetch the updated list of members
+            }
+        })
         .catch((error) => {
             console.error('Error:', error);
         });
-
+    
         setModalIsOpen(false);
     }
-
+    
+    const fetchMembers = async () => {
+        const token = localStorage.getItem('token');
+    
+        const response = await fetch('http://localhost:8000/get_family/', {
+            headers: {
+                'Authorization': `Bearer ${token}`,
+            },
+        });
+    
+        const data = await response.json();
+    
+        if (response.ok) {
+            setMembers(data);
+        }
+    }
+    
     useEffect(() => {
-        const fetchMembers = async () => {
-            const token = localStorage.getItem('token');
-
-            const response = await fetch('http://localhost:8000/get_family/', {
-                headers: {
-                    'Authorization': `Bearer ${token}`,
-                },
-            });
-
-            const data = await response.json();
-
-            if (response.ok) {
-                setMembers(data);
-            }
-        };
-
         fetchMembers();
     }, []);
+    
 
     const handleNavigation = (name) => {
         navigate('/Timeline');
