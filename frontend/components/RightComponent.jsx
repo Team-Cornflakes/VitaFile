@@ -14,7 +14,7 @@ const RightComponent = ({ chatInput, updateChatInput, messages, handleSendMessag
     const handleActualPDFClick = () => {
         setActiveComponent('pdf');
         const imageUrl = localStorage.getItem('image_url'); // Fetch the image URL from local storage
-        const staticPath = '/static/'; // Replace with your actual static file path
+        const staticPath = 'http://localhost:8000/static'; // Replace with your actual static file path
         setImageUrl(staticPath + imageUrl); // Prepend the static path to the image URL and set it to the state
     };
 
