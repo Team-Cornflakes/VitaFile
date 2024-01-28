@@ -6,7 +6,7 @@ const Summarizer = () => {
 
     useEffect(() => {
         const ehrID = localStorage.getItem('ehr_id'); // Get the ehrID from local storage
-        fetch(`http://localhost:8000/ehr/get/?id=${ehrID}`) 
+        fetch(`http://localhost:8000/ehr/get/?ehr_id=${ehrID}`) 
             .then(response => response.json()) 
             .then(data => setSummary(data.summary)) 
             .catch(error => console.error(error)); 

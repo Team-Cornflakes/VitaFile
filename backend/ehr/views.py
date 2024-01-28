@@ -7,7 +7,7 @@ from .serializers import EHRSerializer
 from haystack.query import SearchQuerySet
 from rest_framework.parsers import MultiPartParser, FormParser
 from .ocr import ocr_from_image
-from .unisummarization import summary_text
+from .summarization2 import generatecontent
 
 User = get_user_model()
 
@@ -22,7 +22,7 @@ class UserEHRCreateView(APIView):
         # Extract text from the image
         data = ocr_from_image(file.read())
         # Summarize the text
-        summary = summary_text(data)  # Call the summarize_text function with the data
+        summary = generatecontent(data)  # Call the summarize_text function with the data
 
         # Create the EHR
         ehr = EHR(userid=request.user, data=data, summary=summary, image_url=file, name=name, description=description, created_at=created_at)
