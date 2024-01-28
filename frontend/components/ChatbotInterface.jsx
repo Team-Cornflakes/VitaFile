@@ -12,15 +12,16 @@ const ChatbotInterface = ({ chatInput, updateChatInput, messages, handleSendMess
       setIsLoading(true);
       // Add user's input to messages
       handleSendMessage({ sender: 'user', text: chatInput });
-      const response = await fetch('https://api.openai.com/v1/engines/davinci-codex/completions', {
+      const response = await fetch('https://api.openai.com/v1/engines/gpt-3.5-turbo/completions', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${import.meta.env.VITE_OPENAI_API_KEY}`
         },
         body: JSON.stringify({
-          prompt: chatInput,
-          max_tokens: 60
+          messages: [
+            { "role": "user", "content": chatInput }
+          ]
         })
       });
       const data = await response.json();
@@ -33,7 +34,7 @@ const ChatbotInterface = ({ chatInput, updateChatInput, messages, handleSendMess
         return;
       }
       
-      handleSendMessage({ sender: 'ai', text: data.choices[0].text });
+      handleSendMessage({ sender: 'user', text: chatInput });
       // Clear chat input
       updateChatInput('');
       setIsLoading(false);
