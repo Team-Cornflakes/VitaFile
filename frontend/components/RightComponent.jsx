@@ -1,20 +1,21 @@
-// RightComponent.jsx
-
 import React, { useState } from 'react';
 import ChatbotInterface from './ChatbotInterface'; // Adjust the import path as necessary
 import Summarizer from './Summarizer'; // Import the Summarizer component
 import './RightComponent.css'; // Make sure this path is correct
 
 const RightComponent = ({ chatInput, updateChatInput, messages, handleSendMessage }) => {
-    const [activeComponent, setActiveComponent] = useState('');
+  const [activeComponent, setActiveComponent] = useState('');
+  const [imageUrl, setImageUrl] = useState(''); // New state variable for the image URL
 
-    const handleChatbotClick = () => {
-        setActiveComponent('chatbot');
-    };
+  const handleChatbotClick = () => {
+    setActiveComponent('chatbot');
+  };
 
     const handleActualPDFClick = () => {
         setActiveComponent('pdf');
-        // Additional logic for Actual PDF
+        const imageUrl = localStorage.getItem('image_url'); // Fetch the image URL from local storage
+        const staticPath = '/static/'; // Replace with your actual static file path
+        setImageUrl(staticPath + imageUrl); // Prepend the static path to the image URL and set it to the state
     };
 
     const handleSummarizerClick = () => {
@@ -45,7 +46,7 @@ const RightComponent = ({ chatInput, updateChatInput, messages, handleSendMessag
                 />
             )}
             {activeComponent === 'summarizer' && <Summarizer />}
-            {activeComponent === 'pdf' && <div>Actual PDF Component Goes Here</div>}
+            {activeComponent === 'pdf' && <img src={imageUrl} alt="PDF" />}
         </div>
     );
 };

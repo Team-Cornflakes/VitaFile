@@ -20,6 +20,7 @@ const LeftComponent = ({ onTextSelect }) => {
       if (response.ok) {
         const responseData = await response.json(); // Use .json() if the data is a JSON object
         setData(responseData.data); // Set the 'data' field of the responseData to the state
+        localStorage.setItem('image_url', responseData.image_url); // Store the image_url in local storage
       } else {
         console.error('Failed to fetch data');
       }
