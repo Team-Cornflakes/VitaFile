@@ -51,9 +51,9 @@ const TimelineCard = () => {
                 <div className="wrappercontainer">
                     <div className="timlinebar"></div>
                     <div className='TimelineCard'>
-                        <p>Title: {item.name}</p>
-                        <p>Description: {item.description}</p>
-                        <p>Created at: {item.created_at}</p>
+                        <p className='TimelinePTag'>Title: {item.name}</p>
+                        <p className='TimelinePTag'>Description: {item.description}</p>
+                        <p className='TimelinePTag'>Created at: {item.created_at}</p>
                     </div>          
                 </div>
             </div>
