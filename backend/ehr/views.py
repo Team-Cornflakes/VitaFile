@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
@@ -8,18 +7,12 @@ from .serializers import EHRSerializer
 from haystack.query import SearchQuerySet
 from rest_framework.parsers import MultiPartParser, FormParser
 from .ocr import ocr_from_image
-from rest_framework.viewsets import ModelViewSet
-from rest_framework import permissions
 from .unisummarization import summary_text
 
 User = get_user_model()
 
 class UserEHRCreateView(APIView):
     parser_classes = [MultiPartParser, FormParser]
-
-    def get(self, request, format=None):
-        # Handle GET request
-        pass
 
     def post(self, request, format=None):
         file = request.FILES['file']  # get the uploaded image
