@@ -49,7 +49,7 @@ const TimelineCard = () => {
             {data.map((item, index) => (
             <div key={index}>
                 <div className="wrappercontainer">
-                    <div className="timlinebar"></div>
+                    {/* <div className="timlinebar"></div> */}
                     <div 
                         className='TimelineCard' 
                         onClick={() => localStorage.setItem('ehr_id', item.id)}  // Add this line
