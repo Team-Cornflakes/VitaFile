@@ -54,9 +54,8 @@ h1 {
     display: flex;
     justify-content: center; /* Center align the items horizontally */
     align-items: center; /* Vertically align the logo and the text in the middle */
-    gap: 0px; /* Adjust this value to control the gap between the logo and the text, reduce if needed */
+    gap: 10px; /* Adjust this value to control the gap between the logo and the text */
 }
-
 
 .logo {
     width: 30px; /* Further reduce the size of the logo */
