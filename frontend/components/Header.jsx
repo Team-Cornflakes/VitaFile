@@ -86,7 +86,23 @@ const Header = ({ toggleSidebar }) => {
 
   useEffect(() => {
     const fetchName = async () => {
-      // Fetch logic here
+      const token = localStorage.getItem('token');  
+
+      const response = await fetch('http://localhost:8000/getuser/', {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (response.ok) {
+        let name = await response.text();
+        name = name.replace(/"/g, ''); // Remove quotes
+        setPersonName(name);
+        localStorage.setItem('username', name); // Store name in local storage
+      } else {
+        console.error('Error:', response.status);
+      }
     };
 
     fetchName();
