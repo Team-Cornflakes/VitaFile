@@ -8,12 +8,30 @@ import exitIcon from '../src/assets/3.png';
 
 const Header = ({ toggleSidebar }) => {
   const [personName, setPersonName] = useState('');
-  const handleSearch = () => {
-    // Logic to handle search functionality
-    console.log("Search initiated");
-  };
+  const [searchInput, setSearchInput] = useState('');
+  const [showDropdown, setShowDropdown] = useState(false);
 
   const navigate = useNavigate();
+
+  // Hardcoded suggestions
+  const suggestions = [
+    'Profile Settings',
+    'Dashboard Overview',
+    'Logout Procedure',
+    'Help and Support',
+    'User Management',
+    // ... more suggestions
+  ];
+
+  const handleSearchChange = (e) => {
+    setSearchInput(e.target.value);
+    setShowDropdown(e.target.value !== '');
+  };
+
+  const handleSearch = () => {
+    console.log("Search initiated");
+    // Add search logic here
+  };
 
   const Handleexitnavigation = () => {
     localStorage.clear();  
@@ -35,7 +53,6 @@ const Header = ({ toggleSidebar }) => {
         let name = await response.text();
         name = name.replace(/"/g, ''); // Remove quotes
         setPersonName(name);
-        localStorage.setItem('username', name); // Store name in local storage
       } else {
         console.error('Error:', response.status);
       }
@@ -44,25 +61,37 @@ const Header = ({ toggleSidebar }) => {
     fetchName();
   }, []);
 
-  
-  // Function to format the current date
   const formatDate = () => {
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
     return new Date().toLocaleDateString('en-US', options);
   };
 
-  // Remove the duplicate declaration of personName
-  // const personName = "John Doe"; // Replace with dynamic data if needed
-
   return (
     <header>
       <div className="search-container">
-        <input type="text" placeholder="Search..." className="search-input" />
+        <input
+          type="text"
+          placeholder="Search..."
+          className="search-input"
+          value={searchInput}
+          onChange={handleSearchChange}
+        />
         <button onClick={handleSearch} className="search-button">
           <img src={searchIcon} alt="Search" className="search-icon" />
         </button>
+        {showDropdown && (
+          <div className="search-dropdown">
+            {suggestions.filter(suggestion =>
+              suggestion.toLowerCase().includes(searchInput.toLowerCase())
+            ).map((suggestion, index) => (
+              <div key={index} className="dropdown-item">
+                {suggestion}
+              </div>
+            ))}
+          </div>
+        )}
       </div>
-      <div className="person-name-container"> {/* New div for person's name */}
+      <div className="person-name-container">
         <span className="person-name">{personName}</span>
       </div>
       <div className="header-right">

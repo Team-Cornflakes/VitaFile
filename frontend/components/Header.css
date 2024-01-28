@@ -13,36 +13,33 @@ header {
 .search-container {
     display: flex;
     align-items: center;
-    width: 55%; /* Adjusted width */
+    width: 55%;
 }
+
 .person-name-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 15%; /* New container for person's name */
-    margin: 0 10px; /* Add margin if needed */
+    width: 15%;
+    margin: 0 10px;
 }
+
 .person-name {
     font-size: 16px;
     color: #333;
-    /* You can add more styles if needed */
 }
 
 .search-input {
     margin-left: 2%;
-    flex-grow: 1; 
+    flex-grow: 1;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 20px;
     outline: none;
     background-color: #ffffff;
     color: #333;
-    width: 100%; 
+    width: 100%;
 }
-
-/* ... rest of your CSS ... */
-
-
 
 .search-icon {
     width: 30px;
@@ -83,12 +80,35 @@ header {
     align-items: center;
     justify-content: center;
     margin-left: 10px;
-    padding: 5px 10px; 
-    font-size: 14px; 
+    padding: 5px 10px;
+    font-size: 14px;
 }
-
 
 .icon-button img {
     width: 20px;
     height: auto;
+}
+
+/* Styles for the search dropdown */
+.search-dropdown {
+    position: absolute;
+    top: 100%; /* Positioned just below the search input */
+    left: 0;
+    width: 100%; /* Match the width of the search input container */
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 100;
+}
+
+.dropdown-item {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.dropdown-item:hover {
+    background-color: #f2f2f2;
 }
