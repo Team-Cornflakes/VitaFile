@@ -8,7 +8,6 @@
     overflow: hidden;
     box-sizing: border-box;
     background-color:white;
-    
 }
 
 
@@ -39,7 +38,6 @@
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
     max-height: 500px;
     overflow-y: auto;
-    /* No z-index property here */
 }
 
 .Parentdiv2 {
@@ -213,16 +211,10 @@
     font-size: 25px;
     font-family:'Playfair Display' ;
     font-weight: bold;
-
 }
-
-
-
-
 div {
     border-radius: 7px;
 }
-
 .uploadcardboxdiv {
     display: flex;
     justify-content: center;
@@ -231,4 +223,3 @@ div {
     padding-right: 50px;
     position: static;
 }
-
