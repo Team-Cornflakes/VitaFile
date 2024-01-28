@@ -1,29 +1,43 @@
 .wrappercontainer{
     background-color: #98afc7;
     display: flex;
-    
+    position: relative;
+    border-radius: 0;
+    border: none; /* Add this line */
 }
 
-.timlinebar{
-    background-color:beige;
-    width: 15%;
-    margin-top: 10px;
-
-
+.wrappercontainer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 5px;
+    background: navy;
 }
-
 .TimelineCard{
-    position:absolute;
+    position:relative;
     background-color: lightgrey;
-    width: 75%;
+    width: 90%;
     left:5%;
     margin-top: 10px;
     margin-left: 10px;
     margin-right:20px;
-
+    z-index: 1;
+    
 }
+
+.TimelineCard::before {
+    content: '';
+    position: absolute;
+    left: -50px;
+    top: 50%; /* Adjust this value to center the line vertically */
+    width: 50px;
+    height: 5px;
+    background: navy;
+}
+
 
 .TimelinePTag{
     padding-left: 20px;
-
 }
