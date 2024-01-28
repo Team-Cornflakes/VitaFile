@@ -115,16 +115,16 @@ header {
 /* Styles for the search dropdown */
 .search-dropdown {
     position: absolute;
-    top: 100%; // Positioned just below the search input
+    top: 100%; 
     left: 0;
-    width: 100%; // Match the width of the search input container
+    width: 100%; 
     background-color: #ffffff;
     border: 1px solid #ddd;
     border-radius: 4px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    overflow-y: auto; // Allows scrolling if items exceed the container's height
-    max-height: 300px; // Adjust as per your need
-    z-index: 10000; // Increase z-index to ensure it's on top
+    overflow-y: auto; 
+    max-height: 300px; 
+    z-index: 10000; 
 }
 
 
