@@ -47,16 +47,19 @@ const TimelineCard = () => {
         <div className='maindiv' onClick={handleNavigation}>
                
             {data.map((item, index) => (
-            <div key={index}>
-                <div className="wrappercontainer">
-                    <div className="timlinebar"></div>
-                    <div className='TimelineCard'>
-                        <p>Title: {item.name}</p>
-                        <p>Description: {item.description}</p>
-                        <p>Created at: {item.created_at}</p>
-                    </div>          
+                <div key={index}>
+                    <div className="wrappercontainer">
+                        <div className="timlinebar"></div>
+                        <div 
+                            className='TimelineCard' 
+                            onClick={() => localStorage.setItem('ehr_id', item.id)}  // Add this line
+                        >
+                            <p>Title: {item.name}</p>
+                            <p>Description: {item.description}</p>
+                            <p>Created at: {item.created_at}</p>
+                        </div>          
+                    </div>
                 </div>
-            </div>
             ))}
         </div>
     );
