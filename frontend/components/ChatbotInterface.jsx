@@ -1,20 +1,49 @@
-// ChatbotInterface.jsx
-
-import React from 'react';
-import './ChatbotInterface.css'; // Make sure to add appropriate CSS
+import React, { useState } from 'react';
+import './ChatbotInterface.css';
 
 const ChatbotInterface = ({ chatInput, updateChatInput, messages, handleSendMessage }) => {
+  const [isLoading, setIsLoading] = useState(false);
+
   
-  const handleKeyPress = (e) => {
+
+  const handleKeyPress = async (e) => {
     if (e.key === 'Enter' && !e.shiftKey) {
-      e.preventDefault(); // Prevents the default action of the Enter key
-      handleSendMessage(chatInput); // Use the handleSendMessage function passed from the parent
+      e.preventDefault();
+      setIsLoading(true);
+      // Add user's input to messages
+      handleSendMessage({ sender: 'user', text: chatInput });
+      const response = await fetch('https://api.openai.com/v1/engines/gpt-3.5-turbo/completions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${import.meta.env.VITE_OPENAI_API_KEY}`
+        },
+        body: JSON.stringify({
+          messages: [
+            { "role": "user", "content": chatInput }
+          ]
+        })
+      });
+      const data = await response.json();
+
+      console.log(data); // Log the response data
+
+      if (!data.choices || data.choices.length === 0) {
+        console.error('No choices returned from API:', data);
+        setIsLoading(false);
+        return;
+      }
+      
+      handleSendMessage({ sender: 'user', text: chatInput });
+      // Clear chat input
+      updateChatInput('');
+      setIsLoading(false);
     }
   };
 
   return (
     <div className="chatbot-interface">
-      <div className="chat-header">Papaji</div>
+      <div className="chat-header">VitaFile Chatbot</div>
       <div className="chat-messages">
         {messages.map((message, index) => (
           <div key={index} className={`message ${message.sender}`}>
@@ -30,7 +59,7 @@ const ChatbotInterface = ({ chatInput, updateChatInput, messages, handleSendMess
           className="chat-input"
           onKeyPress={handleKeyPress}
         ></textarea>
-        <button onClick={() => handleSendMessage(chatInput)} className="send-button">
+        <button onClick={() => handleSendMessage({ sender: 'user', text: chatInput })} className="send-button" disabled={isLoading}>
           Send
         </button>
       </div>
