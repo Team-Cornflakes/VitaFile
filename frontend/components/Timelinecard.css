@@ -1,29 +1,27 @@
-.TimelineCard {
-    background-color: white;
-    width: 85%;
-    left: 15%;
-}
-
-.wrappercontainer {
+.wrappercontainer{
+    background-color: #98afc7;
     display: flex;
-    flex-direction: row;
-    height: 100%;
-    width: 100%;
+    
 }
 
-.timelinebar {
-    background-color: lightcoral;
-    width: 100%;
-    height: 100%;
-    left: 100%;
+.timlinebar{
+    background-color:beige;
+    width: 15%;
+    margin-top: 10px;
+
+
 }
 
-
-
-.maindiv{
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+.TimelineCard{
+    background-color: lightgrey;
     width: 100%;
-    background-color: lightblue;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right:20px;
+
+}
+
+.TimelinePTag{
+    padding-left: 20px;
+
 }
