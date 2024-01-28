@@ -14,60 +14,88 @@ const Header = ({ toggleSidebar }) => {
   const dropdownRef = useRef(null); // Ref for the dropdown to handle outside clicks
 
   // Hardcoded suggestions
-  const suggestions = [
-    'Profile Settings',
-    'Dashboard Overview',
-    'Logout Procedure',
-    'Help and Support',
-    'User Management',
-    'Anemia',
-    'Bradycardia',
-    'Cyanosis',
-    'Dyspnea',
-    'Edema',
-    'Fibrosis',
-    'Glaucoma',
-    'Hypertension',
-    'Ischemia',
-    'Jaundice',
-    'Ketoacidosis',
-    'Leukopenia',
-    'Myalgia',
-    'Nephropathy',
-    'Osteoporosis',
-    'Pneumonia',
-    'Quadriplegia',
-    'Rheumatoid Arthritis',
-    'Scoliosis',
-    'Tachycardia',
-    'Ulcerative Colitis',
-    'Vasculitis',
-    'Wheeze',
-    'Xerostomia',
-'    Yaws',
+//   const suggestions = [
+//     'Profile Settings',
+//     'Dashboard Overview',
+//     'Logout Procedure',
+//     'Help and Support',
+//     'User Management',
+//     'Anemia',
+//     'Bradycardia',
+//     'Cyanosis',
+//     'Dyspnea',
+//     'Edema',
+//     'Fibrosis',
+//     'Glaucoma',
+//     'Hypertension',
+//     'Ischemia',
+//     'Jaundice',
+//     'Ketoacidosis',
+//     'Leukopenia',
+//     'Myalgia',
+//     'Nephropathy',
+//     'Osteoporosis',
+//     'Pneumonia',
+//     'Quadriplegia',
+//     'Rheumatoid Arthritis',
+//     'Scoliosis',
+//     'Tachycardia',
+//     'Ulcerative Colitis',
+//     'Vasculitis',
+//     'Wheeze',
+//     'Xerostomia',
+// '    Yaws',
 
-    // ... more suggestions
-  ];
+//     // ... more suggestions
+//   ];
+
+  const [suggestions, setSuggestions] = useState([]);
+
 
   const handleSearchChange = (e) => {
     setSearchInput(e.target.value);
-    setShowDropdown(e.target.value !== '');
+    if(e.target.value === '') {
+      setShowDropdown(false);
+      setSuggestions([]);
+    } else {
+      setShowDropdown(true);
+    }
   };
 
   const handleSearch = () => {
-    // Add search logic here
+    const url = `http://localhost:8000/ehr/search/?q=${searchInput}`;
+    const accessToken = localStorage.getItem("token");
+
+    fetch(url, {
+      headers: {
+        'Authorization': `Bearer ${accessToken}`
+      }
+    })
+    .then(response => response.json())
+    .then(data => {
+      // Handle the data from the response here
+      setSuggestions(data);
+    })
+    .catch(error => {
+      // Handle the error here
+      console.error('Error:', error);
+    });
   };
 
   const selectSuggestion = (suggestion) => {
-    setSearchInput(suggestion);
-    setShowDropdown(false);
-    handleSearch();
+    localStorage.setItem('ehr_id', suggestion['id']);
+    navigate('/main');
   };
 
   const Handleexitnavigation = () => {
     localStorage.clear();
     navigate('/');
   };
+
+  useEffect(() => {
+    // Clear the suggestions list when the component is mounted
+    setSuggestions([]);
+  }, []);
 
   useEffect(() => {
     const handleOutsideClick = (event) => {
@@ -111,15 +139,13 @@ const Header = ({ toggleSidebar }) => {
         </button>
         {showDropdown && (
           <div className="search-dropdown">
-            {suggestions.filter(suggestion =>
-              suggestion.toLowerCase().includes(searchInput.toLowerCase())
-            ).map((suggestion, index) => (
+            {suggestions.map((suggestion, index) => (
               <div
                 key={index}
                 className="dropdown-item"
                 onClick={() => selectSuggestion(suggestion)}
               >
-                {suggestion}
+                {suggestion['name']}
               </div>
             ))}
           </div>

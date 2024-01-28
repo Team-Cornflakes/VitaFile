@@ -81,7 +81,14 @@ class SearchView(APIView):
             else:
                 serialized_results = []
 
-            return Response({'query': query, 'results': serialized_results}, status=status.HTTP_200_OK)
+            resp = []
+            for r in serialized_results:
+                resp.append({
+                    'name': r['name'],
+                    'id' : r['id'],
+                })
+
+            return Response(resp, status=status.HTTP_200_OK)
 
         else:
             if query:
@@ -90,4 +97,10 @@ class SearchView(APIView):
             else:
                 serialized_results = []
 
-            return Response({'query': query, 'results': serialized_results}, status=status.HTTP_200_OK)
+            resp = {}
+            for r in serialized_results:
+                resp.append({
+                    'name': r['name'],
+                    'id' : r['id'],
+                })
+            return Response(resp, status=status.HTTP_200_OK)
