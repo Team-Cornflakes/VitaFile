@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Header.css'; // Importing the CSS file
 import searchIcon from '../src/assets/search.png';
@@ -11,6 +11,7 @@ const Header = ({ toggleSidebar }) => {
   const [searchInput, setSearchInput] = useState('');
   const [showDropdown, setShowDropdown] = useState(false);
   const navigate = useNavigate();
+  const dropdownRef = useRef(null); // Ref for the dropdown to handle outside clicks
 
   // Hardcoded suggestions
   const suggestions = [
@@ -19,63 +20,85 @@ const Header = ({ toggleSidebar }) => {
     'Logout Procedure',
     'Help and Support',
     'User Management',
-    'Profile Set',
-    'Dashboard aaja',
-    'Dashboard Over',
-    'Logout Proc',
-    'Help and Supp',
-    'User Managet',
-    'Dashboard aaj'
+    'Anemia',
+    'Bradycardia',
+    'Cyanosis',
+    'Dyspnea',
+    'Edema',
+    'Fibrosis',
+    'Glaucoma',
+    'Hypertension',
+    'Ischemia',
+    'Jaundice',
+    'Ketoacidosis',
+    'Leukopenia',
+    'Myalgia',
+    'Nephropathy',
+    'Osteoporosis',
+    'Pneumonia',
+    'Quadriplegia',
+    'Rheumatoid Arthritis',
+    'Scoliosis',
+    'Tachycardia',
+    'Ulcerative Colitis',
+    'Vasculitis',
+    'Wheeze',
+    'Xerostomia',
+'    Yaws',
+
     // ... more suggestions
   ];
 
   const handleSearchChange = (e) => {
-    console.log("Search input changed:", e.target.value); // Debugging log
     setSearchInput(e.target.value);
     setShowDropdown(e.target.value !== '');
-};
+  };
 
   const handleSearch = () => {
-    console.log("Search initiated");
     // Add search logic here
   };
 
+  const selectSuggestion = (suggestion) => {
+    setSearchInput(suggestion);
+    setShowDropdown(false);
+    handleSearch();
+  };
+
   const Handleexitnavigation = () => {
-    localStorage.clear();  
+    localStorage.clear();
     navigate('/');
   };
 
   useEffect(() => {
-    const fetchName = async () => {
-      const token = localStorage.getItem('token');  
-
-      const response = await fetch('http://localhost:8000/getuser/', {
-        headers: {
-          'Authorization': `Bearer ${token}`,
-          'Content-Type': 'application/json',
-        },
-      });
-
-      if (response.ok) {
-        let name = await response.text();
-        name = name.replace(/"/g, ''); // Remove quotes
-        setPersonName(name);
-      } else {
-        console.error('Error:', response.status);
+    const handleOutsideClick = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setShowDropdown(false);
       }
+    };
+
+    // Bind the event listener
+    document.addEventListener('mousedown', handleOutsideClick);
+    return () => {
+      // Unbind the event listener on clean up
+      document.removeEventListener('mousedown', handleOutsideClick);
+    };
+  }, []);
+
+  useEffect(() => {
+    const fetchName = async () => {
+      // Fetch logic here
     };
 
     fetchName();
   }, []);
 
   const formatDate = () => {
-    const options = { year: 'numeric', month: 'long', day: 'numeric' };
-    return new Date().toLocaleDateString('en-US', options);
+    // Date format logic here
   };
 
   return (
     <header>
-      <div className="search-container">
+      <div className="search-container" ref={dropdownRef}>
         <input
           type="text"
           placeholder="Search..."
@@ -91,7 +114,11 @@ const Header = ({ toggleSidebar }) => {
             {suggestions.filter(suggestion =>
               suggestion.toLowerCase().includes(searchInput.toLowerCase())
             ).map((suggestion, index) => (
-              <div key={index} className="dropdown-item">
+              <div
+                key={index}
+                className="dropdown-item"
+                onClick={() => selectSuggestion(suggestion)}
+              >
                 {suggestion}
               </div>
             ))}
