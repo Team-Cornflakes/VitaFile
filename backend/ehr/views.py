@@ -61,6 +61,16 @@ class AnotherUserEHRView(APIView):
 
             return Response(user_ehr_list, status=status.HTTP_200_OK)
 
+class GetEHRView(APIView):
+    def get(self, request):
+        ehr_id = request.GET.get("ehr_id")
+        ehr = EHR.objects.filter(id=ehr_id).first()
+
+        if ehr is None:
+            return Response({"message": "EHR does not exist or invalide credentials provided"}, status=status.HTTP_400_BAD_REQUEST)
+        else:
+            return Response(EHRSerializer(ehr).data, status=status.HTTP_200_OK)
+
 class SearchView(APIView):
     def get(self, request, format=None):
         query = request.GET.get('q', '')
