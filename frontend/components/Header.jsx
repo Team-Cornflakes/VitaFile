@@ -10,6 +10,7 @@ const Header = ({ toggleSidebar }) => {
   const [personName, setPersonName] = useState('');
   const [searchInput, setSearchInput] = useState('');
   const [showDropdown, setShowDropdown] = useState(false);
+  const [showFloatingDiv, setShowFloatingDiv] = useState(false); // New state variable
   const navigate = useNavigate();
 
   // Hardcoded suggestions
@@ -33,7 +34,8 @@ const Header = ({ toggleSidebar }) => {
     console.log("Search input changed:", e.target.value); // Debugging log
     setSearchInput(e.target.value);
     setShowDropdown(e.target.value !== '');
-};
+    setShowFloatingDiv(e.target.value !== ''); // Show/hide floating div
+  };
 
   const handleSearch = () => {
     console.log("Search initiated");
@@ -113,6 +115,19 @@ const Header = ({ toggleSidebar }) => {
           <img src={exitIcon} alt="Exit" />
         </button>
       </div>
+      {showFloatingDiv && (
+        <div style={{
+          position: 'absolute',
+          backgroundColor: 'white', // White background
+          zIndex: 10000, // High z-index to appear above everything else
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center', // Center the text vertically and horizontally
+          color: 'black', // Text color
+          fontSize: '2em', // Text size
+        }}>
+        </div>
+      )}
     </header>
   );
 };
