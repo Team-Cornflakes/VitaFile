@@ -11,9 +11,7 @@ const ChatbotInterface = ({ chatInput, updateChatInput, messages, handleSendMess
     }
   ]);
 
-  
-  
-
+    
   const handleKeyPress = async (e) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
@@ -43,8 +41,9 @@ const ChatbotInterface = ({ chatInput, updateChatInput, messages, handleSendMess
         setIsLoading(false);
         return;
       }
-      
-      handleSendMessage({ sender: 'user', text: chatInput });
+      const botMessage = data.choices[0].message.content;
+
+      handleSendMessage({ sender: 'bot', text: botMessage });
       // Clear chat input
       updateChatInput('');
       setIsLoading(false);
