@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
+import './LeftComponent.css';
 
 const LeftComponent = ({ onTextSelect }) => {
   const [data, setData] = useState(null);
@@ -37,8 +38,8 @@ const LeftComponent = ({ onTextSelect }) => {
   };
 
   return (
-    <div className="left-container" onMouseUp={handleTextSelect}>
-      <h1 className="left-container-heading">EHR</h1> {/* Add a heading */}
+    <div className="left-container69" onMouseUp={handleTextSelect}>
+      <h1 className="left-container-heading69">EHR</h1> {/* Add a heading */}
       <ReactMarkdown children={data} rehypePlugins={[rehypeRaw]} />
     </div>
   );

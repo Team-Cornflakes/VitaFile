@@ -8,6 +8,7 @@ from haystack.query import SearchQuerySet
 from rest_framework.parsers import MultiPartParser, FormParser
 from .ocr import ocr_from_image
 from .summarization2 import generatecontent
+from .Translate import translate
 
 User = get_user_model()
 
@@ -23,7 +24,10 @@ class UserEHRCreateView(APIView):
         data = ocr_from_image(file.read())
         # Summarize the text
         summary = generatecontent(data)  # Call the summarize_text function with the data
-
+        translated_french = translate(data, 'fr')
+        translated_hindi = translate(data, 'hi')
+        translated_spanish = translate(data, 'es')
+        translated_mandarin = translate(data, 'zh-cn')
         # Create the EHR
         ehr = EHR(userid=request.user, data=data, summary=summary, image_url=file, name=name, description=description, created_at=created_at)
         ehr.save()
