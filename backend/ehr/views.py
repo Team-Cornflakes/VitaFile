@@ -9,6 +9,7 @@ from rest_framework.parsers import MultiPartParser, FormParser
 from .ocr import ocr_from_image
 from .summarization2 import generatecontent
 from .translate import translate_text
+from .googleSPT import process_audio, transcribe_audio
 
 User = get_user_model()
 

@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import './ChatbotInterface.css';
 import microphoneIcon from '../src/assets//mic-4.png';
 
+
+let isRecording = false;
+let recognition = null;
+
 const ChatbotInterface = ({ chatInput, updateChatInput, messages, handleSendMessage }) => {
   const [isLoading, setIsLoading] = useState(false);
   const API_KEY = import.meta.env.VITE_OPENAI_API_KEY;
@@ -51,8 +55,29 @@ const ChatbotInterface = ({ chatInput, updateChatInput, messages, handleSendMess
     }
   };
 
-  const handleMicrophoneClick = () => {
+  const handleMicrophoneClick = async () => {
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
+    if (!isRecording) {
+      recognition = new SpeechRecognition();
+      const microphoneButton = document.getElementById('microphone-button');
+      microphoneButton.style.backgroundColor = 'red';
+
+      recognition.onresult = async (event) => {
+        const audio = event.results[0][0].transcript;
+
+        handleSendMessage({ sender: 'user', text: audio }); 
+
+        microphoneButton.style.backgroundColor = 'lightskyblue';
+      };
+
+      recognition.start();
+      isRecording = true;
+    } else {
+      recognition.stop();
+      isRecording = false;
+      document.getElementById('microphone-button').style.backgroundColor = 'lightskyblue';
+    }
   };
 
   return (
@@ -66,7 +91,7 @@ const ChatbotInterface = ({ chatInput, updateChatInput, messages, handleSendMess
         ))}
       </div>
       <div className="chat-input-container">
-        <button onClick={handleMicrophoneClick} className="microphone-button" disabled={isLoading}>
+        <button id="microphone-button" onClick={handleMicrophoneClick} className="microphone-button" disabled={isLoading}>
           <img src={microphoneIcon} alt="Microphone" />
         </button>
         <textarea
