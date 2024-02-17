@@ -5,6 +5,7 @@ import './LeftComponent.css';
 
 const LeftComponent = ({ onTextSelect }) => {
   const [data, setData] = useState(null);
+  const [language, setLanguage] = useState('English'); // State to keep track of the selected language
 
   useEffect(() => {
     const fetchData = async () => {
@@ -19,27 +20,41 @@ const LeftComponent = ({ onTextSelect }) => {
       });
 
       if (response.ok) {
-        const responseData = await response.json(); // Use .json() if the data is a JSON object
-        setData(responseData.data); // Set the 'data' field of the responseData to the state
-        localStorage.setItem('image_url', responseData.image_url); // Store the image_url in local storage
+        const responseData = await response.json(); 
+        setData(responseData.data);
+        localStorage.setItem('image_url', responseData.image_url);
       } else {
         console.error('Failed to fetch data');
       }
     };
 
     fetchData();
-  }, []);
+  }, [language]); // Optionally, refetch or update the component based on the selected language
 
   const handleTextSelect = () => {
     const selectedText = window.getSelection().toString();
     if (selectedText) {
-      onTextSelect(selectedText); // Use onTextSelect to handle the selected text
+      onTextSelect(selectedText);
     }
   };
 
+  const handleLanguageChange = (event) => {
+    setLanguage(event.target.value);
+  };
+
   return (
-    <div className="left-container69" onMouseUp={handleTextSelect}>
-      <h1 className="left-container-heading69">EHR</h1> {/* Add a heading */}
+    <div className="left-container" onMouseUp={handleTextSelect}>
+      <h1 className="left-container-heading">EHR</h1>
+      {/* Language Selection Dropdown */}
+      <div className="language-selection-container">
+        <select onChange={handleLanguageChange} value={language} className="language-select">
+          <option value="English">English</option>
+          <option value="Spanish">Spanish</option>
+          <option value="French">French</option>
+          <option value="Hindi">Hindi</option>
+          <option value="Mandarin">Mandarin</option>
+        </select>
+      </div>
       <ReactMarkdown children={data} rehypePlugins={[rehypeRaw]} />
     </div>
   );

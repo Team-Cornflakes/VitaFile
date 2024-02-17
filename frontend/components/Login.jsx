@@ -3,108 +3,108 @@ import { useNavigate } from 'react-router-dom';
 import './Login.css';
 import logo from '../src/assets/Logo1.png';
 import logo1 from '../src/assets/google.png';
-import logo2 from '../src/assets/Logo2.png'; // Import the background image
+// Update the import to use ehr.png instead of logo2.png
+import logo2 from '../src/assets/ehr.png'; // Import ehr.png as the background image
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-    apiKey: "AIzaSyCvDH80aQZvu_IpZykRN0Vr_kdVZUqujhU",
-    authDomain: "vitafile.firebaseapp.com",
-    projectId: "vitafile",
-    storageBucket: "vitafile.appspot.com",
-    messagingSenderId: "245647433242",
-    appId: "1:245647433242:web:3ca0111c2801d0e0863ba3",
-    measurementId: "G-SD6WPG017Z"
-  };
+  apiKey: "AIzaSyCvDH80aQZvu_IpZykRN0Vr_kdVZUqujhU",
+  authDomain: "vitafile.firebaseapp.com",
+  projectId: "vitafile",
+  storageBucket: "vitafile.appspot.com",
+  messagingSenderId: "245647433242",
+  appId: "1:245647433242:web:3ca0111c2801d0e0863ba3",
+  measurementId: "G-SD6WPG017Z"
+};
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
 
 function loginWithGoogle() {
-    signInWithPopup(auth, googleProvider)
-      .then((result) => {
-        console.log(result.user); // You can retrieve user info here
-      }).catch((error) => {
-        console.log(error.message);
-      });
-  }
+  signInWithPopup(auth, googleProvider)
+    .then((result) => {
+      console.log(result.user); // You can retrieve user info here
+    }).catch((error) => {
+      console.log(error.message);
+    });
+}
 
 const Login = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    const handleLogin = async (event) => {
-        event.preventDefault();
+  const handleLogin = async (event) => {
+      event.preventDefault();
 
-        const username = document.getElementById('username').value;
-        const password = document.getElementById('password').value;
-    
-        const response = await fetch('http://localhost:8000/token/', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                username: username,
-                password: password,
-            }),
-        });
-    
-        const data = await response.json();
-    
-        if (response.ok && data.access) {
-            localStorage.setItem('token', data.access); 
-            navigate('/family');
-        }
-    };
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+  
+      const response = await fetch('http://localhost:8000/token/', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+              username: username,
+              password: password,
+          }),
+      });
+  
+      const data = await response.json();
+  
+      if (response.ok && data.access) {
+          localStorage.setItem('token', data.access); 
+          navigate('/family');
+      }
+  };
 
-    const handleLoginNavigation = () => {
-        navigate('/signup'); // Navigate to the signup page
-    };
+  const handleLoginNavigation = () => {
+      navigate('/signup'); // Navigate to the signup page
+  };
 
-    return (
-        <div>
-            <div className="left-container">
-                <div className="login-container">
-                    <div className="login-card">
-                        <div className="logo-container">
-                            <img src={logo} className="logo" alt="Logo" />
-                            <span className="logo-text"><h1>VitaFile</h1></span>
-                        </div>
-                        <h2>Login to your account</h2>
-                        <br />
-                        <form className="login-form" onSubmit={handleLogin}>
-                            <div className="input-group">
-                                <label htmlFor="username"></label>
-                                <input type="text" id="username" name="username" placeholder="Username" required />
-                            </div>
-                            <div className="input-group">
-                                <label htmlFor="password"></label>
-                                <input type="password" id="password" name="password" placeholder="Password" required />
-                            </div>
-                            <div className="footer-group">
-                                <button type="submit" className="login-button" onClick={handleLogin}>Login</button>
-                                <br />
-                                <div className="media-options">
-                                    <button type="button" className="login-button1" onClick={loginWithGoogle}>
-                                        <img src={logo1} className="logo1" alt="Google logo" />
-                                        Login with Google
-                                    </button>
-                                </div>
-                                <p>Already have an account? <span onClick={handleLoginNavigation} className="signup-link">Signup</span></p>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div className="right-container">
-                <div className="image-container" style={{ backgroundImage: `url(${logo2})` }}>
-                    {/* Image container content */}
-                </div>
-            </div>
-        </div>
-    );
+  return (
+      <div>
+          <div className="left-container90">
+              <div className="login-container">
+                  <div className="login-card">
+                      <div className="logo-container">
+                          <img src={logo} className="logo" alt="Logo" />
+                          <span className="logo-text"><h1>VitaFile</h1></span>
+                      </div>
+                      <h2>Login to your account</h2>
+                      <br />
+                      <form className="login-form" onSubmit={handleLogin}>
+                          <div className="input-group">
+                              <label htmlFor="username"></label>
+                              <input type="text" id="username" name="username" placeholder="Username" required />
+                          </div>
+                          <div className="input-group">
+                              <label htmlFor="password"></label>
+                              <input type="password" id="password" name="password" placeholder="Password" required />
+                          </div>
+                          <div className="footer-group">
+                              <button type="submit" className="login-button" onClick={handleLogin}>Login</button>
+                              <br />
+                              <div className="media-options">
+                                  <button type="button" className="login-button1" onClick={loginWithGoogle}>
+                                      <img src={logo1} className="logo1" alt="Google logo" />
+                                      Login with Google
+                                  </button>
+                              </div>
+                              <p>Already have an account? <span onClick={handleLoginNavigation} className="signup-link">Signup</span></p>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+          <div className="right-container">
+              <div className="image-container" style={{ backgroundImage: `url(${logo2})` }}>
+                  {/* Image container content */}
+              </div>
+          </div>
+      </div>
+  );
 };
 
 export default Login;
