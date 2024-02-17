@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './ChatbotInterface.css';
+import microphoneIcon from '../src/assets//mic-4.png';
 
 const ChatbotInterface = ({ chatInput, updateChatInput, messages, handleSendMessage }) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -50,6 +51,10 @@ const ChatbotInterface = ({ chatInput, updateChatInput, messages, handleSendMess
     }
   };
 
+  const handleMicrophoneClick = () => {
+
+  };
+
   return (
     <div className="chatbot-interface">
       <div className="chat-header">VitaFile Chatbot</div>
@@ -61,6 +66,9 @@ const ChatbotInterface = ({ chatInput, updateChatInput, messages, handleSendMess
         ))}
       </div>
       <div className="chat-input-container">
+        <button onClick={handleMicrophoneClick} className="microphone-button" disabled={isLoading}>
+          <img src={microphoneIcon} alt="Microphone" />
+        </button>
         <textarea
           value={chatInput}
           onChange={(e) => updateChatInput(e.target.value)}

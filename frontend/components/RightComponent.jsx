@@ -46,7 +46,11 @@ const RightComponent = ({ chatInput, updateChatInput, messages, handleSendMessag
                 />
             )}
             {activeComponent === 'summarizer' && <Summarizer />}
-            {activeComponent === 'pdf' && <img src={imageUrl} alt="PDF" />}
+            {activeComponent === 'pdf' && (
+                <div className="image-container">
+                    <img src={imageUrl} alt="PDF" className="pdf-image" />
+                </div>
+            )}
         </div>
     );
 };

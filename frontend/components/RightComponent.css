@@ -1,72 +1,76 @@
-/* RightComponent.css */
-
 .top-bar {
-    display: flex;
-    width: 100%; /* Ensures the bar takes the full width */
-    background-color: #E6E6FA; /* Lavender background for the bar */
-  }
-  
-  .top-bar-button {
-    flex-grow: 1; /* Each button grows to fill the available space */
-    padding: 15px 0; /* Padding for top and bottom, no left-right padding */
-    background-color: #E6E6FA; /* Lavender background for buttons */
-    color: #333; /* Dark text color for contrast */
-    border: none; /* Removes the border */
-    border-radius: 0; /* No rounded corners for full-width buttons */
-    cursor: pointer; /* Cursor change to indicate clickable */
-    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
-    font-weight: bold; /* Bold font for button text */
-    text-align: center; /* Centers the text in the button */
-  }
-  .right-container {
-    flex: 1;
-    position:relative;
-    background-color: #ffffff;
-    padding: 20px;
-    padding-top: 7%; /* Adjust this to account for the header space */
-    display: flex; /* Using flex to position children */
-    flex-direction: column; /* Children stacked vertically */
-}
-
-.button-container {
   display: flex;
-  flex-direction: row; /* Align buttons side by side */
-  justify-content: space-around; /* Distribute buttons evenly */
-  align-items: center; /* Center buttons vertically */
-  margin-bottom: 20px; /* Space below the button container */
+  width: 100%; /* Ensures the bar takes the full width */
+  background-color: #E6E6FA; /* Lavender background for the bar */
 }
 
 .top-bar-button {
-  /* Rest of your button styles */
-  /* No need to set width: 100% if buttons are side by side */
+  flex-grow: 1; /* Each button grows to fill the available space */
+  padding: 15px 0; /* Padding for top and bottom, no left-right padding */
+  background-color: #E6E6FA; /* Lavender background for buttons */
+  color: #333; /* Dark text color for contrast */
+  border: none; /* Removes the border */
+  border-radius: 0; /* No rounded corners for full-width buttons */
+  cursor: pointer; /* Cursor change to indicate clickable */
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+  font-weight: bold; /* Bold font for butāton text */
+  text-align: center; /* Centers the text in the button */
 }
-.image-container {
-  width: 100%;
-  height: 100%;
-  position: relative;
+.right-container {
+  flex: 1;
+  position:relative;
+  background-color: #ffffff;
+  padding: 20px;
+  padding-top: 7%; /* Adjust this to account for the header space */
+  display: flex; /* Using flex to position children */
+  flex-direction: column; /* Children stacked vertically */
 }
 
-.pdf-image {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-  position: absolute; /* Position the image absolutely within the right-container */
-  top: 0;
-  left: 0;
+.button-container {
+display: flex;
+flex-direction: row; /* Align buttons side by side */
+justify-content: space-around; /* Distribute buttons evenly */
+align-items: center; /* Center buttons vertically */
+margin-bottom: 20px; /* Space below the button container */
+height: 50px;
 }
 
 
-  .top-bar-button:hover {
-    background-color: #D6D6F0; /* Slightly darker lavender on hover */
+.image-container { /* Use the full width of the parent container */
+display: flex;
+height: 80%;
+width: 48%;
+top : 20%;
+left: 51%;
+right: 0.5%;
+
+}
+
+.pdf-image{
+display: flex;
+background-color: #333;
+height: 97%;
+width: 100%;
+top : 20%;
+left: 51%;
+right: 0.5%;
+}
+
+
+
+
+
+
+.top-bar-button:hover {
+  background-color: #D6D6F0; /* Slightly darker lavender on hover */
+}
+
+.top-bar-button:active {
+  background-color: #C6C6E0; /* Even darker lavender when active */
+}
+
+@media (max-width: 600px) {
+  .top-bar-button {
+    padding: 10px 0; /* Smaller padding for smaller screens */
   }
-  
-  .top-bar-button:active {
-    background-color: #C6C6E0; /* Even darker lavender when active */
-  }
-  
-  @media (max-width: 600px) {
-    .top-bar-button {
-      padding: 10px 0; /* Smaller padding for smaller screens */
-    }
-  }
-  
+}

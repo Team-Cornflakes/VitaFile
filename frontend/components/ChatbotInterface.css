@@ -1,5 +1,3 @@
-/* ChatbotInterface.css */
-
 .chatbot-interface {
   display: flex;
   flex-direction: column;
@@ -8,17 +6,16 @@
   border: 1px solid #e2e2e2;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgb(255, 255, 255);
 }
 
 .chat-header {
   background-color: lightskyblue;
   color: #ffffff;
-  padding: 15px 15px;
+  padding: 15px;
   font-size: 18px;
   font-weight: bold;
-  border-bottom: 1px solid #006fe6;
-  font-family: 'Roboto', sans-serif;
+  text-align: center;
 }
 
 .chat-messages {
@@ -26,55 +23,20 @@
   overflow-y: auto;
   padding: 20px;
   background-color: #ffffff;
-  font-family: 'Roboto', sans-serif;
-}
-
-.chat-messages::-webkit-scrollbar {
-  width: 5px;
-}
-
-.chat-messages::-webkit-scrollbar-thumb {
-  background-color: #007bff;
-  border-radius: 10px;
 }
 
 .message {
-  max-width: 80%;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   padding: 10px;
   border-radius: 20px;
-  line-height: 1.4;
-  word-wrap: break-word;
-  opacity: 0;
-  animation: fadeInMessage 0.5s forwards;
-}
-
-@keyframes fadeInMessage {
-  to {
-    opacity: 1;
-  }
+  background-color: #e0e0e0;
+  color: #333;
 }
 
 .message.user {
-  background-color: rgb(130, 207, 130);
-  color: #ffffff;
-  padding: 10px;
-  border-radius: 20px;
-  line-height: 1.4;
-  word-wrap: break-word;
-  display: block; /* Change this to block to ensure they stack vertically */
-  width: fit-content; /* Adjust width to fit the content */
-  max-width: 80%; /* Prevents the message from becoming too wide */
-  margin-left: auto; /* Aligns the message to the right */
-  margin-bottom: 15px; /* Space between messages */
-  animation: fadeInMessage 0.5s forwards;
-}
-
-
-.message.bot {
-  background-color: #f0f0f0;
-  color: #333333;
-  align-self: flex-start;
+  background-color: #007bff;
+  color: white;
+  align-self: flex-end;
 }
 
 .chat-input-container {
@@ -84,58 +46,49 @@
   border-top: 1px solid #e2e2e2;
 }
 
-/* Remaining styles unchanged */
-/* ... previous styles ... */
-/* ... previous styles ... */
-
 .chat-input {
   flex-grow: 1;
-  margin-right: 10px;
-  padding: 10px;
+  padding: 5px; 
+  margin: 5px;/* Increased space between input and buttons */
   border: 1px solid #e2e2e2;
-  border-radius: 20px;
-  background-color: #ffffff;
-  color: #000000; /* Text color set to black */
-  resize: none; /* Prevents resizing */
-  overflow: auto; /* Ensures proper scrolling */
-  display: inline-block; /* Aligns width to content */
-  width: auto; /* Width based on content */
-  height: auto; /* Height based on content */
-  box-sizing: border-box; /* Includes padding and border in the element's total width and height */
+  border-radius: 5px;
+  resize: none;
+  background-color: #ffffff; /* Changed background color to white */
+  color: black;
+  font-size: 20px;
 }
 
-/* ... remaining styles ... */
-
-
-/* ... remaining styles ... */
-
-
-/* Remaining styles unchanged */
-
-
 .send-button {
-  padding: 10px 15px;
   background-color: lightskyblue;
-  color: #ffffff;
+  color: white;
   border: none;
   border-radius: 20px;
   cursor: pointer;
   font-weight: bold;
-  transition: background-color 0.3s ease;
+  margin: 5px;
+}
+.microphone-button {
+  background-color: lightskyblue;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  margin: 5px;
 }
 
-.send-button:hover {
-  background-color:blue;
+.send-button:hover, .microphone-button:hover {
+  background-color: #005cbf;
 }
 
-.send-button:active {
-  background-color: blue;
+.send-button:disabled, .microphone-button:disabled {
+  background-color: #b0e0e6;
+  cursor: not-allowed;
 }
 
-@media (max-width: 600px) {
-  .chatbot-interface {
-    width: 100%;
-    height: 100%;
-    border-radius: 0;
-  }
+
+
+.microphone-button img {
+  width: 24px; /* Adjust size as needed */
+  height: 24px; /* Adjust size as needed */
 }
