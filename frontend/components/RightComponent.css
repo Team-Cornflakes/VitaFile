@@ -38,7 +38,7 @@ height: 50px;
 
 .image-container { /* Use the full width of the parent container */
 display: flex;
-height: 80%;
+height: 85%;
 width: 48%;
 top : 20%;
 left: 51%;
