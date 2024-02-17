@@ -4,6 +4,32 @@ import './Login.css';
 import logo from '../src/assets/Logo1.png';
 import logo1 from '../src/assets/google.png';
 import logo2 from '../src/assets/Logo2.png'; // Import the background image
+import { initializeApp } from "firebase/app";
+import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+    apiKey: "AIzaSyCvDH80aQZvu_IpZykRN0Vr_kdVZUqujhU",
+    authDomain: "vitafile.firebaseapp.com",
+    projectId: "vitafile",
+    storageBucket: "vitafile.appspot.com",
+    messagingSenderId: "245647433242",
+    appId: "1:245647433242:web:3ca0111c2801d0e0863ba3",
+    measurementId: "G-SD6WPG017Z"
+  };
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const googleProvider = new GoogleAuthProvider();
+
+function loginWithGoogle() {
+    signInWithPopup(auth, googleProvider)
+      .then((result) => {
+        console.log(result.user); // You can retrieve user info here
+      }).catch((error) => {
+        console.log(error.message);
+      });
+  }
 
 const Login = () => {
     const navigate = useNavigate();
@@ -61,7 +87,7 @@ const Login = () => {
                                 <button type="submit" className="login-button" onClick={handleLogin}>Login</button>
                                 <br />
                                 <div className="media-options">
-                                    <button type="button" className="login-button1">
+                                    <button type="button" className="login-button1" onClick={loginWithGoogle}>
                                         <img src={logo1} className="logo1" alt="Google logo" />
                                         Login with Google
                                     </button>
