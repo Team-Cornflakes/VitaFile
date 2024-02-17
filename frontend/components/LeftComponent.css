@@ -52,6 +52,7 @@ box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); /*
 }
 
 .left-container-heading {
+  margin-bottom: 10px;
 /* Your existing styles... */
 }
 .language-selection-container select {
