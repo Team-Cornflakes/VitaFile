@@ -63,9 +63,16 @@ const Login = () => {
       navigate('/signup'); // Navigate to the signup page
   };
 
+
+
+
+
+
+
+
   return (
-      <div>
-          <div className="left-container90">
+      <div className="maincontainer999">
+          <div className="leftcontainer999">
               <div className="login-container">
                   <div className="login-card">
                       <div className="logo-container">
@@ -98,11 +105,9 @@ const Login = () => {
                   </div>
               </div>
           </div>
-          <div className="right-container">
-              <div className="image-container" style={{ backgroundImage: `url(${logo2})` }}>
-                  {/* Image container content */}
-              </div>
-          </div>
+          <div className="rightcontainer999">
+                <img src={logo2} className="logo245" alt="Logo2" />
+            </div>
       </div>
   );
 };

@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@200;300&display=swap');
 
-.login-container90 {
+.login-container999 {
     position: fixed;
     top: 0;
     right: 0;
@@ -174,3 +174,32 @@ h1 {
 }
 
 /* ... other styles ... */
+
+.maincontainer999{
+    position: absolute;
+    width: 100%; 
+    height: 100%; 
+    overflow: hidden;
+    box-sizing: border-box;
+    display: flex;
+
+}
+
+
+.leftcontainer999{
+    height: 100%;
+    width: 40%;
+}
+
+.rightcontainer999{
+    height: 100%;
+    width: 60%;
+}
+
+.logo245{
+    margin-top:5% ;
+    height: 88%;
+    width: 100%;
+    margin-bottom: 20%;
+
+}
