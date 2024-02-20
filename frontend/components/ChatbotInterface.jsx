@@ -37,16 +37,22 @@ const ChatbotInterface = ({ chatInput, updateChatInput }) => {
       addMessage('bot', text);
 
       // Create a new speech synthesis utterance
-      var utterance = new SpeechSynthesisUtterance(text);
-
-      // Set the properties of the utterance
-      utterance.volume = 1; // 0 to 1
-      utterance.rate = 1; // 0.1 to 10
-      utterance.pitch = 1; // 0 to 2
-      utterance.lang = 'en-US';
-
-      // Speak the utterance
-      window.speechSynthesis.speak(utterance);
+      // Fetch the synthesized speech audio file from the server
+      fetch('/synthesize', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ text: text }) // Send the text to the server
+      })
+      .then(response => response.blob()) // Get the response as a Blob
+      .then(audioBlob => {
+        // Create a new audio object and play it
+        const audioUrl = URL.createObjectURL(audioBlob);
+        const audio = new Audio(audioUrl);
+        audio.play();
+      })
+      .catch(error => console.error('Error:', error));
     } catch (error) {
       console.error('Error generating content with Google Generative AI:', error);
       addMessage('bot', "Sorry, I couldn't process that.");

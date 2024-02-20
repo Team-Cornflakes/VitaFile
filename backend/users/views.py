@@ -5,6 +5,8 @@ from rest_framework import permissions
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
+from google.cloud import texttospeech
+from django.http import HttpResponse
 
 
 User = get_user_model()
@@ -62,3 +64,28 @@ class GetUserView(APIView):
         else:
             name = user.first_name + " " + user.last_name
             return Response(name, status=status.HTTP_200_OK)
+
+class SynthesizeView(APIView):
+    def post(self, request):
+        text = request.POST.get('text')
+
+        client = texttospeech.TextToSpeechClient()
+        input_text = texttospeech.SynthesisInput(text=text)
+
+        voice = texttospeech.VoiceSelectionParams(
+            language_code="en-US",
+            ssml_gender=texttospeech.SsmlVoiceGender.NEUTRAL,
+        )
+
+        audio_config = texttospeech.AudioConfig(
+            audio_encoding=texttospeech.AudioEncoding.MP3
+        )
+
+        response = client.synthesize_speech(
+            request={"input": input_text, "voice": voice, "audio_config": audio_config}
+        )
+
+        # The response's audio_content is binary.
+        audio_content = response.audio_content
+
+        return HttpResponse(audio_content, content_type='audio/mp3')

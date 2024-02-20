@@ -5,4 +5,5 @@ urlpatterns = [
     path('token/', MyTokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('signup/', CreateUserView.as_view(), name='signup'),
     path('getuser/', GetUserView.as_view(), name='getuser'),
+    path('synthesize/', SynthesizeView.as_view(), name='synthesize'),
 ]
