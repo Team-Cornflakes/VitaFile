@@ -1,61 +1,49 @@
 import React, { useState } from 'react';
 import './ChatbotInterface.css';
-import microphoneIcon from '../src/assets//mic-4.png';
+import microphoneIcon from '../src/assets/mic-4.png';
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
 let isRecording = false;
 let recognition = null;
 
 const ChatbotInterface = ({ chatInput, updateChatInput }) => {
-  const [userMessages, setUserMessages] = useState([]);
-  const [botMessages, setBotMessages] = useState([]);
+  const [messages, setMessages] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const API_KEY = import.meta.env.VITE_GEMINI_API_KEY; // Ensure this is set in your .env file
-  const genAI = new GoogleGenerativeAI(API_KEY); // Instantiate GoogleGenerativeAI with the API key
+  const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
+  const genAI = new GoogleGenerativeAI(API_KEY);
 
-  const handleSendMessage = async (message) => {
-    setUserMessages(prevMessages => [...prevMessages, message]);
+  const addMessage = (sender, text) => {
+    setMessages(prevMessages => [...prevMessages, { sender, text }]);
   };
 
   const handleUserMessage = async (message) => {
-    setUserMessages(prevMessages => [...prevMessages, message]);
+    addMessage('user', message.text);
     setIsLoading(true);
 
     try {
-      // For text-only input, use the gemini-pro model
       const model = genAI.getGenerativeModel({ model: "gemini-pro" });
-
-      // Use chatInput as the prompt for the generative AI
       const result = await model.generateContent(message.text);
       const response = await result.response;
-      const text = await response.text(); // Get the text content from the response
+      const text = await response.text();
 
-      // Send bot's response
-      setBotMessages(prevMessages => [...prevMessages, { sender: 'bot', text }]);
-      
+      addMessage('bot', text);
     } catch (error) {
       console.error('Error generating content with Google Generative AI:', error);
-      // You can send an error message to the chat as well
-      setBotMessages(prevMessages => [...prevMessages, { sender: 'bot', text: "Sorry, I couldn't process that." }]);
+      addMessage('bot', "Sorry, I couldn't process that.");
     }
 
     setIsLoading(false);
   };
 
-  const handleKeyPress = async (e) => {
+  const handleKeyPress = (e) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
-
-      // Add user's input to messages
-      const message = { sender: 'user', text: chatInput };
-      handleUserMessage(message);
-
-      // Clear chat input
+      handleUserMessage({ text: chatInput });
       updateChatInput('');
     }
   };
 
-  const handleMicrophoneClick = async () => {
+  const handleMicrophoneClick = () => {
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
     if (!isRecording) {
@@ -63,12 +51,9 @@ const ChatbotInterface = ({ chatInput, updateChatInput }) => {
       const microphoneButton = document.getElementById('microphone-button');
       microphoneButton.style.backgroundColor = 'red';
 
-      recognition.onresult = async (event) => {
+      recognition.onresult = (event) => {
         const audio = event.results[0][0].transcript;
-
-        const message = { sender: 'user', text: audio };
-        handleUserMessage(message); 
-
+        handleUserMessage({ text: audio });
         microphoneButton.style.backgroundColor = 'lightskyblue';
       };
 
@@ -85,13 +70,8 @@ const ChatbotInterface = ({ chatInput, updateChatInput }) => {
     <div className="chatbot-interface">
       <div className="chat-header">VitaFile Chatbot</div>
       <div className="chat-messages">
-        {userMessages.map((message, index) => (
-          <div key={`user_${index}`} className="message user">
-            {message.text}
-          </div>
-        ))}
-        {botMessages.map((message, index) => (
-          <div key={`bot_${index}`} className="message bot">
+        {messages.map((message, index) => (
+          <div key={`${message.sender}_${index}`} className={`message ${message.sender}`}>
             {message.text}
           </div>
         ))}
