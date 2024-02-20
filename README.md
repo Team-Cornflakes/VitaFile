@@ -8,8 +8,7 @@
 <br>
 
 <p align="center">
-  <img src="./frontend/src/assets/Login_page.png" alt="Description of Image">
-  <!-- Add more images as needed -->
+  <img src="./frontend/src/assets/Login_page.png" caption="Login Page">
 </p>
 
 <h2>🧐 Features</h2>
