@@ -71,7 +71,7 @@ const ChatbotInterface = ({ chatInput, updateChatInput }) => {
       <div className="chat-header">VitaFile Chatbot</div>
       <div className="chat-messages">
         {messages.map((message, index) => (
-          <div key={`${message.sender}_${index}`} className={`message ${message.sender}`}>
+          <div key={`${message.sender}_${index}`} className={`message ${message.sender === 'user' ? 'user' : 'bot'}`}>
             {message.text}
           </div>
         ))}
@@ -89,7 +89,7 @@ const ChatbotInterface = ({ chatInput, updateChatInput }) => {
         ></textarea>
       </div>
     </div>
-  );
+  );  
 };
 
 export default ChatbotInterface;

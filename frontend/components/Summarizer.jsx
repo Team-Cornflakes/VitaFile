@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import './Summarizer.css'; // Ensure this CSS file is properly linked for styling
+import ReactMarkdown from 'react-markdown';
+import rehypeRaw from 'rehype-raw';
 
 const Summarizer = () => {
     const [summary, setSummary] = useState(''); // State to store the summary
 
     useEffect(() => {
-        const fetchData = async() => {
+        const fetchData = async () => {
             const token = localStorage.getItem('token');
             const ehrID = localStorage.getItem('ehr_id'); // Get the ehrID from local storage
             const response = await fetch(`http://localhost:8000/ehr/get/?ehr_id=${ehrID}`, {
@@ -15,7 +17,7 @@ const Summarizer = () => {
                 }, 
             }); 
     
-            if(response.ok) {
+            if (response.ok) {
                 const data = await response.json();
                 setSummary(data.summary);
             }
@@ -26,7 +28,7 @@ const Summarizer = () => {
 
     return (
         <div className="summarizer-container">
-            <p>{summary}</p>
+            <ReactMarkdown rehypePlugins={[rehypeRaw]} children={summary} />
         </div>
     );
 };
