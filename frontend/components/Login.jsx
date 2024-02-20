@@ -4,7 +4,7 @@ import './Login.css';
 import logo from '../src/assets/Logo1.png';
 import logo1 from '../src/assets/google.png';
 // Update the import to use ehr.png instead of logo2.png
-import logo2 from '../src/assets/ehr.png'; // Import ehr.png as the background image
+import logo2 from '../src/assets/ehr2.png'; // Import ehr.png as the background image
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
