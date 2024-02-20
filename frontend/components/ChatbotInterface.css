@@ -33,10 +33,26 @@
   color: #333;
 }
 
+.message.user, .message.bot {
+  width: auto; /* Width will adjust based on content */
+  min-width: 50px; /* Minimum width of the message bubble */
+  max-width: 80%; /* Maximum width it can grow. Adjust as needed */
+  /* Rest of the styles remain the same */
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 10px;
+  color: #ffffff;
+  font-size: 16px;
+}
+
 .message.user {
-  background-color: #007bff;
-  color: white;
-  align-self: flex-end;
+  background-color: #007bff; /* User message bubble color */
+  align-self: flex-end; /* Align user messages to the right */
+}
+
+.message.bot {
+  background-color: #e2e2e2; /* Bot message bubble color */
+  align-self: flex-start; /* Align bot messages to the left */
 }
 
 .chat-input-container {
