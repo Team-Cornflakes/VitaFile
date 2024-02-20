@@ -8,10 +8,10 @@
 <br>
 
 <p align="center">
-  <figure>
   <img src="./frontend/src/assets/Login_page.png">
-  <figcaption align="center">Login Page</figcaption>
-  </figure>
+  <img src="./frontend/src/assets/Family.png">
+  <img src="./frontend/src/assets/Timeline.png">
+  <img src="./frontend/src/assets/EHR_actualreport.png">
 </p>
 
 <h2>🧐 Features</h2>
