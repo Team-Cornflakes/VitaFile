@@ -90,7 +90,7 @@
 .Button{
     margin-right: 15px;
     border: 2px solid #808080;
-    background-color: white;
+    background-color: aliceblue;
     color: black;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* new */
     font-weight: bold; /* new */
@@ -99,7 +99,7 @@
 .Button1{
     margin-right: 15px;
     border: 2px solid #808080;
-    background-color: white;
+    background-color: aliceblue;
     color: black;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* new */
     font-weight: bold; /* new */
@@ -107,7 +107,7 @@
 .Button2{
     margin-right: 15px;
     border: 2px solid #808080;
-    background-color: white;
+    background-color: aliceblue;
     color: black;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* new */
     font-weight: bold; /* new */

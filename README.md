@@ -6,6 +6,12 @@
 
 <p align="center"><img src="https://img.shields.io/badge/Build-Vitafile-red?logo=npm" alt="shields"></p>
 <br>
+
+<p align="center">
+  <img src="./frontend/src/assets/Login_page.png" alt="Description of Image">
+  <!-- Add more images as needed -->
+</p>
+
 <h2>🧐 Features</h2>
 
 *   **Firebase & Google Auth:** Secures and streamlines user data and authentication ensuring real-time data synchronization and robust security measures for user access.

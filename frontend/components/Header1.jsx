@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Header.css'; // Importing the CSS file
 import searchIcon from '../src/assets/search.png'; 
-import messageIcon from '../src/assets/1.png'; 
-import alertIcon from '../src/assets/2.png'; 
+import messageIcon from '../src/assets/message_black.png'; 
+import alertIcon from '../src/assets/nots.png'; 
 import exitIcon from '../src/assets/3.png'; 
 
 const Header = ({ toggleSidebar }) => {

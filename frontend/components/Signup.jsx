@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Signup.css';
-import logo from '../src/assets/Logo1.png'; 
+import logo from '../src/assets/Logo_black.png'; 
 import logo1 from '../src/assets/google.png'; 
 
 const Signup = () => {
