@@ -12,6 +12,14 @@ const ChatbotInterface = ({ chatInput, updateChatInput }) => {
   const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
   const genAI = new GoogleGenerativeAI(API_KEY);
 
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter' && !event.shiftKey) {
+      event.preventDefault();
+      handleUserMessage({ text: chatInput });
+      updateChatInput('');
+    }
+  };
+
   const addMessage = (sender, text) => {
     setMessages(prevMessages => [...prevMessages, { sender, text }]);
   };
@@ -27,20 +35,24 @@ const ChatbotInterface = ({ chatInput, updateChatInput }) => {
       const text = await response.text();
 
       addMessage('bot', text);
+
+      // Create a new speech synthesis utterance
+      var utterance = new SpeechSynthesisUtterance(text);
+
+      // Set the properties of the utterance
+      utterance.volume = 1; // 0 to 1
+      utterance.rate = 1; // 0.1 to 10
+      utterance.pitch = 1; // 0 to 2
+      utterance.lang = 'en-US';
+
+      // Speak the utterance
+      window.speechSynthesis.speak(utterance);
     } catch (error) {
       console.error('Error generating content with Google Generative AI:', error);
       addMessage('bot', "Sorry, I couldn't process that.");
     }
 
     setIsLoading(false);
-  };
-
-  const handleKeyPress = (e) => {
-    if (e.key === 'Enter' && !e.shiftKey) {
-      e.preventDefault();
-      handleUserMessage({ text: chatInput });
-      updateChatInput('');
-    }
   };
 
   const handleMicrophoneClick = () => {
