@@ -67,6 +67,8 @@ const LeftComponent = ({ onTextSelect }) => {
       <br></br>
       
       <div className="language-selection-container">
+        <img src="../src/assets/google.png" alt="Translate Icon" className="translate-icon" />
+        <span className="translate-text">Translate</span>
         <select onChange={handleLanguageChange} value={language} className="language-select">
           <option value="English">English</option>
           <option value="Spanish">Spanish</option>

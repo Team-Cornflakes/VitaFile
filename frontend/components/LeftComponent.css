@@ -68,3 +68,22 @@ box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); /*
 .language-selection-container select option {
   color: black; /* Ensures option text is black for all browsers */
 }
+.language-selection-container {
+  display: flex;
+  align-items: center;
+}
+
+.translate-icon {
+  height: 1em; /* Adjust the image height to match the text size */
+  width: auto; /* Keep the aspect ratio of the image */
+  margin-right: 10px;
+}
+
+.translate-text {
+  margin-right: 20px;
+
+}
+
+.language-select{
+  margin-top:20px;
+}

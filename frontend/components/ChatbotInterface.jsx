@@ -1,46 +1,46 @@
 import React, { useState } from 'react';
 import './ChatbotInterface.css';
 import microphoneIcon from '../src/assets//mic-4.png';
-
+import { GoogleGenerativeAI } from "@google/generative-ai";
 
 let isRecording = false;
 let recognition = null;
 
+
+
 const ChatbotInterface = ({ chatInput, updateChatInput, messages, handleSendMessage }) => {
   const [isLoading, setIsLoading] = useState(false);
-  const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
-  const [message, setMessages] = useState([
-    {
-      role: "system",
-      content: "You are now a medical expert"
-    }
-  ]);
+  const API_KEY = import.meta.env.VITE_GEMINI_API_KEY; // Ensure this is set in your .env file
+  const genAI = new GoogleGenerativeAI(API_KEY); // Instantiate GoogleGenerativeAI with the API key
+  
 
   const handleKeyPress = async (e) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
       setIsLoading(true);
+
       // Add user's input to messages
       handleSendMessage({ sender: 'user', text: chatInput });
-      const response = await fetch('https://api.gemini.com/v1/symbols', { // Update the URL if necessary
-        method: 'POST', 
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${API_KEY}`
-        },
-        // Remove or update the body if necessary
-      });
-      const data = await response.json();
 
-      if (!data.choices || data.choices.length === 0) {
-        console.error('No choices returned from API:', data);
-        setIsLoading(false);
-        return;
+      try {
+        // For text-only input, use the gemini-pro model
+        const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+
+        // Use chatInput as the prompt for the generative AI
+        const result = await model.generateContent(chatInput);
+        const response = await result.response;
+        const text = await response.text(); // Get the text content from the response
+
+        // Send bot's response
+        handleSendMessage({ sender: 'bot', text: text });
+        
+      } catch (error) {
+        console.error('Error generating content with Google Generative AI:', error);
+        // You can send an error message to the chat as well
+        handleSendMessage({ sender: 'bot', text: "Sorry, I couldn't process that." });
       }
-      const botMessage = data.choices[0].message.content;
 
-      handleSendMessage({ sender: 'bot', text: botMessage });
-      // Clear chat input
+      // Clear chat input and loading state
       updateChatInput('');
       setIsLoading(false);
     }
