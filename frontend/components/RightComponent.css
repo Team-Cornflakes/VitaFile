@@ -46,6 +46,11 @@ right: 0.5%;
 
 }
 
+.scrollable-content {
+  height: calc(100% - 50px); /* Adjust as necessary */
+  overflow-y: auto;
+}
+
 .pdf-image{
 display: flex;
 background-color: #333;

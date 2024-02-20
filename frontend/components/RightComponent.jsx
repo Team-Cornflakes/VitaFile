@@ -1,26 +1,25 @@
 import React, { useState } from 'react';
-import ChatbotInterface from './ChatbotInterface'; // Adjust the import path as necessary
-import Summarizer from './Summarizer'; // Import the Summarizer component
-import './RightComponent.css'; // Make sure this path is correct
+import ChatbotInterface from './ChatbotInterface';
+import Summarizer from './Summarizer';
+import './RightComponent.css';
 
 const RightComponent = ({ chatInput, updateChatInput, messages, handleSendMessage }) => {
-  const [activeComponent, setActiveComponent] = useState('');
-  const [imageUrl, setImageUrl] = useState(''); // New state variable for the image URL
+    const [activeComponent, setActiveComponent] = useState('');
+    const [imageUrl, setImageUrl] = useState('');
 
-  const handleChatbotClick = () => {
-    setActiveComponent('chatbot');
-  };
+    const handleChatbotClick = () => {
+        setActiveComponent('chatbot');
+    };
 
     const handleActualPDFClick = () => {
         setActiveComponent('pdf');
-        const imageUrl = localStorage.getItem('image_url'); // Fetch the image URL from local storage
-        const staticPath = 'http://localhost:8000/static'; // Replace with your actual static file path
-        setImageUrl(staticPath + imageUrl); // Prepend the static path to the image URL and set it to the state
+        const imageUrl = localStorage.getItem('image_url');
+        const staticPath = 'http://localhost:8000/static';
+        setImageUrl(staticPath + imageUrl);
     };
 
     const handleSummarizerClick = () => {
         setActiveComponent('summarizer');
-        // Additional logic for Summarizer
     };
 
     return (
@@ -37,20 +36,22 @@ const RightComponent = ({ chatInput, updateChatInput, messages, handleSendMessag
                 </button>
             </div>
 
-            {activeComponent === 'chatbot' && (
-                <ChatbotInterface 
-                    chatInput={chatInput} 
-                    updateChatInput={updateChatInput} 
-                    messages={messages} 
-                    handleSendMessage={handleSendMessage} 
-                />
-            )}
-            {activeComponent === 'summarizer' && <Summarizer />}
-            {activeComponent === 'pdf' && (
-                <div className="image-container">
-                    <img src={imageUrl} alt="PDF" className="pdf-image" />
-                </div>
-            )}
+            <div className="scrollable-content">
+                {activeComponent === 'chatbot' && (
+                    <ChatbotInterface 
+                        chatInput={chatInput} 
+                        updateChatInput={updateChatInput} 
+                        messages={messages} 
+                        handleSendMessage={handleSendMessage} 
+                    />
+                )}
+                {activeComponent === 'summarizer' && <Summarizer />}
+                {activeComponent === 'pdf' && (
+                    <div className="image-container">
+                        <img src={imageUrl} alt="PDF" className="pdf-image" />
+                    </div>
+                )}
+            </div>
         </div>
     );
 };

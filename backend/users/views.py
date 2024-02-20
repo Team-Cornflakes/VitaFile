@@ -67,7 +67,9 @@ class GetUserView(APIView):
 
 class SynthesizeView(APIView):
     def post(self, request):
-        text = request.POST.get('text')
+        text = request.data.get('text')
+        if not text:
+            return Response({'error': 'No text provided'}, status=400)
 
         client = texttospeech.TextToSpeechClient()
         input_text = texttospeech.SynthesisInput(text=text)

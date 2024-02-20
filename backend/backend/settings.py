@@ -23,6 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-i56zu(b)0_0hd0x!g_5)crf4(t*m0r(zu67xmy8*#pi5u0_k7h'
+os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = r'D:\VitaFile\backend\groovy-momentum-414611-df26fc89cbbe.json'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True

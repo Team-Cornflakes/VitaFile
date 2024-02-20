@@ -5,6 +5,7 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 
 let isRecording = false;
 let recognition = null;
+const token = localStorage.getItem('token');
 
 const ChatbotInterface = ({ chatInput, updateChatInput }) => {
   const [messages, setMessages] = useState([]);
@@ -38,10 +39,11 @@ const ChatbotInterface = ({ chatInput, updateChatInput }) => {
 
       // Create a new speech synthesis utterance
       // Fetch the synthesized speech audio file from the server
-      fetch('/synthesize', {
+      fetch('http://localhost:8000/synthesize/', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify({ text: text }) // Send the text to the server
       })
@@ -54,9 +56,9 @@ const ChatbotInterface = ({ chatInput, updateChatInput }) => {
       })
       .catch(error => console.error('Error:', error));
     } catch (error) {
-      console.error('Error generating content with Google Generative AI:', error);
-      addMessage('bot', "Sorry, I couldn't process that.");
-    }
+        console.error('Error generating content with Google Generative AI:', error);
+        addMessage('bot', "Sorry, I couldn't process that. Error: " + error.message);
+      }
 
     setIsLoading(false);
   };

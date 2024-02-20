@@ -33,10 +33,12 @@
   color: #333;
 }
 
-.message.user, .message.bot {
+.message.user {
+  background-color: #007bff; /* User message bubble color */
+  align-self: flex-end; /* Align user messages to the right */
   width: auto; /* Width will adjust based on content */
   min-width: 50px; /* Minimum width of the message bubble */
-  max-width: 80%; /* Maximum width it can grow. Adjust as needed */
+  max-width: 40%; /* Maximum width it can grow. Adjust as needed */
   /* Rest of the styles remain the same */
   padding: 10px;
   margin: 10px 0;
@@ -45,14 +47,17 @@
   font-size: 16px;
 }
 
-.message.user {
-  background-color: #007bff; /* User message bubble color */
-  align-self: flex-end; /* Align user messages to the right */
-}
-
 .message.bot {
   background-color: #e2e2e2; /* Bot message bubble color */
   align-self: flex-start; /* Align bot messages to the left */
+  color: black;
+  width: auto; /* Width will adjust based on content */
+  min-width: 20px; /* Minimum width of the message bubble */
+  max-width: 40%; /* Maximum width it can grow. Adjust as needed */
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 10px;
+  font-size: 16px;
 }
 
 .chat-input-container {
