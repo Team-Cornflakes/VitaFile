@@ -6,43 +6,52 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 let isRecording = false;
 let recognition = null;
 
-
-
-const ChatbotInterface = ({ chatInput, updateChatInput, messages, handleSendMessage }) => {
+const ChatbotInterface = ({ chatInput, updateChatInput }) => {
+  const [userMessages, setUserMessages] = useState([]);
+  const [botMessages, setBotMessages] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const API_KEY = import.meta.env.VITE_GEMINI_API_KEY; // Ensure this is set in your .env file
   const genAI = new GoogleGenerativeAI(API_KEY); // Instantiate GoogleGenerativeAI with the API key
-  
+
+  const handleSendMessage = async (message) => {
+    setUserMessages(prevMessages => [...prevMessages, message]);
+  };
+
+  const handleUserMessage = async (message) => {
+    setUserMessages(prevMessages => [...prevMessages, message]);
+    setIsLoading(true);
+
+    try {
+      // For text-only input, use the gemini-pro model
+      const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+
+      // Use chatInput as the prompt for the generative AI
+      const result = await model.generateContent(message.text);
+      const response = await result.response;
+      const text = await response.text(); // Get the text content from the response
+
+      // Send bot's response
+      setBotMessages(prevMessages => [...prevMessages, { sender: 'bot', text }]);
+      
+    } catch (error) {
+      console.error('Error generating content with Google Generative AI:', error);
+      // You can send an error message to the chat as well
+      setBotMessages(prevMessages => [...prevMessages, { sender: 'bot', text: "Sorry, I couldn't process that." }]);
+    }
+
+    setIsLoading(false);
+  };
 
   const handleKeyPress = async (e) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
-      setIsLoading(true);
 
       // Add user's input to messages
-      handleSendMessage({ sender: 'user', text: chatInput });
+      const message = { sender: 'user', text: chatInput };
+      handleUserMessage(message);
 
-      try {
-        // For text-only input, use the gemini-pro model
-        const model = genAI.getGenerativeModel({ model: "gemini-pro" });
-
-        // Use chatInput as the prompt for the generative AI
-        const result = await model.generateContent(chatInput);
-        const response = await result.response;
-        const text = await response.text(); // Get the text content from the response
-
-        // Send bot's response
-        handleSendMessage({ sender: 'bot', text: text });
-        
-      } catch (error) {
-        console.error('Error generating content with Google Generative AI:', error);
-        // You can send an error message to the chat as well
-        handleSendMessage({ sender: 'bot', text: "Sorry, I couldn't process that." });
-      }
-
-      // Clear chat input and loading state
+      // Clear chat input
       updateChatInput('');
-      setIsLoading(false);
     }
   };
 
@@ -57,7 +66,8 @@ const ChatbotInterface = ({ chatInput, updateChatInput, messages, handleSendMess
       recognition.onresult = async (event) => {
         const audio = event.results[0][0].transcript;
 
-        handleSendMessage({ sender: 'user', text: audio }); 
+        const message = { sender: 'user', text: audio };
+        handleUserMessage(message); 
 
         microphoneButton.style.backgroundColor = 'lightskyblue';
       };
@@ -75,8 +85,13 @@ const ChatbotInterface = ({ chatInput, updateChatInput, messages, handleSendMess
     <div className="chatbot-interface">
       <div className="chat-header">VitaFile Chatbot</div>
       <div className="chat-messages">
-        {messages.map((message, index) => (
-          <div key={index} className={`message ${message.sender}`}>
+        {userMessages.map((message, index) => (
+          <div key={`user_${index}`} className="message user">
+            {message.text}
+          </div>
+        ))}
+        {botMessages.map((message, index) => (
+          <div key={`bot_${index}`} className="message bot">
             {message.text}
           </div>
         ))}
@@ -92,9 +107,6 @@ const ChatbotInterface = ({ chatInput, updateChatInput, messages, handleSendMess
           className="chat-input"
           onKeyPress={handleKeyPress}
         ></textarea>
-        <button onClick={() => handleSendMessage({ sender: 'user', text: chatInput })} className="send-button" disabled={isLoading}>
-          Send
-        </button>
       </div>
     </div>
   );
