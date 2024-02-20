@@ -8,7 +8,10 @@
 <br>
 
 <p align="center">
-  <img src="./frontend/src/assets/Login_page.png" caption="Login Page">
+  <figure>
+  <img src="./frontend/src/assets/Login_page.png">
+  <figcaption align="center">Login Page</figcaption>
+  </figure>
 </p>
 
 <h2>🧐 Features</h2>
