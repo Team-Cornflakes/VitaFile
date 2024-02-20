@@ -4,16 +4,15 @@
 
 <p id="description">VitaFile leverages Google's advanced APIs to revolutionize health record management by centralizing and simplifying access to family EHRs enhancing security and promoting interactive user engagement through innovative technology for a seamless health management experience.</p>
 
-<h2>Project Screenshots:</h2>
-
 <p align="center"><img src="https://img.shields.io/badge/Build-Vitafile-red?logo=npm" alt="shields"></p>
 <br>
-
+<h2>Project Screenshots:</h2>
+<br>
 <p align="center">
-  <img src="./frontend/src/assets/Login_page.png">
-  <img src="./frontend/src/assets/Family.png">
-  <img src="./frontend/src/assets/Timeline.png">
-  <img src="./frontend/src/assets/actualreport.png">
+  <img src="./frontend/src/assets/Login_page.png"><br>
+  <img src="./frontend/src/assets/Family.png"><br>
+  <img src="./frontend/src/assets/Timeline.png"><br>
+  <img src="./frontend/src/assets/actualreport.png"><br>
 </p>
 
 <h2>🧐 Features</h2>
