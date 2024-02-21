@@ -15,9 +15,10 @@
   <p> You can add your family members on you Family Page and manage all their health Records from a <b>Single Dashboard</b></p><br>
   <img src="./frontend/src/assets/Timeline.png"><br>
   <p> View all the records of your loved ones in a timeline format with an upload card to easily upload new reports <b>without any hassle</b></p><br>
-  <video src="./frontend/src/assets/EHR_video.mp4" autoplay loop muted>
-  </video>
-  <p> Google Translate in the Top 5 languages of the world. Chatbot Feature Equiped with Text to Speech and Speech to Text to help those with<b> disabilities</b>. Summarizer and the Actual Report. All together to provide a <b>ONE STOP SOLUTION</b> for all.
+  <img src ="./frontend/src/assets/EHR_search.png"><br>
+  <p> With our <b>integrated Search Feature</b> you can Search across all your reports using key words and <b>get the EHRs in an instant</b> which will help you save time and find the Document whenever you need it.</p><br>
+  <img src="./frontend/src/assets/EHR_translate.png"><br>
+  <p> Google Translate in the Top 5 languages of the world. Chatbot Feature Equiped with Text to Speech and Speech to Text to help those with<b> disabilities</b>. Summarizer and the Actual Report. All together to provide a <b>ONE STOP SOLUTION</b> for all.<br>
 </p>
 
 <h2>🧐 Features</h2>
