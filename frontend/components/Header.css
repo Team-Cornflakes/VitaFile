@@ -1,40 +1,36 @@
 header {
-    position: fixed; /* or 'relative', depending on your layout needs */
+    position: fixed; 
     top: 0;
-    left: 20%; /* Adjust if necessary to align with your layout */
+    left: 20%; 
     right: 0;
-    height: 10%; /* Adjust if necessary */
+    height: 10%; 
     display: flex;
     align-items: center;
     padding: 10px;
     background-color: #ffffff;
-    z-index: 1050; /* This should be higher than the content z-index but won't affect positioning */
-    /* ... other styles ... */
+    z-index: 1050; 
 }
 
-/* Ensure the search-container has a relative position for the absolute positioning of the dropdown */
+
 .search-container {
-    position: relative; /* This is crucial for the dropdown positioning */
+    position: relative;
     display: flex;
     align-items: center;
     width: 55%;
-    /* ... other styles ... */
 }
 
-/* This will make the dropdown appear on top of other elements */
 .search-dropdown {
     position: absolute;
-    top: 100%; /* Positioned just below the search input */
+    top: 100%; 
     left: 0;
-    width: 100%; /* Match the width of the search input */
+    width: 100%; 
     background-color: #ffffff;
     border: 1px solid #ddd;
     border-radius: 4px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    z-index: 1051; /* Ensuring it's above the header */
+    z-index: 1051; 
     overflow-y: auto;
-    max-height: 300px; /* Adjust as needed */
-    /* ... other styles ... */
+    max-height: 300px; 
 }
 
 
@@ -111,8 +107,6 @@ header {
     width: 20px;
     height: auto;
 }
-
-/* Styles for the search dropdown */
 .search-dropdown {
     position: absolute;
     top: 100%;
@@ -137,22 +131,16 @@ header {
     background-color: #f2f2f2;
 }
 
-/* ... existing styles ... */
 
 .search-container {
-    position: relative; /* Added for dropdown positioning */
+    position: relative; 
     display: flex;
     align-items: center;
     width: 55%;
-    /* ... other styles ... */
+  
 }
 
 
-/* ... other styles ... */
-
-/* Existing styles for header, search-container, etc. */
-
-/* ... other styles ... */
 
 .search-dropdown {
     position: absolute;
@@ -164,8 +152,8 @@ header {
     border-radius: 4px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     z-index: 1000;
-    overflow-y: auto; /* Allows scrolling if items exceed the container's height */
-    max-height: none; /* Remove any max-height if present */
+    overflow-y: auto; 
+    max-height: none; 
 }
 
 .dropdown-item {
@@ -173,19 +161,16 @@ header {
     border-bottom: 1px solid #ddd;
     cursor: pointer;
     background-color: #fff;
-    color: #000; /* Ensure text is visible */
+    color: #000; 
 }
 
 .dropdown-item:hover {
     background-color: #f2f2f2;
 }
 
-/* ... other styles ... */
-/* ... existing styles ... */
 
 .search-dropdown {
-    /* ... existing styles ... */
-    max-height: none; /* Ensure this is set to none or a value high enough to show all items */
-    overflow-y: visible; /* Set to visible to ensure all items are shown */
+    max-height: none; 
+    overflow-y: visible;
   }
   

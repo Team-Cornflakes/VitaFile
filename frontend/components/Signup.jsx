@@ -33,18 +33,15 @@ const Signup = () => {
                 dob,
                 sex,
                 contact_no
-                // Add other form fields as needed
             }),
         });
 
         const data = await response.json();
 
         if (response.ok) {
-            // Handle successful signup
             console.log(data);
             navigate('/');
         } else {
-            // Handle errors
             console.log(data.error);
         }
     };

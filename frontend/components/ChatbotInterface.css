@@ -34,12 +34,12 @@
 }
 
 .message.user {
-  background-color: #007bff; /* User message bubble color */
-  align-self: flex-end; /* Align user messages to the right */
-  width: auto; /* Width will adjust based on content */
-  min-width: 50px; /* Minimum width of the message bubble */
-  max-width: 40%; /* Maximum width it can grow. Adjust as needed */
-  /* Rest of the styles remain the same */
+  background-color: #007bff; 
+  align-self: flex-end; 
+  width: auto; 
+  min-width: 50px; 
+  max-width: 40%; 
+
   padding: 10px;
   margin: 10px 0;
   border-radius: 10px;
@@ -48,12 +48,12 @@
 }
 
 .message.bot {
-  background-color: #e2e2e2; /* Bot message bubble color */
-  align-self: flex-start; /* Align bot messages to the left */
+  background-color: #e2e2e2; 
+  align-self: flex-start; 
   color: black;
-  width: auto; /* Width will adjust based on content */
-  min-width: 20px; /* Minimum width of the message bubble */
-  max-width: 40%; /* Maximum width it can grow. Adjust as needed */
+  width: auto; 
+  min-width: 20px; 
+  max-width: 40%; 
   padding: 10px;
   margin: 10px 0;
   border-radius: 10px;
@@ -70,11 +70,11 @@
 .chat-input {
   flex-grow: 1;
   padding: 5px; 
-  margin: 5px;/* Increased space between input and buttons */
+  margin: 5px;
   border: 1px solid #e2e2e2;
   border-radius: 5px;
   resize: none;
-  background-color: #ffffff; /* Changed background color to white */
+  background-color: #ffffff; 
   color: black;
   font-size: 20px;
 }
@@ -110,6 +110,6 @@
 
 
 .microphone-button img {
-  width: 24px; /* Adjust size as needed */
-  height: 24px; /* Adjust size as needed */
+  width: 24px;
+  height: 24px; 
 }

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './Header.css'; // Importing the CSS file
+import './Header.css'; 
 import searchIcon from '../src/assets/search.png';
 import messageIcon from '../src/assets/message_black.png';
 import alertIcon from '../src/assets/nots.png';
@@ -11,44 +11,9 @@ const Header = ({ toggleSidebar }) => {
   const [searchInput, setSearchInput] = useState('');
   const [showDropdown, setShowDropdown] = useState(false);
   const navigate = useNavigate();
-  const dropdownRef = useRef(null); // Ref for the dropdown to handle outside clicks
+  const dropdownRef = useRef(null); 
 
-  // Hardcoded suggestions
-//   const suggestions = [
-//     'Profile Settings',
-//     'Dashboard Overview',
-//     'Logout Procedure',
-//     'Help and Support',
-//     'User Management',
-//     'Anemia',
-//     'Bradycardia',
-//     'Cyanosis',
-//     'Dyspnea',
-//     'Edema',
-//     'Fibrosis',
-//     'Glaucoma',
-//     'Hypertension',
-//     'Ischemia',
-//     'Jaundice',
-//     'Ketoacidosis',
-//     'Leukopenia',
-//     'Myalgia',
-//     'Nephropathy',
-//     'Osteoporosis',
-//     'Pneumonia',
-//     'Quadriplegia',
-//     'Rheumatoid Arthritis',
-//     'Scoliosis',
-//     'Tachycardia',
-//     'Ulcerative Colitis',
-//     'Vasculitis',
-//     'Wheeze',
-//     'Xerostomia',
-// '    Yaws',
-
-//     // ... more suggestions
-//   ];
-
+  
   const [suggestions, setSuggestions] = useState([]);
 
 
@@ -73,11 +38,11 @@ const Header = ({ toggleSidebar }) => {
     })
     .then(response => response.json())
     .then(data => {
-      // Handle the data from the response here
+     
       setSuggestions(data);
     })
     .catch(error => {
-      // Handle the error here
+     
       console.error('Error:', error);
     });
   };
@@ -93,7 +58,7 @@ const Header = ({ toggleSidebar }) => {
   };
 
   useEffect(() => {
-    // Clear the suggestions list when the component is mounted
+   
     setSuggestions([]);
   }, []);
 
@@ -104,10 +69,10 @@ const Header = ({ toggleSidebar }) => {
       }
     };
 
-    // Bind the event listener
+  
     document.addEventListener('mousedown', handleOutsideClick);
     return () => {
-      // Unbind the event listener on clean up
+     
       document.removeEventListener('mousedown', handleOutsideClick);
     };
   }, []);
@@ -125,9 +90,9 @@ const Header = ({ toggleSidebar }) => {
 
       if (response.ok) {
         let name = await response.text();
-        name = name.replace(/"/g, ''); // Remove quotes
+        name = name.replace(/"/g, '');
         setPersonName(name);
-        localStorage.setItem('username', name); // Store name in local storage
+        localStorage.setItem('username', name); 
       } else {
         console.error('Error:', response.status);
       }
@@ -137,7 +102,7 @@ const Header = ({ toggleSidebar }) => {
   }, []);
 
   const formatDate = () => {
-    // Date format logic here
+  
   };
 
   return (

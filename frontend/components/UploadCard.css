@@ -38,7 +38,6 @@
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
     max-height: 500px;
     overflow-y: auto;
-    /* No z-index property here */
 }
 
 .Parentdiv2 {
@@ -52,7 +51,6 @@
     display: flex;
 }
 
-/* Scrollbar Styling */
 ::-webkit-scrollbar {
     width: 10px;
 }
@@ -88,7 +86,7 @@
     font-weight: bold;
 }
 
-/* Upload Box Styling */
+
 .uploadbox {
     background-color: #f8f9fa;
     border: 2px solid #e2e6ea;
@@ -97,34 +95,26 @@
     padding: 15px;
     width: 80%;
     max-width: 25%;
-    margin: 0px auto; /* Add margin for top alignment */
+    margin: 0px auto; 
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* Remove overflow-y and overflow-x to disable scrolling */
-    /* overflow-y: auto; */
-    /* overflow-x: hidden; */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    /* Increase the height to make it slightly taller */
     height: 470px;
 }
 
-/* .uploadbox:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-} */
 
 .labeltextdiv {
     width: 100%;
     text-align: center;
-    align-self: flex-start; /* Align the text to the top of the upload box */
+    align-self: flex-start; 
 }
 
 .LabelText1 {
     display: inline-block;
     font-size: 20px;
     font-weight: bold;
-    /* Add other styles if needed */
+    
 }
 
 .LabelTextupload, .LabelText1 {
@@ -136,11 +126,11 @@
 
 .myInput1 {
     width: 90%;
-    padding: 6px; /* Reduced padding to make the text fields smaller */
-    margin: 3px 0; /* Reduced margin for smaller spacing */
+    padding: 6px; 
+    margin: 3px 0; 
     border: 2px solid #ced4da;
     border-radius: 10px;
-    font-size: 14px; /* Reduced font size */
+    font-size: 14px; 
     color: #495057;
     background-color: #e9ecef;
     box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -151,17 +141,17 @@
     color: black;
     border: none;
     border-radius: 10px;
-    padding: 5px; /* Adjust the padding to match the text fields */
-    font-size: 16px; /* Adjust the font size to match the text fields */
+    padding: 5px; 
+    font-size: 16px; 
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.25s, transform 0.2s;
     margin-top: 20px;
     outline: none;
-    width: 100%; /* Set the width to 100% */
-    text-align: center; /* Center the button text */
+    width: 100%; 
+    text-align: center;
 }
-; /* Set the width to 100% */
+
     
 
 

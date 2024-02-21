@@ -9,7 +9,7 @@ const LeftComponent = ({ onTextSelect }) => {
   const [spanishData, setSpanishData] = useState(null);
   const [hindiData, setHindiData] = useState(null);
   const [mandarinData, setMandarinData] = useState(null);
-  const [language, setLanguage] = useState('English'); // State to keep track of the selected language
+  const [language, setLanguage] = useState('English'); 
 
   useEffect(() => {
     const fetchData = async () => {
@@ -38,7 +38,7 @@ const LeftComponent = ({ onTextSelect }) => {
     };
 
     fetchData();
-  }, [language]); // Optionally, refetch or update the component based on the selected language
+  }, [language]); 
 
   const handleTextSelect = () => {
     const selectedText = window.getSelection().toString();

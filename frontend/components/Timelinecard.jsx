@@ -37,7 +37,7 @@ const TimelineCard = () => {
     }, []);
 
     const handleNavigation = () => {
-        navigate('/main'); // replace '/document' with the path you want to navigate to
+        navigate('/main'); 
     }
 
     if (loading) return <p>Loading...</p>;
@@ -49,10 +49,9 @@ const TimelineCard = () => {
             {data.map((item, index) => (
             <div key={index}>
                 <div className="wrappercontainer">
-                    {/* <div className="timlinebar"></div> */}
                     <div 
                         className='TimelineCard' 
-                        onClick={() => localStorage.setItem('ehr_id', item.id)}  // Add this line
+                        onClick={() => localStorage.setItem('ehr_id', item.id)} 
                         >
                         <p className='TimelinePTag'>Title: {item.name}</p>
                         <p className='TimelinePTag'>Description: {item.description}</p>

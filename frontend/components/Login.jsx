@@ -3,8 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './Login.css';
 import logo from '../src/assets/Logo_new.png';
 import logo1 from '../src/assets/google.png';
-// Update the import to use ehr.png instead of logo2.png
-import logo2 from '../src/assets/ehr2_black.png'; // Import ehr.png as the background image
+import logo2 from '../src/assets/ehr2_black.png'; 
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
@@ -25,7 +24,7 @@ const googleProvider = new GoogleAuthProvider();
 function loginWithGoogle() {
   signInWithPopup(auth, googleProvider)
     .then((result) => {
-      console.log(result.user); // You can retrieve user info here
+      console.log(result.user); 
     }).catch((error) => {
       console.log(error.message);
     });
@@ -60,7 +59,7 @@ const Login = () => {
   };
 
   const handleLoginNavigation = () => {
-      navigate('/signup'); // Navigate to the signup page
+      navigate('/signup'); 
   };
 
   return (

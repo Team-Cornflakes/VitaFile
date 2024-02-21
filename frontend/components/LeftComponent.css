@@ -61,21 +61,22 @@ box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); /*
   border: 1px solid #ccc;
   background-color: white;
   font-size: 16px;
-  color: black; /* Ensures the text inside the select is black */
-  margin-bottom: 20px; /* Adds spacing below the dropdown */
+  color: black; 
+  margin-bottom: 20px; 
 }
 
 .language-selection-container select option {
-  color: black; /* Ensures option text is black for all browsers */
+  color: black; 
 }
+
 .language-selection-container {
   display: flex;
   align-items: center;
 }
 
 .translate-icon {
-  height: 1em; /* Adjust the image height to match the text size */
-  width: auto; /* Keep the aspect ratio of the image */
+  height: 1em; 
+  width: auto; 
   margin-right: 10px;
 }
 

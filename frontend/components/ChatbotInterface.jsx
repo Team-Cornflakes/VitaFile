@@ -36,20 +36,16 @@ const ChatbotInterface = ({ chatInput, updateChatInput }) => {
       const text = await response.text();
 
       addMessage('bot', text);
-
-      // Create a new speech synthesis utterance
-      // Fetch the synthesized speech audio file from the server
       fetch('http://localhost:8000/synthesize/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`
         },
-        body: JSON.stringify({ text: text }) // Send the text to the server
+        body: JSON.stringify({ text: text }) 
       })
-      .then(response => response.blob()) // Get the response as a Blob
+      .then(response => response.blob()) 
       .then(audioBlob => {
-        // Create a new audio object and play it
         const audioUrl = URL.createObjectURL(audioBlob);
         const audio = new Audio(audioUrl);
         audio.play();

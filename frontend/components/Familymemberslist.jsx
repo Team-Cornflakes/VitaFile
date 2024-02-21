@@ -94,7 +94,6 @@ const FamilyMemberList = () => {
                             <Card key={index} member={member} onNameClick={handleNavigation} />
                          ))}
                             
-                        {/* <div className='footerdiv'><p>Family Data Monitorization</p></div> */}
                     </div>
                 </div>
             </div>

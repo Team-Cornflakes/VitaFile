@@ -17,12 +17,12 @@ const Card = ({ member, onNameClick }) => {
 
         if (response.ok) {
             const data = await response.json();
-            localStorage.setItem('email', member.email); // Store email in local storage
-            localStorage.setItem('usernametime', member.name); // Store username in local storage
+            localStorage.setItem('email', member.email); 
+            localStorage.setItem('usernametime', member.name); 
             onNameClick(member.name, data);
             navigate('/timeline');
         } else {
-            // Handle error here
+           
         }
     };
 

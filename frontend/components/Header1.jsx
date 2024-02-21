@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './Header.css'; // Importing the CSS file
+import './Header.css';
 import searchIcon from '../src/assets/search.png'; 
 import messageIcon from '../src/assets/message_black.png'; 
 import alertIcon from '../src/assets/nots.png'; 
@@ -8,7 +8,6 @@ import exitIcon from '../src/assets/3.png';
 
 const Header = ({ toggleSidebar }) => {
   const handleSearch = () => {
-    // Logic to handle search functionality
     console.log("Search initiated");
   };
 
@@ -35,9 +34,9 @@ const Header = ({ toggleSidebar }) => {
 
       if (response.ok) {
         let name = await response.text();
-        name = name.replace(/"/g, ''); // Remove quotes
+        name = name.replace(/"/g, ''); 
         setPersonName(name);
-        localStorage.setItem('username', name); // Store name in local storage
+        localStorage.setItem('username', name);
       } else {
         console.error('Error:', response.status);
       }
@@ -51,7 +50,6 @@ const Header = ({ toggleSidebar }) => {
     <img src={exitIcon} alt="Exit" />
   </button>
 
-  // Function to format the current date
   const formatDate = () => {
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
     return new Date().toLocaleDateString('en-US', options);
@@ -65,7 +63,7 @@ const Header = ({ toggleSidebar }) => {
           <img src={searchIcon} alt="Search" className="search-icon" />
         </button>
       </div>
-      <div className="person-name-container"> {/* New div for person's name */}
+      <div className="person-name-container"> 
         <span className="person-name">{personName}</span>
       </div>
       <div className="header-right">

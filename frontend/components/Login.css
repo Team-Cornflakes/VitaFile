@@ -128,17 +128,17 @@ h1 {
     background-color: #007BFF;
     border: none;
     padding: 10px 20px;
-    text-align: center; /* Align the content to the center */
+    text-align: center; 
     text-decoration: none;
-    display: flex; /* Use flexbox to align the image and the text */
-    align-items: center; /* Center the image and the text vertically */
-    justify-content: center; /* Center the content horizontally */
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
     width: 100%;
     box-sizing: border-box;
-    height: 48px; /* Ensure this matches the height of the Google button */
+    height: 48px; 
 }
 
 .signup-link {
@@ -146,7 +146,6 @@ h1 {
     text-decoration: none;
 }
 
-/* Responsive styles */
 @media (max-width: 600px) {
     .login-card {
         width: 90%;
@@ -166,14 +165,12 @@ h1 {
         padding: 5px 10px;
     }
 }
-/* ... existing styles ... */
 
 .icon-button img {
-    width: 20px; /* Adjust the size as needed */
+    width: 20px; 
     height: auto;
 }
 
-/* ... other styles ... */
 
 .maincontainer999{
     position: absolute;

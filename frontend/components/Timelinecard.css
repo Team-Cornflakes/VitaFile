@@ -3,7 +3,7 @@
     display: flex;
     position: relative;
     border-radius: 0;
-    border: none; /* Add this line */
+    border: none; 
 }
 
 .wrappercontainer::before {
@@ -31,7 +31,7 @@
     content: '';
     position: absolute;
     left: -50px;
-    top: 50%; /* Adjust this value to center the line vertically */
+    top: 50%; 
     width: 50px;
     height: 5px;
     background: navy;
