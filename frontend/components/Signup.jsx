@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './Signup.css';
 import logo from '../src/assets/Logo_black.png'; 
 import logo1 from '../src/assets/google.png'; 
+import logo2 from '../src/assets/ehr2_black.png'; 
 
 const Signup = () => {
     const navigate = useNavigate();
@@ -47,17 +48,17 @@ const Signup = () => {
     };
 
     return (
-        <div>
-            <div className="left-container">
-                <div className="login-container">
-                    <div className="login-card">
+        <div className="maincontainer999">
+            <div className="leftcontainer999">
+                <div className="logincontainer999">
+                    <div className="login-card11111">
                         <div className="logo-container">
                             <img src={logo} className="logo" alt="Logo" />
                             <span className="logo-text"><h1>VitaFile</h1></span>
                         </div>
                         <h2>Create Account</h2>
                         <br />
-                        <form className="login-form" onSubmit={handleLoginNavigation}>
+                        <form className="login-form111" onSubmit={handleLoginNavigation}>
                             <div className="input-group">
                                 <label htmlFor="emailid"></label>
                                 <input type="email" id="emailid" name="emailid" placeholder="Email ID" required />
@@ -100,9 +101,8 @@ const Signup = () => {
                     </div>
                 </div>
             </div>
-            <div className="right-container">
-                <div className="image-container">
-                </div>
+            <div className="rightcontainer999">
+                <img src={logo2} className="logo245" alt="Logo2" />
             </div>
         </div>
     );

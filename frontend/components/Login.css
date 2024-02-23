@@ -25,7 +25,7 @@ x
     background-repeat: no-repeat;
     background-position: center;
 }
-.login-card {
+.login-card22 {
     width: 100%; /* Changed to 100% to fill the width of the container */
     max-width: none; /* Remove max-width to allow the card to fill its container */
     height: 100%; /* Changed to 100% to fill the height of the container */
@@ -199,4 +199,18 @@ h1 {
     width: 100%;
     margin-bottom: 20%;
 
+}
+
+.login-container {
+    position: fixed;
+    top: -20px; /* Add space to the top */
+    right: 60%; /* Changed to 60% to push the container to the left */
+    bottom: 10px; /* Add space to the bottom */
+    left: 10px; /* Add space to the left */
+    width: calc(40% - 20px); /* Subtract the added space from the width */
+    height: calc(100% - 20px); /* Subtract the added space from the height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
 }

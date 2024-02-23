@@ -23,13 +23,35 @@
 
 <h2>🧐 Features</h2>
 
-*   **Firebase & Google Auth:** Secures and streamlines user data and authentication ensuring real-time data synchronization and robust security measures for user access.
-*   **Google Gemini API:** Integrates advanced health data analytics providing insights and organizing medical records efficiently.
-*   **Text-to-Speech & Speech-to-Text APIs:** Enhances accessibility allowing users to interact with the system using voice commands and receive audible content, making the platform more accessible to users with different needs.
-*  **pyTesseract:** Integrates pyTesseract for OCR, enhancing document digitization by converting scans to editable text, streamlining health record management within our comprehensive EHR system.
-*  **Google Translate:** Offers multilingual support, breaking down language barriers in understanding health documents.
-*  **Google Palm:** Utilizes gesture recognition for intuitive navigation and interaction, offering a futuristic approach to health record management.
+ * 🔐 **Firebase & Google Auth:** Secures user data and authentication, ensuring real-time synchronization and robust security.
+*  🧠 **Google Gemini API:** Provides advanced health analytics, organizing medical records efficiently.
+*  🗣️ **Text-to-Speech & Speech-to-Text APIs:** Improves accessibility with voice interactions and audible content.
+* 📝 **pyTesseract for OCR:** Converts scans to editable text, streamlining health record digitization.
+* 🌍 **Google Translate:** Breaks language barriers, offering multilingual support for health documents.
+* 🖐️ **Google Palm:** Enhances user experience with gesture recognition for intuitive navigation.
 <br>
+
+<h2> 🏗️ Solution Architecture </h2>
+
+<img src="./frontend/src/assets/architecture.png"><br>
+
+* 🔄 **End-to-End Data Processing:** From Tesseract OCR digitizing written records to Gemini Vision structuring text, and Google's APIs providing multilingual translation and voice interaction, our architecture creates a seamless flow of accessible, interactive health data.
+
+<img src="./frontend/src/assets/db.png"><br>
+
+* 📊 **Data Schema & Security:** The ehr and family tables are encrypted and linked to users, ensuring data integrity and security.
+
+<img src="./frontend/src/assets/JWT.png"><br>
+
+* **🌐 JWT Authentication Flow** The server and browser interaction using JWTs for login processes guarantees secure sessions.
+
+
+<h2> 🛣️ The Road Ahead </h2>
+
+- 🚀 **Porting to Flutter**: Transition to Flutter for seamless cross-platform use, improving accessibility.
+- 📄 **Multi-page Reports**: Introduce detailed multi-page reports for in-depth health insights.
+- 🔔 **Notification Feature**: A smart alert system for frequent disease mentions, prompting medical consultation.
+- 📊 **In-depth Analytics with Google Analytics**: Offer users graphical analytics of their medical data, enabling a visual understanding of health trends and patterns.
 <h2>🛠️ Installation Steps:</h2>
 <br>
 <p> 1. Prerequisites- <b>Node.js >=18.19.0</b> </p>
@@ -65,8 +87,8 @@ python manage.py runserver
 
 Technologies used in the project:
 
-*   Django
-*   React
-*   Gemini API
-*   Google Translate
-*   PaLM API
+*   **Django**
+*   **React**
+*   **Gemini API**
+*   **Google Translate**
+*   **PaLM API**

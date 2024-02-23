@@ -66,7 +66,7 @@ const Login = () => {
       <div className="maincontainer999">
           <div className="leftcontainer999">
               <div className="login-container">
-                  <div className="login-card">
+                  <div className="login-card22">
                       <div className="logo-container">
                           <img src={logo} className="logo" alt="Logo" />
                           <span className="logo-text"><h1>VitaFile</h1></span>
@@ -91,7 +91,7 @@ const Login = () => {
                                       Login with Google
                                   </button>
                               </div>
-                              <p>Already have an account? <span onClick={handleLoginNavigation} className="signup-link">Signup</span></p>
+                              <p>Don't have an account? <span onClick={handleLoginNavigation} className="signup-link">Signup</span></p>
                           </div>
                       </form>
                   </div>
