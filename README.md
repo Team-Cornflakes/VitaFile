@@ -55,7 +55,9 @@
 
 <h2> 🔒 Data Encryption & Protection </h2>
 
-<img src= "./frontend/src/assets/security.png">
+<div align="center">
+  <img src= "./frontend/src/assets/security.png">
+</div>
 
 -  📄 **Data Encryption** All data is encrypted using a symmetric key approach, ensuring that any text file converted to cipher text remains confidential.
 
