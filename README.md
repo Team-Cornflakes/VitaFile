@@ -10,18 +10,22 @@
 <br>
 <h2>Project: </h2>
 <br>
-<p align="center">
   <img src="./frontend/src/assets/Login_page.png"><br>
-  <p> Login with the credentials used during sign-up. Or sign-in using Google Auth, for <b>fast and seamless</b> login.</p><br>
+
+  - Login with the credentials used during sign-up. Or sign-in using Google Auth, for <b>fast and seamless</b> login.<br>
+
   <img src="./frontend/src/assets/Family.png"><br>
-  <p> You can add family members  on your Family Page, and manage their health records from a <b>single dashboard.</b></p><br>
+  -  You can add family members  on your Family Page, and manage their health records from a <b>single dashboard.</b><br>
+
   <img src="./frontend/src/assets/Timeline.png"><br>
-  <p> View your loved ones' records in a <b>timeline</b> format, and easily upload new reports with the upload card.</p><br>
+  -  View your loved ones' records in a <b>timeline</b> format, and easily upload new reports with the upload card.<br>
+
   <img src ="./frontend/src/assets/EHR_search.png"><br>
-  <p> Search across all your reports using key words and recieve the EHRs using our <b>Integrated Search Feature</b>, to save time and find the document in an instant.</p><br>
+
+  -  Search across all your reports using key words and recieve the EHRs using our <b>Integrated Search Feature</b>, to save time and find the document in an instant.<br>
+
   <img src="./frontend/src/assets/EHR_translate.png"><br>
-  <p> Google Translate to the top <b>5 languages of the world</b>. The Chatbot feature equipped  with text-to-speech and speech-to-text for those with special needs. Summarizer and the actual report, to provide a one stop solution for all.<br>
-</p>
+  - Google Translate to the top <b>5 languages of the world</b>. The Chatbot feature equipped  with text-to-speech and speech-to-text for those with special needs. Summarizer and the actual report, to provide a one stop solution for all.<br>
 
 <h2>🧐 Features</h2>
 
@@ -48,6 +52,19 @@
 <img src="./frontend/src/assets/JWT.png"><br>
 
 * **🌐 JWT Authentication Flow** The server and browser interaction using JWTs for login processes guarantees secure sessions.
+
+<h2> 🔒 Data Encryption & Protection </h2>
+
+<img src= "./frontend/src/assets/security.png">
+
+-  📄 **Data Encryption** All data is encrypted using a symmetric key approach, ensuring that any text file converted to cipher text remains confidential.
+
+-  **🗝 Same Key for Encryption/Decryption:** We employ the same secret key for both encrypting and decrypting data, simplifying key management while maintaining security.
+
+-  **🛡 End-to-End Encryption:** From the moment data is encrypted to the point it is decrypted, it is fully protected, ensuring that sensitive information stays secure during transit and at rest.
+
+-  **🔐 Secure Key Management:** The secret keys are managed securely, ensuring they are inaccessible to unauthorized users and systems.
+
 
 <h2>🔜 What's Next?</h2>
 
@@ -97,15 +114,27 @@ python manage.py runserver
 ```
 <br>
   
-<p> 5. You are Good to Go! </p>
-<br>
-<h2>💻 Built with</h2>
-<br>
+<p> 5. You are <i><u>Good to Go!</u></i> </p>
+<h2> 👥 Contributing to VitaFile </h2>
 
-Technologies used in the project:
+-  **🐞Report Issues:** If you find a bug or have a suggestion, report it as an issue in the project repository.
 
-*   **Django**
-*   **React**
-*   **Gemini API**
-*   **Google Translate**
-*   **PaLM API**
+-  **💻Submit Pull Requests:** Enhance features or fix bugs by submitting a pull request with your changes.
+
+-  **✨Feature Suggestions:** Have an idea? Propose new features by raising an issue for discussion.
+
+<h2> 📄LICENSE </h2>
+
+Our project is licensed under the MIT License, a decision that reflects our commitment to open-source software and its principles of freedom and collaboration. This licensing choice means that anyone is free to use, modify, and distribute our project, provided they include the original license and copyright notice with their work. By choosing the MIT License, we aim to contribute to the vibrant ecosystem of open-source software, making our project accessible and usable by a broad community of developers and users, fostering innovation and development within this space.
+
+<h2> 🙏 Acknowledgments </h2>
+
+We would like to express our deepest appreciation to all those who provided the possibility to complete this project. A special gratitude we give to:
+
+- **Our Contributors**: For their unwavering commitment and contributions that brought this project to life.
+
+-  **Organizations:** Who supported us with tools, APIs, and resources essential for the development of VitaFile.
+
+-  **Faculty Advisors:** Whose insights and expertise have been invaluable to our project's success.
+
+- **VIT Chennai:** For fostering an environment of innovation and learning that has been the cornerstone of our development journey.
