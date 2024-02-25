@@ -2,11 +2,13 @@
 
 <p align="center"><img src="https://socialify.git.ci/Team-Cornflakes/VitaFile/image?description=1&amp;font=KoHo&amp;language=1&amp;name=1&amp;owner=1&amp;pattern=Solid&amp;stargazers=1&amp;theme=Dark" alt="project-image"></p>
 
-<p id="description">VitaFile leverages Google's advanced APIs to revolutionize health record management by centralizing and simplifying access to family EHRs, enhancing security and promoting interactive user engagement through innovative technology, for a seamless health management experience.</p>
+<p id="description">VitaFile leverages Google's advanced APIs to revolutionize health record management by <b>centralizing and simplifying access to family EHRs</b>, <b>enhancing security</b>, and <b>promoting interactive user engagement</b> through innovative technology, for a seamless health management experience.</p>
+<p>In the critical but often overlooked phase after exiting the hospital, <b>VitaFile plays a pivotal role</b>. It ensures that patients and their families continue to have streamlined access to their health records, enabling continuous care and health monitoring. This <b>bridges the gap between hospital care and home recovery</b>, making VitaFile an essential tool for post-discharge health management.</p>
+<p align="center"><i>"Bridging the Gap in Post-Discharge Health Management"</i></p>
 
 <p align="center"><img src="https://img.shields.io/badge/Build-Vitafile-red?logo=npm" alt="shields"></p>
 <br>
-<h2>Project Screenshots:</h2>
+<h2>Project: </h2>
 <br>
 <p align="center">
   <img src="./frontend/src/assets/Login_page.png"><br>
@@ -31,6 +33,8 @@
 * 🖐️ **Google Palm:** Enhances user experience with gesture recognition for intuitive navigation.
 <br>
 
+<img src="./frontend/src/assets/googletech.png">
+
 <h2> 🏗️ Solution Architecture </h2>
 
 <img src="./frontend/src/assets/architecture.png"><br>
@@ -45,17 +49,30 @@
 
 * **🌐 JWT Authentication Flow** The server and browser interaction using JWTs for login processes guarantees secure sessions.
 
+<h2>🔜 What's Next?</h2>
+
+*  **🩺 Google Healthcare API Integration:** To enhance data management, we're moving to store health records in the **FHIR format**, making data more accessible and interoperable.
+
+-  **📊 BigQuery Analysis:** Leveraging Google Analytics for deeper insights, we'll introduce interactive graphs and models. This aims to give users a clearer understanding of their health through **advanced analytics**.
+
 
 <h2> 🛣️ The Road Ahead </h2>
 
 - 🚀 **Porting to Flutter**: Transition to Flutter for seamless cross-platform use, improving accessibility.
 - 📄 **Multi-page Reports**: Introduce detailed multi-page reports for in-depth health insights.
 - 🔔 **Notification Feature**: A smart alert system for frequent disease mentions, prompting medical consultation.
-- 📊 **In-depth Analytics with Google Analytics**: Offer users graphical analytics of their medical data, enabling a visual understanding of health trends and patterns.
-<h2>🛠️ Installation Steps:</h2>
-<br>
-<p> 1. Prerequisites- <b>Node.js >=18.19.0</b> </p>
 
+<h2>🛠️ Installation Steps:</h2>
+
+<p> 1. Prerequisites- 
+
+```
+1. Node.js >=18.19.0
+2. Gemini API key
+3. Text to Speech and Speech to Text APIs
+4. PaLM API
+
+```
 <p>2. Git Clone</p>
 
 ```
